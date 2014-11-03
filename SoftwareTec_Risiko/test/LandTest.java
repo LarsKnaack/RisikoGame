@@ -1,32 +1,43 @@
 import static org.junit.Assert.*;
+
+import java.awt.Color;
+
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
+import  source.Land;
+import source.Spieler;
 
-public class LandTest {
-
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+public class LandTest extends TestCase {
+	
+	public void testGetAnzahlEinheiten() {
+		Land test = new Land("test");
+		test.setEinheiten(5);
+		assertTrue(test.getEinheiten() == 5);
 	}
 	
-	public int testGetAnzahlEinheiten() {
-		Land.setEinheiten(5);
-		assertTrue(Land.getEinheiten() == 5);
-	}
-	
-	public void testSetEinheiten(int einheiten) {
-		Land.setEinheiten(einheiten);
-		assertTrue(Land.getEinheiten() == einheiten);
+	public void testSetEinheiten() {
+		Land test = new Land("test");
+		test.setEinheiten(5);
+		assertTrue(test.getEinheiten() == 5);
 	}
 	
 	public void testGetBesatzer() {
-		Spieler s3 = new Spieler();
-		Land.setBesatzer(s3);
-		assertTrue(Land.getEinheiten() == s3);
+		Land test = new Land("test");
+		Spieler s3 = new Spieler("s3", Color.GREEN);
+		test.setBesatzer(s3);
+		assertTrue(test.getBesatzer() == s3);
 	}
 	
-	public void testSetBesatzer(Spieler s) {
-		Land.setBesatzer(s);
-		assertTrue(Land.getBesatzer() == s);
+	public void testSetBesatzer() {
+		Land test = new Land("test");
+		Spieler s3 = new Spieler("s3", Color.GREEN);
+		test.setBesatzer(s3);
+		assertTrue(test.getBesatzer() == s3);
+	}
+	
+	public static void main(final String[] args) {
+		junit.textui.TestRunner.run(LandTest.class);
 	}
 }

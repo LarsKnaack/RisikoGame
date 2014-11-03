@@ -27,7 +27,7 @@ public class LandTest extends TestCase {
 		Land test = new Land("test");
 		Spieler s3 = new Spieler("s3", Color.GREEN);
 		test.setBesatzer(s3);
-		assertTrue(test.getBesatzer() == s3);
+		assertTrue(test.getBesatzer() ==  s3);
 	}
 	
 	public void testSetBesatzer() {
@@ -37,7 +37,4 @@ public class LandTest extends TestCase {
 		assertTrue(test.getBesatzer() == s3);
 	}
 	
-	public static void main(final String[] args) {
-		junit.textui.TestRunner.run(LandTest.class);
-	}
 }

@@ -36,12 +36,35 @@ public class SpielerTest extends TestCase {
 		assertTrue(s.getVerstaerkung() == 3);
 		s.addLand(l1);
 		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
+		s.addLand(l1);
 		s.setVerstaerkung();
-		assertTrue(s.getVerstaerkung() == 3);
+		assertTrue(s.getVerstaerkung() == 4);
 	}
 	
-	public static void main(final String[] args) {
-		junit.textui.TestRunner.run(SpielerTest.class);
+	public void testGetName() {
+		Spieler s = new Spieler("Hans", Color.BLACK);
+		assertEquals("Hans", s.getName());
 	}
-
+	
+	public void testAddEinheit() {
+		Land l = new Land("l");
+		Spieler s1 = new Spieler("s1", Color.BLACK);
+		Spieler s2 = new Spieler("s2", Color.BLACK);
+		s1.setVerstaerkung();
+		assertEquals(s1.addEinheit(l, 4), -1);
+		l.setBesatzer(s2);
+		assertEquals(s1.addEinheit(l, 3), -1);
+		l.setBesatzer(s1);
+		assertEquals(s1.addEinheit(l, 3), 0);
+		
+		
+	}
 }

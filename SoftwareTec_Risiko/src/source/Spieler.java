@@ -18,10 +18,12 @@ public class Spieler {
 	
 	public void addLand(Land l){
 		laender.add(l);
+		l.setBesatzer(this);
 	}
 	
 	public void removeLand(Land l){
 		laender.remove(l);
+		l.setBesatzer(null);
 	}
 	
 	public LinkedList<Land> getLaender(){
@@ -43,6 +45,12 @@ public class Spieler {
 		return verstaerkung;
 	}
 	
+	public int addEinheit(Land l, int e) {
+		if (e > verstaerkung || l.getBesatzer() != this) return -1;
+		int aktuell = l.getEinheiten();
+		l.setEinheiten(aktuell + e);
+		return 0;
+	}
 	
 }
 

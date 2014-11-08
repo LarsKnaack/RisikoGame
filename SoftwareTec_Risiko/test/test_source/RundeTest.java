@@ -1,3 +1,4 @@
+package test_source;
 import static org.junit.Assert.*;
 import java.awt.Color;
 import junit.framework.TestCase;

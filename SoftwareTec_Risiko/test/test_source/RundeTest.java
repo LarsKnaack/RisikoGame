@@ -30,6 +30,7 @@ public class RundeTest extends TestCase {
 		Spieler s2 = new Spieler("s2", Color.BLUE);
 		r1.setAngreifer(s1, ang);
 		r1.setVerteidiger(s2, dev);
+		Runde r2 = new Runde(2);
 	}
 	
 

@@ -10,28 +10,38 @@ import source.Runde;
 
 public class RundeTest extends TestCase {
 
-	public void testStarteVerstaerkung(){
-		int phase = 0;
-		Runde r1 = new Runde(0);
-		Spieler s1 = new Spieler("s1", Color.BLACK);
-		Land l = new Land("l");
-		s1.setVerstaerkung();
-		s1.addLand(l);
-		s1.addEinheit(l, 3);
-		assertEquals(r1.getPhase(), 1);
-	}
-	
-	public void testStarteAngriff() {
-		int phase = 1;
-		Runde r1 = new Runde(1);
+	public void testWuerfeln() {
+		Runde r = new Runde();
 		Land ang = new Land("Angreifer");
 		Land dev = new Land("Verteidiger");
 		Spieler s1 = new Spieler("s1", Color.BLACK);
 		Spieler s2 = new Spieler("s2", Color.BLUE);
-		r1.setAngreifer(s1, ang);
-		r1.setVerteidiger(s2, dev);
-		Runde r2 = new Runde(2);
+		ang.setBesatzer(s1);
+		dev.setBesatzer(s2);
+		ang.setAngreifer(true);
+		dev.setVerteidiger(true);
+		Spieler gewinner = r.wuerfeln(ang, dev);
+		assertTrue(gewinner == s1 || gewinner == s2);
 	}
 	
+	public void testSetWuerfelAngreifer() {
+		Runde test = new Runde();
+		Land ang = new Land("Angreifer");
+		ang.setAngreifer(true);
+		ang.setEinheiten(5);
+		assertEquals(test.setWuerfel(ang), 3);
+		ang.setEinheiten(2);
+		assertEquals(test.setWuerfel(ang), 2);
+	}
+	
+	public void testSetWuerfelVerteidiger() {
+		Runde test = new Runde();
+		Land dev = new Land("Verteidiger");
+		dev.setVerteidiger(true);
+		dev.setEinheiten(4);
+		assertEquals(test.setWuerfel(dev), 2);
+		dev.setEinheiten(1);
+		assertEquals(test.setWuerfel(dev), 1);
+	}
 
 }

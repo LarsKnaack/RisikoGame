@@ -38,4 +38,20 @@ public class LandTest extends TestCase {
 		assertTrue(test.getBesatzer() == s3);
 	}
 	
+	public void testSetAngreifer() {
+		Land test = new Land("test");
+		test.setAngreifer(true);
+		assertTrue(test.istAngreifer());
+		test.setAngreifer(false);
+		assertFalse(test.istAngreifer());
+	}
+	
+	public void testSetVerteidiger() {
+		Land test = new Land("test");
+		test.setVerteidiger(true);
+		assertTrue(test.istVerteidiger());
+		test.setVerteidiger(false);
+		assertFalse(test.istVerteidiger());
+	}
+	
 }

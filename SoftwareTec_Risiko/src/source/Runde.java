@@ -2,8 +2,8 @@ package source;
 
 public class Runde {
 
-	int devWuerfel = setWuerfel(ang);
-	int angWuerfel = setWuerfel(dev);
+	int devWuerfel;
+	int angWuerfel;
 	
 	public Spieler wuerfeln(Land ang, Land dev) {
 		
@@ -31,17 +31,19 @@ public class Runde {
 		return gewinner;
 	}
 	
-	private void setWuerfel(Land ang, Land dev) {
-		if (dev.getEinheiten() >= 2) {
-			devWuerfel = 2;
-		} else {
-			devWuerfel = dev.getEinheiten();
-		}
-		
-		if (ang.getEinheiten() >= 3) {
+	private int setWuerfel(Land l) {
+		if (l.istAngreifer()) {
 			angWuerfel = 3;
+			if(l.getEinheiten() < 3) {
+				angWuerfel = l.getEinheiten();
+			}
+			return angWuerfel;
 		} else {
-			angWuerfel = ang.getEinheiten();
+			devWuerfel = 2;
+			if(l.getEinheiten() < 2) {
+				devWuerfel = l.getEinheiten();
+			}
+			return devWuerfel;
 		}
 	}
 }

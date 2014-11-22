@@ -9,6 +9,7 @@ public class Player {
 	private String name;
 	private Color color;
 	private int recruitment;
+	private int MAXRECRUITMENT = 3;
 	
 	public Player(String n, Color f) {
 		name = n;
@@ -36,9 +37,9 @@ public class Player {
 	}
 	
 	public void setRecruitment() {
-		recruitment = countries.size() / 3;
-		if (recruitment < 3) {
-			recruitment = 3;
+		recruitment = countries.size() / MAXRECRUITMENT;
+		if (recruitment < MAXRECRUITMENT) {
+			recruitment = MAXRECRUITMENT;
 		}
 	}
 	
@@ -47,7 +48,9 @@ public class Player {
 	}
 	
 	public int addSoldier(Country l, int e) {
-		if (e > recruitment || l.getOccupying() != this) return -1;
+		if (e > recruitment || l.getOccupying() != this){
+			return -1;
+		}
 		int aktuell = l.getSoldiers();
 		l.setSoldiers(aktuell + e);
 		return 0;

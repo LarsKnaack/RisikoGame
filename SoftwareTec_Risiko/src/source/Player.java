@@ -9,7 +9,7 @@ public class Player {
 	private String name;
 	private Color color;
 	private int recruitment;
-	private static final int maxRecruitment = 3;
+	private static final int MAX_RECRUITMENT = 3;
 	
 	public Player(String n, Color f) {
 		name = n;
@@ -37,9 +37,9 @@ public class Player {
 	}
 	
 	public void setRecruitment() {
-		recruitment = countries.size() / maxRecruitment;
-		if (recruitment < maxRecruitment) {
-			recruitment = maxRecruitment;
+		recruitment = countries.size() / MAX_RECRUITMENT;
+		if (recruitment < MAX_RECRUITMENT) {
+			recruitment = MAX_RECRUITMENT;
 		}
 	}
 	

@@ -8,11 +8,11 @@ public class Turn {
 	private int[] invaderDice;
 	private int[] defenderDice;
 	
-	private static final int upper = 6;
-	private static final int maxRecruitment = 3;
+	private static final int UPPER = 6;
+	private static final int MAX_RECRUITMENT = 3;
 	
 	private int dice() {
-		return (int) (Math.random() * upper + 1); 
+		return (int) (Math.random() * UPPER + 1); 
 	}
 	
 	private void roll(int[] a) {
@@ -23,8 +23,8 @@ public class Turn {
 	
 	public int setMaxDice(Country l) {
 		if (l.isInvader()) {
-			maxInvDice = maxRecruitment;
-			if(l.getSoldiers() < maxRecruitment) {
+			maxInvDice = MAX_RECRUITMENT;
+			if(l.getSoldiers() < MAX_RECRUITMENT) {
 				maxInvDice = l.getSoldiers();
 			}
 			return maxInvDice;

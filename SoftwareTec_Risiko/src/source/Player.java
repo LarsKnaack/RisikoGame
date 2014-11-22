@@ -12,7 +12,7 @@ public class Player {
 	
 	public Player(String n, Color f) {
 		name = n;
-		color = f;
+		setColor(f);
 		recruitment = 0;
 		countries = new LinkedList<Country>();
 	}
@@ -51,6 +51,14 @@ public class Player {
 		int aktuell = l.getSoldiers();
 		l.setSoldiers(aktuell + e);
 		return 0;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color c) {
+		color = c;
 	}
 	
 }

@@ -9,11 +9,11 @@ public class Player {
 	private String name;
 	private Color color;
 	private int recruitment;
-	private int MAXRECRUITMENT = 3;
+	private int maxRecruitment = 3;
 	
 	public Player(String n, Color f) {
 		name = n;
-		setColor(f);
+		color = f;
 		recruitment = 0;
 		countries = new LinkedList<Country>();
 	}
@@ -37,9 +37,9 @@ public class Player {
 	}
 	
 	public void setRecruitment() {
-		recruitment = countries.size() / MAXRECRUITMENT;
-		if (recruitment < MAXRECRUITMENT) {
-			recruitment = MAXRECRUITMENT;
+		recruitment = countries.size() / maxRecruitment;
+		if (recruitment < maxRecruitment) {
+			recruitment = maxRecruitment;
 		}
 	}
 	

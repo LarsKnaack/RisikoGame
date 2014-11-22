@@ -5,6 +5,9 @@ public class Turn {
 	private int maxDefDice = 0;
 	private int maxInvDice = 0;
 	
+	private int[] invaderDice;
+	private int[] defenderDice;
+	
 	private static int upper = 6;
 	private static int maxRecruitment = 3;
 	
@@ -12,52 +15,10 @@ public class Turn {
 		return (int) (Math.random() * upper + 1); 
 	}
 	
-	public Player invadeTurn(Country inv, Country def) {
-		setMaxDice(inv);
-		setMaxDice(def);
-		int[] invaderDices = new int[maxInvDice];
-		int[] defenderDices = new int[maxDefDice];
-		
-		
-		for(int i = 0; i < defenderDices.length; i++) {
-			if (maxDefDice == 0) {
-				break;
-			}
-			defenderDices[i] = dice();
-			
+	private void roll(int[] a) {
+		for (int i = 0; i < a.length; i++) {
+			a[i] = dice();
 		}
-		
-		for(int i = 0; i < invaderDices.length; i++) {
-			if (maxInvDice == 1) {
-				break;
-			}
-			invaderDices[i] = dice();
-		}
-
-		for (int i = 0; i <= maxInvDice; i++) {
-			int a = max(invaderDices);
-			int d = max(defenderDices);
-			if (def.getSoldiers() == 0 || inv.getSoldiers() == 0){
-				break;
-			}
-			if (invaderDices[a] > defenderDices[d]) {
-				def.setSoldiers(def.getSoldiers() - 1);
-				maxDefDice--;
-			} else {
-				inv.setSoldiers(inv.getSoldiers() - 1);
-				maxInvDice--;
-			}
-			invaderDices[a] = 0;
-			defenderDices[d] = 0;
-		}
-		
-		Player winner;
-		if (maxInvDice == 1) {
-			winner = def.getOccupying();
-		} else {
-			winner = inv.getOccupying();
-		}
-		return winner;
 	}
 	
 	public int setMaxDice(Country l) {
@@ -75,6 +36,50 @@ public class Turn {
 			return maxDefDice;
 		}
 	}
+	
+	public Player invadeTurn(Country inv, Country def) {
+		setMaxDice(inv);
+		setMaxDice(def);
+		
+
+		invade(inv, def);
+		
+		Player winner;
+		if (maxInvDice == 1) {
+			winner = def.getOccupying();
+		} else {
+			winner = inv.getOccupying();
+		}
+		return winner;
+	}
+
+	private void invade(Country invader, Country defender) {
+		invaderDice = new int[maxInvDice];
+		defenderDice = new int[maxDefDice];
+		roll(invaderDice);
+		roll(defenderDice);
+		for (int i = 0; i < invaderDice.length; i++) {
+			
+			if (defender.getSoldiers() == 0 || invader.getSoldiers() == 0){
+				break;
+			}
+			
+			int a = max(invaderDice);
+			int d = max(defenderDice);
+
+			if (invaderDice[a] > defenderDice[d]) {
+				defender.setSoldiers(defender.getSoldiers() - 1);
+				maxDefDice--;
+			} else {
+				invader.setSoldiers(invader.getSoldiers() - 1);
+				maxInvDice--;
+			}
+			invaderDice[a] = 0;
+			defenderDice[d] = 0;
+		}
+	}
+	
+	
 	
 	private int max(int[] a) {
 		int max = a[0];

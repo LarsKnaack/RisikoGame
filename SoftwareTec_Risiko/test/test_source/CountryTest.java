@@ -23,14 +23,7 @@ public class CountryTest extends TestCase {
 		test.setSoldiers(5);
 		assertTrue(test.getSoldiers() == 5);
 	}
-	
-	public void testGetBesatzer() {
-		Country test = new Country("test");
-		Player s3 = new Player("s3", Color.GREEN);
-		test.setOccupying(s3);
-		assertTrue(test.getOccupying() ==  s3);
-	}
-	
+		
 	public void testSetBesatzer() {
 		Country test = new Country("test");
 		Player s3 = new Player("s3", Color.GREEN);
@@ -54,4 +47,9 @@ public class CountryTest extends TestCase {
 		assertFalse(test.isDefender());
 	}
 	
+	public void testSetName() {
+		Country test = new Country("test");
+		test.setName("NewName");
+		assertEquals(test.getName(), "NewName");
+	}
 }

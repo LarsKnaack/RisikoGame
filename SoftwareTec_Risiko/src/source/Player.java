@@ -9,7 +9,7 @@ public class Player {
 	private String name;
 	private Color color;
 	private int recruitment;
-	private int maxRecruitment = 3;
+	private static int maxRecruitment = 3;
 	
 	public Player(String n, Color f) {
 		name = n;

@@ -8,6 +8,12 @@ public class Country {
 	private boolean invader;
 	private boolean defender;
 
+	public Country(String n) {
+		soldiers = 0;
+		occupying = null;
+		name = n;
+	}
+	
 	public int getSoldiers() {
 		return soldiers;
 	}
@@ -24,11 +30,7 @@ public class Country {
 		occupying = s;
 	}
 	
-	public Country(String n) {
-		soldiers = 0;
-		occupying = null;
-		name = n;
-	}
+	
 	
 	public void setInvader(boolean ang) {
 		invader = ang;
@@ -44,5 +46,13 @@ public class Country {
 	
 	public boolean isDefender() {
 		return defender;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String n) {
+		name = n;
 	}
 }

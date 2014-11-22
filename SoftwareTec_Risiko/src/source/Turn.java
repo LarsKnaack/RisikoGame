@@ -8,8 +8,8 @@ public class Turn {
 	private int[] invaderDice;
 	private int[] defenderDice;
 	
-	private static int upper = 6;
-	private static int maxRecruitment = 3;
+	private static final int upper = 6;
+	private static final int maxRecruitment = 3;
 	
 	private int dice() {
 		return (int) (Math.random() * upper + 1); 

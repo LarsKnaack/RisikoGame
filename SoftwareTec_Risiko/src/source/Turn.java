@@ -12,7 +12,7 @@ public class Turn {
 	
 	private static final int UPPER = 6;
 	private static final int MAX_RECRUITMENT = 3;
-	public Random rand = new Random();
+	private Random rand = new Random();
 	
 	private int dice(Random r) {
 		return r.nextInt(UPPER) + 1;
@@ -20,7 +20,7 @@ public class Turn {
 	
 	private void roll(int[] a) {
 		for (int i = 0; i < a.length; i++) {
-			a[i] = dice(rand);
+			a[i] = dice(getRand());
 		}
 	}
 	
@@ -90,5 +90,13 @@ public class Turn {
 			}
 		}
 		return res;
+	}
+
+	public Random getRand() {
+		return rand;
+	}
+
+	public void setRand(Random r) {
+		rand = r;
 	}
 }

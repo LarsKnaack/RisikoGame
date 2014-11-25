@@ -19,7 +19,9 @@ public class TurnTest extends TestCase {
 	
 	public void testInvadeTurnInvaderWins() {
 		Turn r = new Turn();
-		r.rand.setSeed(2);
+		Random rand = new Random();
+		rand.setSeed(2);
+		r.setRand(rand);
 		Country ang = new Country("Angreifer");
 		ang.setSoldiers(5);
 		Country dev = new Country("Verteidiger");
@@ -38,7 +40,9 @@ public class TurnTest extends TestCase {
 	
 	public void testInvadeTurnDefenderWins() {
 		Turn r = new Turn();
-		r.rand.setSeed(2);
+		Random rand = new Random();
+		rand.setSeed(2);
+		r.setRand(rand);
 		Country ang = new Country("Angreifer");
 		ang.setSoldiers(2);
 		Country dev = new Country("Verteidiger");

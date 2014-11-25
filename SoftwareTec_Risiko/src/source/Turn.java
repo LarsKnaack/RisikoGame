@@ -1,5 +1,7 @@
 package source;
 
+import java.util.Random;
+
 public class Turn {
 
 	private int maxDefDice = 0;
@@ -10,14 +12,15 @@ public class Turn {
 	
 	private static final int UPPER = 6;
 	private static final int MAX_RECRUITMENT = 3;
+	public Random rand = new Random();
 	
-	private int dice() {
-		return (int) (Math.random() * UPPER + 1); 
+	private int dice(Random r) {
+		return r.nextInt(UPPER) + 1;
 	}
 	
 	private void roll(int[] a) {
 		for (int i = 0; i < a.length; i++) {
-			a[i] = dice();
+			a[i] = dice(rand);
 		}
 	}
 	
@@ -59,10 +62,6 @@ public class Turn {
 		roll(invaderDice);
 		roll(defenderDice);
 		for (int i = 0; i < invaderDice.length; i++) {
-			
-			if (defender.getSoldiers() == 0 || invader.getSoldiers() == 0){
-				break;
-			}
 			
 			int a = max(invaderDice);
 			int d = max(defenderDice);

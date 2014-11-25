@@ -26,7 +26,7 @@ public class CountryTest extends TestCase {
 		
 	public void testSetBesatzer() {
 		Country test = new Country("test");
-		Player s3 = new Player("s3", Color.GREEN);
+		Player s3 = new Player("s3");
 		test.setOccupying(s3);
 		assertTrue(test.getOccupying() == s3);
 	}

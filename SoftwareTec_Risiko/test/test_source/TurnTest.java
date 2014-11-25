@@ -17,22 +17,42 @@ import source.Turn;
 
 public class TurnTest extends TestCase {
 	
-	public void testWuerfeln() {
+	public void testInvadeTurnInvaderWins() {
 		Turn r = new Turn();
+		r.rand.setSeed(2);
 		Country ang = new Country("Angreifer");
 		ang.setSoldiers(5);
 		Country dev = new Country("Verteidiger");
 		dev.setSoldiers(1);
-		Player s1 = new Player("s1", Color.BLACK);
-		Player s2 = new Player("s2", Color.BLUE);
-		ang.setOccupying(s1);
-		dev.setOccupying(s2);
+		Player p1 = new Player("p1");
+		Player p2 = new Player("p2");
+		ang.setOccupying(p1);
+		dev.setOccupying(p2);
 		ang.setInvader(true);
 		dev.setDefender(true);
 		r.setMaxDice(ang);
 		r.setMaxDice(dev);
 		Player gewinner = r.invadeTurn(ang, dev);
-		assertTrue(gewinner == s1 || gewinner == s2);
+		assertTrue(gewinner == p1);
+	}
+	
+	public void testInvadeTurnDefenderWins() {
+		Turn r = new Turn();
+		r.rand.setSeed(2);
+		Country ang = new Country("Angreifer");
+		ang.setSoldiers(2);
+		Country dev = new Country("Verteidiger");
+		dev.setSoldiers(2);
+		Player p1 = new Player("p1");
+		Player p2 = new Player("p2");
+		ang.setOccupying(p1);
+		dev.setOccupying(p2);
+		ang.setInvader(true);
+		dev.setDefender(true);
+		r.setMaxDice(ang);
+		r.setMaxDice(dev);
+		Player winner = r.invadeTurn(ang, dev);
+		assertTrue(winner == p2);
 	}
 	
 	public void testSetWuerfelAngreifer() {

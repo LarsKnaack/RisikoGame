@@ -13,9 +13,9 @@ public class PlayerTest extends TestCase {
 		Country l = new Country("test");
 		LinkedList<Country> test = new LinkedList();
 		test.add(l);
-		Player s = new Player ("s", Color.BLACK);
-		s.addCountry(l);
-		assertTrue(test.equals(s.getCountries()));
+		Player p = new Player ("p");
+		p.addCountry(l);
+		assertTrue(test.equals(p.getCountries()));
 	}
 	
 	public void testRemoveLand() {
@@ -23,14 +23,14 @@ public class PlayerTest extends TestCase {
 		LinkedList<Country> test = new LinkedList();
 		test.add(l);
 		test.remove(l);
-		Player s = new Player("s", Color.BLACK);
+		Player s = new Player("p");
 		s.addCountry(l);
 		s.removeCountry(l);
 		assertTrue(test.equals(s.getCountries()));
 	}
 	
 	public void testSetVerstaerkung() {
-		Player s = new Player ("s", Color.BLACK);
+		Player s = new Player ("s");
 		Country l1 = new Country("L1");
 		s.addCountry(l1);
 		s.setRecruitment();
@@ -51,14 +51,14 @@ public class PlayerTest extends TestCase {
 	}
 	
 	public void testGetName() {
-		Player s = new Player("Hans", Color.BLACK);
+		Player s = new Player("Hans");
 		assertEquals("Hans", s.getName());
 	}
 	
 	public void testAddEinheit() {
 		Country l = new Country("l");
-		Player s1 = new Player("s1", Color.BLACK);
-		Player s2 = new Player("s2", Color.BLACK);
+		Player s1 = new Player("s1");
+		Player s2 = new Player("s2");
 		s1.setRecruitment();
 		assertEquals(s1.addSoldier(l, 4), -1);
 		l.setOccupying(s2);

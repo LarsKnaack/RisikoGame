@@ -7,13 +7,11 @@ import java.util.List;
 public class Player {
 	private List<Country> countries;
 	private String name;
-	private Color color;
 	private int recruitment;
 	private static final int MAX_RECRUITMENT = 3;
 	
-	public Player(String n, Color f) {
+	public Player(String n) {
 		name = n;
-		color = f;
 		recruitment = 0;
 		countries = new LinkedList<Country>();
 	}
@@ -54,14 +52,6 @@ public class Player {
 		int aktuell = l.getSoldiers();
 		l.setSoldiers(aktuell + e);
 		return 0;
-	}
-
-	public Color getColor() {
-		return color;
-	}
-
-	public void setColor(Color c) {
-		color = c;
 	}
 	
 }

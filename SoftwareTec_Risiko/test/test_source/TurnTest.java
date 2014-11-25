@@ -59,7 +59,7 @@ public class TurnTest extends TestCase {
 		assertTrue(winner == p2);
 	}
 	
-	public void testSetWuerfelAngreifer() {
+	public void testSetMaxDiceAngreifer() {
 		Turn test = new Turn();
 		Country ang = new Country("Angreifer");
 		ang.setInvader(true);
@@ -69,7 +69,7 @@ public class TurnTest extends TestCase {
 		assertEquals(test.setMaxDice(ang), 2);
 	}
 	
-	public void testSetWuerfelVerteidiger() {
+	public void testSetMaxDiceVerteidiger() {
 		Turn test = new Turn();
 		Country dev = new Country("Verteidiger");
 		dev.setDefender(true);

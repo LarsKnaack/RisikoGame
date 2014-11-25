@@ -10,6 +10,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+import source.Die;
 import source.Player;
 import source.Country;
 import source.Turn;
@@ -21,7 +22,8 @@ public class TurnTest extends TestCase {
 		Turn r = new Turn();
 		Random rand = new Random();
 		rand.setSeed(2);
-		r.setRand(rand);
+		Die test = new Die();
+		test.setRandom(rand);
 		Country ang = new Country("Angreifer");
 		ang.setSoldiers(5);
 		Country dev = new Country("Verteidiger");
@@ -42,7 +44,8 @@ public class TurnTest extends TestCase {
 		Turn r = new Turn();
 		Random rand = new Random();
 		rand.setSeed(2);
-		r.setRand(rand);
+		Die test = new Die();
+		test.setRandom(rand);
 		Country ang = new Country("Angreifer");
 		ang.setSoldiers(2);
 		Country dev = new Country("Verteidiger");

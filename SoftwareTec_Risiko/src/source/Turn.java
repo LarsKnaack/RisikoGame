@@ -79,4 +79,8 @@ public class Turn {
 		}
 		return res;
 	}
+	
+	public void setDie(Die d) {
+		dice = d;
+	}
 }

@@ -1,14 +1,10 @@
 package test_source;
+
 import static org.junit.Assert.*;
 
-import java.awt.Color;
-import java.lang.reflect.Field;
 import java.util.Random;
 
 import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import source.Die;
 import source.Player;
@@ -24,6 +20,7 @@ public class TurnTest extends TestCase {
 		rand.setSeed(2);
 		Die test = new Die();
 		test.setRandom(rand);
+		r.setDie(test);
 		Country ang = new Country("Angreifer");
 		ang.setSoldiers(5);
 		Country dev = new Country("Verteidiger");
@@ -46,6 +43,7 @@ public class TurnTest extends TestCase {
 		rand.setSeed(2);
 		Die test = new Die();
 		test.setRandom(rand);
+		r.setDie(test);
 		Country ang = new Country("Angreifer");
 		ang.setSoldiers(2);
 		Country dev = new Country("Verteidiger");

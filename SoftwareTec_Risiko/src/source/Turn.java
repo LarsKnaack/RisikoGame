@@ -5,9 +5,6 @@ public class Turn {
 	private int maxDefDice = 0;
 	private int maxInvDice = 0;
 	
-	private int[] invaderDice;
-	private int[] defenderDice;
-	
 	private static final int MAX_RECRUITMENT = 3;
 
 	private Die dice = new Die();
@@ -45,8 +42,8 @@ public class Turn {
 	}
 
 	private void invade(Country invader, Country defender) {
-		invaderDice = new int[maxInvDice];
-		defenderDice = new int[maxDefDice];
+		int[] invaderDice = new int[maxInvDice];
+		int[] defenderDice = new int[maxDefDice];
 		dice.roll(invaderDice);
 		dice.roll(defenderDice);
 		for (int i = 0; i < invaderDice.length; i++) {

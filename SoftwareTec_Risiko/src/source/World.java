@@ -10,7 +10,7 @@ public class World implements WorldGraph{
 	private Map<Country, LinkedList<Country>> world;
 
 	public World() {
-		setWorld(new HashMap<Country, LinkedList<Country>>());
+		world = new HashMap<Country, LinkedList<Country>>();
 	}
 
 	@Override

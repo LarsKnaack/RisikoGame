@@ -1,8 +1,8 @@
-package test_source;
+package world;
 
 import junit.framework.TestCase;
 import source.Country;
-import source.World;
+import world.World;
 
 public class WorldTest extends TestCase {
 

@@ -1,4 +1,7 @@
-package source;
+package turn;
+
+import source.Country;
+import source.Player;
 
 public class Turn {
 

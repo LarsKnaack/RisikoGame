@@ -1,15 +1,14 @@
-package test_source;
+package turn;
 
 import static org.junit.Assert.*;
 
 import java.util.Random;
 
 import junit.framework.TestCase;
-
-import source.Die;
 import source.Player;
 import source.Country;
-import source.Turn;
+import turn.Die;
+import turn.Turn;
 
 
 public class TurnTest extends TestCase {

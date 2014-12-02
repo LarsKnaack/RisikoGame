@@ -10,7 +10,7 @@ public class WorldTest extends TestCase {
 		World world = new World();
 		Country test = new Country("test");
 		world.addCountry(test);
-		assertTrue(world.world.containsKey(test));
+		assertTrue(world.getWorld().containsKey(test));
 	}
 
 	public void testAddEdge() {
@@ -20,8 +20,8 @@ public class WorldTest extends TestCase {
 		world.addCountry(test1);
 		world.addCountry(test2);
 		world.addEdge(test1, test2);
-		assertTrue(world.world.get(test1).contains(test2));
-		assertTrue(world.world.get(test2).contains(test1));
+		assertTrue(world.getWorld().get(test1).contains(test2));
+		assertTrue(world.getWorld().get(test2).contains(test1));
 	}
 
 	public void testGetNeighbouringCountryList() {
@@ -32,7 +32,7 @@ public class WorldTest extends TestCase {
 		world.addCountry(test2);
 		world.addEdge(test1, test2);
 		world.getNeighbouringCountryList(test1);
-		assertTrue(world.getNeighbouringCountryList(test1).equals(world.world.get(test1)));
+		assertTrue(world.getNeighbouringCountryList(test1).equals(world.getWorld().get(test1)));
 	}
 
 	public void testIsNeighbour() {

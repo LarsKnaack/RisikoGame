@@ -57,7 +57,7 @@ public class TurnTest extends TestCase {
 		r.setMaxDice(ang);
 		r.setMaxDice(dev);
 		Player winner = r.invadeTurn(ang, dev);
-		assertTrue(winner == p2);
+		assertTrue(winner.equals(p2));
 	}
 	
 	public void testSetMaxDiceAngreifer() {

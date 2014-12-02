@@ -5,12 +5,12 @@ import java.util.Random;
 
 public class Die {
 	
+	private static final int UPPER = 6;
+	private Random rand;
+	
 	public Die() {
 		rand = new Random();
 	}
-	
-	private static final int UPPER = 6;
-	private Random rand;
 	
 	private int die (Random r) {
 		return r.nextInt(UPPER) + 1;

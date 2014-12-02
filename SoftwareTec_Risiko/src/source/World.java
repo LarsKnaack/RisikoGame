@@ -3,10 +3,11 @@ package source;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class World implements WorldGraph{
 
-	public HashMap<Country, LinkedList<Country>> world;
+	private Map<Country, LinkedList<Country>> world;
 
 	public World() {
 		world = new HashMap<Country, LinkedList<Country>>();

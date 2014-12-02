@@ -1,7 +1,7 @@
 package world;
 
+import entities.Country;
 import junit.framework.TestCase;
-import source.Country;
 import world.World;
 
 public class WorldTest extends TestCase {

@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
+import entities.Country;
+import entities.Player;
 import junit.framework.TestCase;
-import source.Player;
-import source.Country;
 import turn.Die;
 import turn.Turn;
 

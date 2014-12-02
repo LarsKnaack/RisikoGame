@@ -1,4 +1,4 @@
-package source;
+package entities;
 
 import java.util.LinkedList;
 import java.util.List;

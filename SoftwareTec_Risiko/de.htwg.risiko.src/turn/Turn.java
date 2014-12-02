@@ -1,7 +1,7 @@
 package turn;
 
-import source.Country;
-import source.Player;
+import entities.Country;
+import entities.Player;
 
 public class Turn {
 

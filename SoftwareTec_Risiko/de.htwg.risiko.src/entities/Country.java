@@ -1,4 +1,4 @@
-package source;
+package entities;
 
 public class Country {
 	

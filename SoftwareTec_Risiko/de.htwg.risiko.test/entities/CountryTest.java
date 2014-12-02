@@ -1,4 +1,4 @@
-package source;
+package entities;
 import static org.junit.Assert.*;
 
 import java.awt.Color;
@@ -7,8 +7,8 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import  source.Country;
-import source.Player;
+import entities.Country;
+import entities.Player;
 
 public class CountryTest extends TestCase {
 	

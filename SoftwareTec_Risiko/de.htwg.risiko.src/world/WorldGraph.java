@@ -2,7 +2,7 @@ package world;
 
 import java.util.List;
 
-import source.Country;
+import entities.Country;
 
 public interface WorldGraph {
 

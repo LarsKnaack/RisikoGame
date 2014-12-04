@@ -4,11 +4,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
 import entities.Country;
 
-public class World implements WorldGraph{
-
+public class World implements WorldGraph {
 	private Map<Country, LinkedList<Country>> world;
 
 	public World() {
@@ -17,7 +15,7 @@ public class World implements WorldGraph{
 
 	@Override
 	public void addCountry(Country v) {
-		getWorld().put(v, new LinkedList<Country>());	
+		getWorld().put(v, new LinkedList<Country>());
 	}
 
 	@Override
@@ -43,5 +41,4 @@ public class World implements WorldGraph{
 	public void setWorld(Map<Country, LinkedList<Country>> world) {
 		this.world = world;
 	}
-
 }

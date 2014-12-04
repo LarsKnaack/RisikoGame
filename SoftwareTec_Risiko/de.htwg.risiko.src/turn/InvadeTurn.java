@@ -1,13 +1,22 @@
 package turn;
 
 import entities.Country;
-import entities.Player;
 
 public class InvadeTurn implements TurnState{
 	
+	private Country invader;
+	private Country defender;
+	
+	public InvadeTurn(Country inv, Country def) {
+		invader = inv;
+		defender = def;
+	}
+	
 	@Override
 	public void pull (Turn turn) {
+		
 		turn.setState(new RecruitmentTurn());	
+		invade(invader, defender);
 	}
 
 	private int maxDefDice = 0;
@@ -17,39 +26,19 @@ public class InvadeTurn implements TurnState{
 
 	private Die dice = new Die();
 	
-	public int setMaxDice(Country l) {
-		if (l.isInvader()) {
-			maxInvDice = MAX_RECRUITMENT;
-			if(l.getSoldiers() < MAX_RECRUITMENT) {
-				maxInvDice = l.getSoldiers();
-			}
-			return maxInvDice;
-		} else {
-			maxDefDice = 2;
-			if(l.getSoldiers() < 2) {
-				maxDefDice = l.getSoldiers();
-			}
-			return maxDefDice;
+	private void setMaxDice() {
+		maxInvDice = MAX_RECRUITMENT;
+		if(invader.getSoldiers() < MAX_RECRUITMENT) {
+				maxInvDice = invader.getSoldiers();
+			}			
+		maxDefDice = 2;
+		if(defender.getSoldiers() < 2) {
+			maxDefDice = 1;
 		}
-	}
-	
-	public Player invadeTurn(Country inv, Country def) {
-		setMaxDice(inv);
-		setMaxDice(def);
-		
-
-		invade(inv, def);
-		
-		Player winner;
-		if (maxInvDice == 1) {
-			winner = def.getOccupying();
-		} else {
-			winner = inv.getOccupying();
-		}
-		return winner;
 	}
 
 	private void invade(Country invader, Country defender) {
+		setMaxDice();
 		int[] invaderDice = new int[maxInvDice];
 		int[] defenderDice = new int[maxDefDice];
 		dice.roll(invaderDice);

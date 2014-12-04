@@ -8,13 +8,13 @@ import entities.Country;
 import entities.Player;
 import junit.framework.TestCase;
 import turn.Die;
-import turn.Turn;
+import turn.InvadeTurn;
 
 
 public class TurnTest extends TestCase {
 	
 	public void testInvadeTurnInvaderWins() {
-		Turn r = new Turn();
+		InvadeTurn r = new InvadeTurn();
 		Random rand = new Random();
 		rand.setSeed(2);
 		Die test = new Die();
@@ -37,7 +37,7 @@ public class TurnTest extends TestCase {
 	}
 	
 	public void testInvadeTurnDefenderWins() {
-		Turn r = new Turn();
+		InvadeTurn r = new InvadeTurn();
 		Random rand = new Random();
 		rand.setSeed(2);
 		Die test = new Die();
@@ -60,7 +60,7 @@ public class TurnTest extends TestCase {
 	}
 	
 	public void testSetMaxDiceAngreifer() {
-		Turn test = new Turn();
+		InvadeTurn test = new InvadeTurn();
 		Country ang = new Country("Angreifer");
 		ang.setInvader(true);
 		ang.setSoldiers(5);
@@ -70,7 +70,7 @@ public class TurnTest extends TestCase {
 	}
 	
 	public void testSetMaxDiceVerteidiger() {
-		Turn test = new Turn();
+		InvadeTurn test = new InvadeTurn();
 		Country dev = new Country("Verteidiger");
 		dev.setDefender(true);
 		dev.setSoldiers(4);

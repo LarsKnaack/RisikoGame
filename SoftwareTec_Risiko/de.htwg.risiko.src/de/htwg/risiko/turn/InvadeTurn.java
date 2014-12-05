@@ -20,9 +20,8 @@ public class InvadeTurn implements TurnState{
 	
 	@Override
 	public void pull (Turn turn) {
-		
-		turn.setState(new RecruitmentTurn());	
 		handle();
+		turn.setState(new RecruitmentTurn());
 	}
 
 	void setMaxDice() {

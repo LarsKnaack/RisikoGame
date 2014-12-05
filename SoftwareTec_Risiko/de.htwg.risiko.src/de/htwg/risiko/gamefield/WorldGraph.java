@@ -1,8 +1,8 @@
-package world;
+package de.htwg.risiko.gamefield;
 
 import java.util.List;
 
-import entities.Country;
+import de.htwg.risiko.model.Country;
 
 public interface WorldGraph {
 

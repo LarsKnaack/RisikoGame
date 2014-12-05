@@ -1,4 +1,4 @@
-package turn;
+package de.htwg.risiko.turn;
 
 public interface TurnState {
 	

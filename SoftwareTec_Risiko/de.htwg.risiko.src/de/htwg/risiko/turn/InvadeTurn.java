@@ -1,11 +1,17 @@
-package turn;
+package de.htwg.risiko.turn;
 
-import entities.Country;
+import de.htwg.risiko.model.Country;
 
 public class InvadeTurn implements TurnState{
 	
-	private Country invader;
-	private Country defender;
+	Country invader;
+	Country defender;
+	
+	int maxDefDice = 0;
+	int maxInvDice = 0;
+	
+	private static final int MAX_RECRUITMENT = 3;
+	private Die dice = new Die();
 	
 	public InvadeTurn(Country inv, Country def) {
 		invader = inv;
@@ -16,17 +22,10 @@ public class InvadeTurn implements TurnState{
 	public void pull (Turn turn) {
 		
 		turn.setState(new RecruitmentTurn());	
-		invade(invader, defender);
+		handle();
 	}
 
-	private int maxDefDice = 0;
-	private int maxInvDice = 0;
-	
-	private static final int MAX_RECRUITMENT = 3;
-
-	private Die dice = new Die();
-	
-	private void setMaxDice() {
+	void setMaxDice() {
 		maxInvDice = MAX_RECRUITMENT;
 		if(invader.getSoldiers() < MAX_RECRUITMENT) {
 				maxInvDice = invader.getSoldiers();
@@ -37,7 +36,7 @@ public class InvadeTurn implements TurnState{
 		}
 	}
 
-	private void invade(Country invader, Country defender) {
+	private void invade() {
 		setMaxDice();
 		int[] invaderDice = new int[maxInvDice];
 		int[] defenderDice = new int[maxDefDice];
@@ -60,7 +59,14 @@ public class InvadeTurn implements TurnState{
 		}
 	}
 	
-	
+	Country handle() {
+		invade();
+		if (maxDefDice <= 0) {
+			return invader;
+		} else {
+			return defender;
+		}
+	}
 	
 	private int max(int[] a) {
 		int max = a[0];

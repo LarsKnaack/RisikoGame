@@ -1,4 +1,4 @@
-package turn;
+package de.htwg.risiko.turn;
 
 public class Turn {
 	
@@ -16,4 +16,7 @@ public class Turn {
 		current.pull(this);
 	}
 
+	public TurnState getState() {
+		return current;
+	}
 }

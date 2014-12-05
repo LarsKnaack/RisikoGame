@@ -1,4 +1,4 @@
-package entities;
+package de.htwg.risiko.model;
 
 public class Country {
 	

@@ -1,6 +1,6 @@
-package turn;
+package de.htwg.risiko.turn;
 
-import entities.Country;
+import de.htwg.risiko.model.Country;
 
 public class RecruitmentTurn implements TurnState{
 

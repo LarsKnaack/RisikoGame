@@ -1,10 +1,11 @@
-package world;
+package de.htwg.risiko.gamefield;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import entities.Country;
+
+import de.htwg.risiko.model.Country;
 
 public class World implements WorldGraph {
 	private Map<Country, LinkedList<Country>> world;

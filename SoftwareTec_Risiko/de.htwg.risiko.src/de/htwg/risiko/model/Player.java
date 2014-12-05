@@ -1,4 +1,4 @@
-package entities;
+package de.htwg.risiko.model;
 
 
 public class Player {
@@ -11,8 +11,6 @@ public class Player {
 	public String getName() {
 		return name;
 	}
-	
-	
 	
 }
 

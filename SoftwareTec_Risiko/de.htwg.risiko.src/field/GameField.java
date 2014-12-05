@@ -1,7 +1,7 @@
 package field;
 
-import entities.Country;
-import world.World;
+import de.htwg.risiko.gamefield.World;
+import de.htwg.risiko.model.Country;
 
 public class GameField {
 	

@@ -1,8 +1,8 @@
-package world;
+package de.htwg.risiko.gamefield;
 
-import entities.Country;
+import de.htwg.risiko.gamefield.World;
+import de.htwg.risiko.model.Country;
 import junit.framework.TestCase;
-import world.World;
 
 public class WorldTest extends TestCase {
 

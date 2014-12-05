@@ -1,4 +1,4 @@
-package turn;
+package de.htwg.risiko.turn;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import turn.Die;
+import de.htwg.risiko.turn.Die;
 
 public class DieTest extends TestCase {
 	

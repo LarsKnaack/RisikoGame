@@ -1,13 +1,13 @@
-package controller;
+package de.htwg.risiko.controller;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import world.World;
-import entities.Country;
-import entities.Player;
+import de.htwg.risiko.gamefield.World;
+import de.htwg.risiko.model.Country;
+import de.htwg.risiko.model.Player;
 
 public class GameEngine {
 	

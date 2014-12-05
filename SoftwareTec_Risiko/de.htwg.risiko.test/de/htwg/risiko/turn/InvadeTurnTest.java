@@ -20,11 +20,28 @@ public class InvadeTurnTest extends TestCase{
 		InvadeTurn t = new InvadeTurn(invader, defender);
 		Die d = new Die();
 		Random rand = new Random();
-		rand.setSeed(2);
+		rand.setSeed(4);
 		d.setRandom(rand);
 		t.setDie(d);
 		Country p = t.handle();
-		assertEquals(t.invader, p);
+		assertEquals(invader, p);
+	}
+	
+public void testInvadeDefenderWins() {
+		
+		Country invader = new Country("Invader");
+		Country defender = new Country("Defender");
+		invader.setSoldiers(2);
+		defender.setSoldiers(2);
+		
+		InvadeTurn t = new InvadeTurn(invader, defender);
+		Die d = new Die();
+		Random rand = new Random();
+		rand.setSeed(4);
+		d.setRandom(rand);
+		t.setDie(d);
+		Country p = t.handle();
+		assertEquals(defender, p);
 	}
 	
 	public void testSetMaxDice() {

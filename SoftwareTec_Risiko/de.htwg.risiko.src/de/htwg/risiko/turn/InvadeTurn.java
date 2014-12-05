@@ -4,8 +4,8 @@ import de.htwg.risiko.model.Country;
 
 public class InvadeTurn implements TurnState{
 	
-	Country invader;
-	Country defender;
+	private Country invader;
+	private Country defender;
 	
 	int maxDefDice = 0;
 	int maxInvDice = 0;

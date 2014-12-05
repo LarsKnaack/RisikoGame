@@ -10,7 +10,7 @@ import de.htwg.risiko.turn.InvadeTurn;
 
 public class InvadeTurnTest extends TestCase{
 	
-	public void testInvade() {
+	public void testInvadeInvaderWins() {
 		
 		Country invader = new Country("Invader");
 		Country defender = new Country("Defender");
@@ -25,10 +25,6 @@ public class InvadeTurnTest extends TestCase{
 		t.setDie(d);
 		Country p = t.handle();
 		assertEquals(t.invader, p);
-		invader.setSoldiers(2);
-		p = t.handle();
-		assertEquals(t.defender, p);
-		
 	}
 	
 	public void testSetMaxDice() {

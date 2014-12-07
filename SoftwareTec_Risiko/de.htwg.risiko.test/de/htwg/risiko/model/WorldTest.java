@@ -12,7 +12,7 @@ public class WorldTest extends TestCase {
 	
 	public void testSetWorld() {
 		World world = new World();
-		Map<Country, LinkedList<Country>> test = new HashMap<>();
+		Map<Country, LinkedList<Country>> test = new HashMap<Country, LinkedList<Country>>();
 		world.setWorld(test);
 		assertEquals(world.getWorld(), test);
 	}

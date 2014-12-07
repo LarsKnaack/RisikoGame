@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import java.awt.Color;
 import java.util.LinkedList;
+import java.util.List;
 
 import junit.framework.TestCase;
 
@@ -14,7 +15,14 @@ import de.htwg.risiko.model.impl.Player;
 public class PlayerTest extends TestCase {
 	
 	public void testGetName() {
-		PlayerI p = new Player("Player");
+		Player p = new Player("Player");
 		assertEquals(p.getName(), "Player");
 	}
+	
+	public void testGetCountries() {
+		Player p = new Player("Player");
+		List<Country> countries = new LinkedList<Country>();
+		p.setCountries(countries);
+		assertEquals(p.getCountries(), countries);
 	}
+}

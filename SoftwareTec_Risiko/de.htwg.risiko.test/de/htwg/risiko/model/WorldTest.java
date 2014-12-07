@@ -1,10 +1,21 @@
-package de.htwg.risiko.gamefield;
+package de.htwg.risiko.model;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.World;
 import junit.framework.TestCase;
 
 public class WorldTest extends TestCase {
+	
+	public void testSetWorld() {
+		World world = new World();
+		Map<Country, LinkedList<Country>> test = new HashMap<>();
+		world.setWorld(test);
+		assertEquals(world.getWorld(), test);
+	}
 
 	public void testAddCountry() {
 		World world = new World();

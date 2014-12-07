@@ -1,7 +1,7 @@
 package de.htwg.risiko.gamefield;
 
-import de.htwg.risiko.gamefield.impl.World;
 import de.htwg.risiko.model.impl.Country;
+import de.htwg.risiko.model.impl.World;
 import junit.framework.TestCase;
 
 public class WorldTest extends TestCase {

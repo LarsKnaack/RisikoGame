@@ -1,8 +1,7 @@
-package de.htwg.risiko.gamefield;
+package de.htwg.risiko.model;
 
 import java.util.List;
 
-import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
 
 public interface WorldI {

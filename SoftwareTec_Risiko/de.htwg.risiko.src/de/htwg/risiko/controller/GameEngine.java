@@ -5,11 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import de.htwg.risiko.gamefield.impl.World;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
+import de.htwg.risiko.model.impl.World;
 
 public class GameEngine {
 	

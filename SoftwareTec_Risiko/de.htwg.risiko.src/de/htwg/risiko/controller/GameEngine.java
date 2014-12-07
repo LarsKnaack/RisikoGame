@@ -5,9 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import de.htwg.risiko.gamefield.World;
-import de.htwg.risiko.model.Country;
-import de.htwg.risiko.model.Player;
+import de.htwg.risiko.gamefield.impl.World;
+import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.PlayerI;
+import de.htwg.risiko.model.impl.Country;
+import de.htwg.risiko.model.impl.Player;
 
 public class GameEngine {
 	
@@ -18,7 +20,7 @@ public class GameEngine {
 		occupying = new HashMap<Country, Player>();
 	}
 
-	public Player getOccupying(Country c) {
+	public PlayerI getOccupying(CountryI c) {
 		return occupying.get(c);
 	}
 	
@@ -27,7 +29,7 @@ public class GameEngine {
 	}
 
 	
-	public List<Country> getCountries(Player p){
+	public List<Country> getCountries(PlayerI p){
 		List<Country> res = new LinkedList<Country>();
 		for (Country c: occupying.keySet()) {
 			if(occupying.get(c).equals(p)) {

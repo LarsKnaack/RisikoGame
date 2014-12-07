@@ -1,11 +1,11 @@
 package de.htwg.risiko.turn;
 
-import de.htwg.risiko.model.Country;
+import de.htwg.risiko.model.CountryI;
 
 public class InvadeTurn implements TurnState{
 	
-	private Country invader;
-	private Country defender;
+	private CountryI invader;
+	private CountryI defender;
 	
 	int maxDefDice = 0;
 	int maxInvDice = 0;
@@ -13,7 +13,7 @@ public class InvadeTurn implements TurnState{
 	private static final int MAX_RECRUITMENT = 3;
 	private Die dice = new Die();
 	
-	public InvadeTurn(Country inv, Country def) {
+	public InvadeTurn(CountryI inv, CountryI def) {
 		invader = inv;
 		defender = def;
 	}
@@ -58,7 +58,7 @@ public class InvadeTurn implements TurnState{
 		}
 	}
 	
-	Country handle() {
+	CountryI handle() {
 		invade();
 		if (maxDefDice <= 0) {
 			return invader;

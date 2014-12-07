@@ -4,8 +4,9 @@ import java.lang.reflect.Method;
 import java.util.Random;
 
 import junit.framework.TestCase;
-import de.htwg.risiko.model.Country;
-import de.htwg.risiko.model.Player;
+import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.impl.Country;
+import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.turn.InvadeTurn;
 
 public class InvadeTurnTest extends TestCase{
@@ -22,8 +23,8 @@ public class InvadeTurnTest extends TestCase{
 	
 	public void testInvadeInvaderWins() {
 		
-		Country invader = new Country("Invader");
-		Country defender = new Country("Defender");
+		CountryI invader = new Country("Invader");
+		CountryI defender = new Country("Defender");
 		invader.setSoldiers(3);
 		defender.setSoldiers(2);
 		
@@ -33,14 +34,14 @@ public class InvadeTurnTest extends TestCase{
 		rand.setSeed(2);
 		d.setRandom(rand);
 		t.setDie(d);
-		Country p = t.handle();
+		CountryI p = t.handle();
 		assertEquals(invader, p);
 	}
 	
 public void testInvadeDefenderWins() {
 		
-		Country invader = new Country("Invader");
-		Country defender = new Country("Defender");
+		CountryI invader = new Country("Invader");
+		CountryI defender = new Country("Defender");
 		invader.setSoldiers(2);
 		defender.setSoldiers(2);
 		
@@ -50,13 +51,13 @@ public void testInvadeDefenderWins() {
 		rand.setSeed(4);
 		d.setRandom(rand);
 		t.setDie(d);
-		Country p = t.handle();
+		CountryI p = t.handle();
 		assertEquals(defender, p);
 	}
 	
 	public void testSetMaxDice() {
-		Country invader = new Country("Invader");
-		Country defender = new Country("Defender");
+		CountryI invader = new Country("Invader");
+		CountryI defender = new Country("Defender");
 		InvadeTurn t = new InvadeTurn(invader, defender);
 		invader.setSoldiers(3);
 		defender.setSoldiers(3);

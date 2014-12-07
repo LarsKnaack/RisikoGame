@@ -8,13 +8,13 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import de.htwg.risiko.model.Country;
-import de.htwg.risiko.model.Player;
+import de.htwg.risiko.model.impl.Country;
+import de.htwg.risiko.model.impl.Player;
 
 public class PlayerTest extends TestCase {
 	
 	public void testGetName() {
-		Player p = new Player("Player");
+		PlayerI p = new Player("Player");
 		assertEquals(p.getName(), "Player");
 	}
 	}

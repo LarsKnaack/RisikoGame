@@ -1,22 +1,23 @@
 package de.htwg.risiko.turn;
 
-import java.lang.reflect.Method;
+import static org.junit.Assert.*;
+
 import java.util.Random;
 
 import junit.framework.TestCase;
+
+import org.junit.Test;
+
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
-import de.htwg.risiko.model.impl.Player;
-import de.htwg.risiko.turn.InvadeTurn;
 
 public class InvadeTurnTest extends TestCase{
-	
+
 	public void testPull() {
 		InvadeTurn t = new InvadeTurn(new Country("a"), new Country("b"));
 		Turn s = new Turn();
-		TurnState r = new RecruitmentTurn();
 		t.pull(s);
-		assertEquals(s.getState(),r);
+		assertTrue(s.getState() instanceof RecruitmentTurn);
 		
 		
 	}

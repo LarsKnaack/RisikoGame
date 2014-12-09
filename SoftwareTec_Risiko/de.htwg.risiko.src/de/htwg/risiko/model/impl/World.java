@@ -16,19 +16,21 @@ public class World implements WorldI {
 	}
 
 	@Override
-	public void addCountry(Country v) {
-		getWorld().put(v, new LinkedList<Country>());
+	public void addCountry(CountryI v) {
+		getWorld().put((Country) v, new LinkedList<Country>());
 	}
 
 	@Override
-	public void addEdge(Country v, Country w) {
-		getWorld().get(v).add(w);
-		getWorld().get(w).add(v);
+	public void addEdge(CountryI v, CountryI w) {
+		getWorld().get(v).add((Country) w);
+		getWorld().get(w).add((Country) v);
 	}
 
 	@Override
-	public List<Country> getNeighbouringCountryList(CountryI v) {
-		return getWorld().get(v);
+	public List<CountryI> getNeighbouringCountryList(CountryI v) {
+		List<CountryI> res = new LinkedList<CountryI>();
+		
+		return res;
 	}
 
 	@Override

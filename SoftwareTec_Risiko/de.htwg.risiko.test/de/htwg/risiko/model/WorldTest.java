@@ -35,7 +35,7 @@ public class WorldTest extends TestCase {
 		assertTrue(world.getWorld().get(test2).contains(test1));
 	}
 
-	public void testGetNeighbouringCountryList() {
+	/*public void testGetNeighbouringCountryList() {
 		World world = new World();
 		Country test1 = new Country("test1");
 		Country test2 = new Country("test2");
@@ -54,5 +54,5 @@ public class WorldTest extends TestCase {
 		world.addCountry(test2);
 		world.addEdge(test1, test2);
 		assertTrue(world.isNeighbour(test1, test2));
-	}
+	}*/
 }

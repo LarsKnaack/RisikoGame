@@ -29,7 +29,9 @@ public class World implements WorldI {
 	@Override
 	public List<CountryI> getNeighbouringCountryList(CountryI v) {
 		List<CountryI> res = new LinkedList<CountryI>();
-		
+		for (CountryI w : getWorld().get(v)) {
+			res.add(w);
+		}
 		return res;
 	}
 

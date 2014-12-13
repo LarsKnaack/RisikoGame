@@ -59,7 +59,7 @@ public class InvadeTurnTest extends TestCase{
 		
 	}
 	
-	@Test public void testInvadeInvaderWins() {
+	public void testInvadeInvaderWins() {
 		
 		invader.setSoldiers(3);
 		defender.setSoldiers(2);

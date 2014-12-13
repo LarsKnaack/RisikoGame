@@ -12,6 +12,9 @@ public class RecruitmentTurn implements TurnState{
 	public RecruitmentTurn(PlayerI p) {
 		current = p;
 		recruitment = current.getCountries().size() / 3;
+		if(recruitment < 3) {
+			recruitment = 3;
+		}
 	}
 	
 	@Override

@@ -21,7 +21,6 @@ public class InvadeTurn implements TurnState{
 	
 	@Override
 	public void pull (Turn turn) {
-		handle();
 		turn.setState(new RecruitmentTurn(current));
 	}
 
@@ -59,7 +58,7 @@ public class InvadeTurn implements TurnState{
 		}
 	}
 	
-	CountryI handle() {
+	public CountryI winner() {
 		invade();
 		if (maxDefDice <= 0) {
 			return invadingCountry;
@@ -89,5 +88,13 @@ public class InvadeTurn implements TurnState{
 			return;
 		}
 		invadingCountry = c;
+	}
+	public void setDefendingCountry(CountryI c) {
+		if(invadingCountry == null) {
+			return;
+		}
+		if (world.isNeighbour(c, invadingCountry)) {
+			defendingCountry = c;
+		}
 	}
 }

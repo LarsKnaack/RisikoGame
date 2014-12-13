@@ -1,16 +1,25 @@
 package de.htwg.risiko.turn;
 
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.impl.Country;
+import de.htwg.risiko.model.PlayerI;
 
 public class StartTurn implements TurnState{
+	
+	private PlayerI current;
+	
+	public StartTurn(PlayerI p) {
+		current = p;
+	}
 
 	@Override
 	public void pull(Turn turn) {
-		CountryI invader = new Country("Invader");
-		CountryI defender = new Country("Defender");
-		turn.setState(new InvadeTurn(invader, defender) );
+		init();
+		turn.setState(new InvadeTurn(current) );
 	}
+	
+	private void init() {
+		
+	}
+	
 	
 	
 

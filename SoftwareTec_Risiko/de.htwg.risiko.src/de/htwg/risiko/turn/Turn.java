@@ -9,11 +9,11 @@ public class Turn {
 	
 	public Turn(PlayerI p) {
 		player = p;
-		current = new StartTurn();
+		current = new StartTurn(player);
 	}
 	
 	public Turn() {
-		current = new StartTurn();
+		current = new StartTurn(player);
 	}
 	
 	public void setPlayer (PlayerI p) {

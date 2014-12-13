@@ -7,11 +7,14 @@ import java.util.Map;
 
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
+import de.htwg.risiko.model.WorldI;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.model.impl.World;
 
 public class GameEngine {
+	
+	public static WorldI world = new World();
 	
 	private Map<Country, Player> occupying;
 	

@@ -9,4 +9,5 @@ public interface WorldI {
  	void addEdge(CountryI v, CountryI w);
  	List<CountryI> getNeighbouringCountryList(CountryI v);
  	boolean isNeighbour(CountryI v, CountryI w);
+ 	WorldI getWorld();
 }

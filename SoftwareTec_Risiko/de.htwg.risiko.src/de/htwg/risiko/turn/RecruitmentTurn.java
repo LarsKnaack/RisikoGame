@@ -9,16 +9,13 @@ public class RecruitmentTurn implements TurnState{
 	public RecruitmentTurn(PlayerI p) {
 		current = p;
 	}
+	
 	private PlayerI current;
 	private int recruitment = current.getCountries().size() / 3;
 
 	@Override
 	public void pull(Turn turn) {
-		turn.setState(new InvadeTurn(current) );
-	}
-	
-	void handle() {
-		
+		turn.setState(new InvadeTurn(current));
 	}
 	
 	public void addRecruitment(CountryI c, int rec) {

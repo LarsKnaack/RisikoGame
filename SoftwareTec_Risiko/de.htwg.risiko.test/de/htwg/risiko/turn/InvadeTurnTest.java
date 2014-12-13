@@ -35,7 +35,7 @@ public class InvadeTurnTest extends TestCase{
 		rand.setSeed(2);
 		d.setRandom(rand);
 		t.setDie(d);
-		CountryI p = t.handle();
+		CountryI p = t.winner();
 		assertEquals(invader, p);
 	}
 	

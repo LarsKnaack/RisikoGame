@@ -19,9 +19,18 @@ public class PlayerTest extends TestCase {
 		assertEquals(p.getName(), "Player");
 	}
 	
+	public void testSetCountries() {
+		Player p = new Player("Hans");
+		List<CountryI> c = new LinkedList<CountryI>();
+		CountryI test = new Country("test");
+		c.add(test);
+		p.setCountries(c);
+	}
 	public void testGetCountries() {
 		Player p = new Player("Player");
 		List<CountryI> countries = new LinkedList<CountryI>();
+		CountryI test = new Country("test");
+		countries.add(test);
 		p.setCountries(countries);
 		assertEquals(p.getCountries(), countries);
 	}

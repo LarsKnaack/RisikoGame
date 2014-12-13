@@ -15,6 +15,8 @@ import de.htwg.risiko.model.impl.World;
 public class GameEngine {
 	
 	public static WorldI world = new World();
+	public static PlayerI player1 = new Player("Hans");
+	public static PlayerI player2 = new Player("Herbert");
 	
 	private Map<Country, Player> occupying;
 	

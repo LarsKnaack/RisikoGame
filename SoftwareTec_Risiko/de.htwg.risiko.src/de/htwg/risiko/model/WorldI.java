@@ -1,6 +1,10 @@
 package de.htwg.risiko.model;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+
+import de.htwg.risiko.model.impl.Country;
 
 
 public interface WorldI {
@@ -9,5 +13,5 @@ public interface WorldI {
  	void addEdge(CountryI v, CountryI w);
  	List<CountryI> getNeighbouringCountryList(CountryI v);
  	boolean isNeighbour(CountryI v, CountryI w);
- 	WorldI getWorld();
+ 	Map<Country, LinkedList<Country>> getWorld();
 }

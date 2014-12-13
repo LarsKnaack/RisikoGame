@@ -17,19 +17,19 @@ public class World implements WorldI {
 
 	@Override
 	public void addCountry(CountryI v) {
-		getWorld().put((Country) v, new LinkedList<Country>());
+		world.put((Country) v, new LinkedList<Country>());
 	}
 
 	@Override
 	public void addEdge(CountryI v, CountryI w) {
-		getWorld().get(v).add((Country) w);
-		getWorld().get(w).add((Country) v);
+		world.get(v).add((Country) w);
+		world.get(w).add((Country) v);
 	}
 
 	@Override
 	public List<CountryI> getNeighbouringCountryList(CountryI v) {
 		List<CountryI> res = new LinkedList<CountryI>();
-		for (CountryI w : getWorld().get(v)) {
+		for (CountryI w : world.get(v)) {
 			res.add(w);
 		}
 		return res;

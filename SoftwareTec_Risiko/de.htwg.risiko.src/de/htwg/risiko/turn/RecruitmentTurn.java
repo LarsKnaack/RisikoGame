@@ -6,13 +6,14 @@ import de.htwg.risiko.model.impl.Country;
 
 public class RecruitmentTurn implements TurnState{
 	
+	private PlayerI current;
+	private int recruitment;
+	
 	public RecruitmentTurn(PlayerI p) {
 		current = p;
+		recruitment = current.getCountries().size() / 3;
 	}
 	
-	private PlayerI current;
-	private int recruitment = current.getCountries().size() / 3;
-
 	@Override
 	public void pull(Turn turn) {
 		turn.setState(new InvadeTurn(current));

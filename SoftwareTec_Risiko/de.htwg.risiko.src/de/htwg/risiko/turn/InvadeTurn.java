@@ -97,4 +97,12 @@ public class InvadeTurn implements TurnState{
 			defendingCountry = c;
 		}
 	}
+	
+	public CountryI getInvadingCountry() {
+		return invadingCountry;
+	}
+	
+	public CountryI getDefendingCountry() {
+		return defendingCountry;
+	}
 }

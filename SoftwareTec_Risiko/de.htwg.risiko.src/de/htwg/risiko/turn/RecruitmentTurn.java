@@ -14,18 +14,18 @@ public class RecruitmentTurn implements TurnState{
 
 	@Override
 	public void pull(Turn turn) {
-		CountryI invader = new Country("Invader");
-		CountryI defender = new Country("Defender");
-		handle();
-		turn.setState(new InvadeTurn(invader, defender) );
+		turn.setState(new InvadeTurn(current) );
 	}
 	
+	void handle() {
+		
+	}
 	
-	
-	
-	
-	CountryI handle() {
-		return new Country("h");
+	public void addRecruitment(CountryI c, int rec) {
+		if(0 < recruitment - rec || !(current.getCountries().contains(c))) {
+			return;
+		}
+		c.setSoldiers(c.getSoldiers() + rec);
 	}
 
 }

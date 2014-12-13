@@ -1,11 +1,13 @@
 package de.htwg.risiko.turn;
 
 import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.PlayerI;
 
 public class InvadeTurn implements TurnState{
 	
-	private CountryI invader;
-	private CountryI defender;
+	private PlayerI current;
+	private CountryI invadingCountry;
+	private CountryI defendingCountry;
 	
 	int maxDefDice = 0;
 	int maxInvDice = 0;
@@ -13,24 +15,23 @@ public class InvadeTurn implements TurnState{
 	private static final int MAX_RECRUITMENT = 3;
 	private Die dice = new Die();
 	
-	public InvadeTurn(CountryI inv, CountryI def) {
-		invader = inv;
-		defender = def;
+	public InvadeTurn(PlayerI p) {
+		current = p;
 	}
 	
 	@Override
 	public void pull (Turn turn) {
 		handle();
-		turn.setState(new RecruitmentTurn());
+		turn.setState(new RecruitmentTurn(current));
 	}
 
 	void setMaxDice() {
 		maxInvDice = MAX_RECRUITMENT;
-		if(invader.getSoldiers() < MAX_RECRUITMENT) {
-				maxInvDice = invader.getSoldiers();
+		if(invadingCountry.getSoldiers() < MAX_RECRUITMENT) {
+				maxInvDice = invadingCountry.getSoldiers();
 			}			
 		maxDefDice = 2;
-		if(defender.getSoldiers() < 2) {
+		if(defendingCountry.getSoldiers() < 2) {
 			maxDefDice = 1;
 		}
 	}
@@ -47,10 +48,10 @@ public class InvadeTurn implements TurnState{
 			int d = max(defenderDice);
 
 			if (invaderDice[a] > defenderDice[d]) {
-				defender.setSoldiers(defender.getSoldiers() - 1);
+				defendingCountry.setSoldiers(defendingCountry.getSoldiers() - 1);
 				maxDefDice--;
 			} else {
-				invader.setSoldiers(invader.getSoldiers() - 1);
+				invadingCountry.setSoldiers(invadingCountry.getSoldiers() - 1);
 				maxInvDice--;
 			}
 			invaderDice[a] = 0;
@@ -61,9 +62,9 @@ public class InvadeTurn implements TurnState{
 	CountryI handle() {
 		invade();
 		if (maxDefDice <= 0) {
-			return invader;
+			return invadingCountry;
 		} else {
-			return defender;
+			return defendingCountry;
 		}
 	}
 	
@@ -81,5 +82,12 @@ public class InvadeTurn implements TurnState{
 	
 	public void setDie(Die d) {
 		dice = d;
+	}
+	
+	public void setInvadingCountry(CountryI c) {
+		if (!current.getCountries().contains(c)) {
+			return;
+		}
+		invadingCountry = c;
 	}
 }

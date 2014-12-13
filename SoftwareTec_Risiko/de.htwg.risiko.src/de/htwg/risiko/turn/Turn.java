@@ -27,11 +27,11 @@ public class Turn {
 		current = s;
 	}
 	
-	public void pull () {
-		current.pull(this);
-	}
-
 	public TurnState getState() {
 		return current;
+	}
+	
+	public void pull () {
+		current.pull(this);
 	}
 }

@@ -23,7 +23,7 @@ public class RecruitmentTurn implements TurnState{
 	}
 	
 	public void addRecruitment(CountryI c, int rec) {
-		if(0 < recruitment - rec || !(current.getCountries().contains(c))) {
+		if(recruitment - rec < 0 || !(current.getCountries().contains(c))) {
 			return;
 		}
 		c.setSoldiers(c.getSoldiers() + rec);

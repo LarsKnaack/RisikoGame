@@ -55,8 +55,6 @@ public class InvadeTurnTest extends TestCase{
 		Turn s = new Turn(p);
 		t.pull(s);
 		assertTrue(s.getState() instanceof RecruitmentTurn);
-		
-		
 	}
 	
 	public void testInvadeInvaderWins() {

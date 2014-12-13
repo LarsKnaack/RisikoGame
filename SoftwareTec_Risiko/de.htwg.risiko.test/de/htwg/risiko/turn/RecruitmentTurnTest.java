@@ -15,7 +15,7 @@ import de.htwg.risiko.model.impl.Player;
 
 public class RecruitmentTurnTest extends TestCase {
 	
-	public void pullTest() {
+	public void testPull() {
 		Player p = new Player("Hans");
 		RecruitmentTurn t = new RecruitmentTurn(p);
 		Turn s = new Turn(p);
@@ -23,7 +23,7 @@ public class RecruitmentTurnTest extends TestCase {
 		assertTrue(s.getState() instanceof InvadeTurn);
 	}
 	
-	public void addRecruitmentTest() {
+	public void testAddRecruitment() {
 		Player p = new Player("Hans");
 		CountryI test = new Country("test");
 		List<CountryI> res = new LinkedList<CountryI>();
@@ -34,7 +34,7 @@ public class RecruitmentTurnTest extends TestCase {
 		assertEquals(test.getSoldiers(), 3);
 	}
 	
-	public void addRecruitmentTestFails() {
+	public void testAddRecruitmentFails() {
 		Player p = new Player("Hans");
 		CountryI test = new Country("test");
 		List<CountryI> res = new LinkedList<CountryI>();

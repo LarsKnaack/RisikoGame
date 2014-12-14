@@ -2,6 +2,7 @@ package de.htwg.risiko.model;
 
 public interface CountryI {
 
+	
 	//get soldiers positioned in the Country (saved in global variable)
 	public int getSoldiers();
 	//get soldiers positioned in the Country (saved in global variable)

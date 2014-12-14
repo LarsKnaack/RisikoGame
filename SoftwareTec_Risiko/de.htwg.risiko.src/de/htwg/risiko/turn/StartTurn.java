@@ -24,7 +24,7 @@ public class StartTurn implements TurnState{
 	@Override
 	public void pull(Turn turn) {
 		init();
-		turn.setState(new InvadeTurn(player1));
+		turn.setState(new InvadeTurn(player));
 	}
 	
 	private void init() {

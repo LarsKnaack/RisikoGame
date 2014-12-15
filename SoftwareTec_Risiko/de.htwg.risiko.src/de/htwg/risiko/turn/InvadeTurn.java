@@ -7,6 +7,7 @@ import de.htwg.risiko.model.WorldI;
 public class InvadeTurn implements TurnState{
 	
 	private PlayerI player;
+	private PlayerI opponent;
 	private CountryI invadingCountry;
 	private CountryI defendingCountry;
 	private WorldI world;
@@ -23,11 +24,18 @@ public class InvadeTurn implements TurnState{
 		if (turn.hasFinished()) {
 			turn.startTurn();
 			turn.setState(new RecruitmentTurn());
+			turn.initRecruitment();
+			return;
 		}
 		player = turn.getPlayer();
+		opponent = turn.getOpponent();
 		invadingCountry = turn.getInvader();
 		defendingCountry = turn.getDefender();
 		world = turn.getWorld();
+		if (winner().equals(invadingCountry)) {
+			player.addCountry(defendingCountry);
+			opponent.removeCountry(defendingCountry);
+		}
 	}
 
 	void setMaxDice() {

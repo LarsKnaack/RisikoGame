@@ -47,4 +47,13 @@ public class World implements WorldI {
 	public void setWorld(Map<Country, LinkedList<Country>> world) {
 		this.world = world;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		for (CountryI c : world.keySet()) {
+			s.append(c.getName()).append(": ").append(c.getSoldiers()).append("\n");
+		}
+		return s.toString();
+	}
 }

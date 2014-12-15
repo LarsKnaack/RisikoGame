@@ -31,11 +31,13 @@ public class Player implements PlayerI {
 	}
 
 	@Override
-	public void setCountries(List<CountryI> countries) {
-		this.countries.clear();
-		for(CountryI c: countries) {
-			this.countries.add((Country) c);
-		}
+	public void addCountry(CountryI c) {
+		countries.add((Country) c);
+	}
+
+	@Override
+	public void removeCountry(CountryI c) {
+		countries.remove(c);
 	}
 	
 }

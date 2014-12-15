@@ -6,23 +6,26 @@ import de.htwg.risiko.model.PlayerI;
 public class RecruitmentTurn implements TurnState{
 	
 	private PlayerI player;
+	private CountryI recCountry;
+	private int maxRecruitment;
 	private int recruitment;
 
 	@Override
 	public void pull(Turn turn) {
-		if (turn.hasFinished()) {
-			turn.startTurn();
+		maxRecruitment = turn.getMaxRecruitment();
+		if (maxRecruitment == 0) {
 			turn.setState(new InvadeTurn());
+			return;
 		}
 		player = turn.getPlayer();
-		recruitment = player.getCountries().size() / 3;
-		if(recruitment < 3) {
-			recruitment = 3;
-		}
+		recCountry = turn.getRecCountry();
+		recruitment = turn.getRecruitment();
+		addRecruitment(recCountry, recruitment);
+		turn.setMaxRecruitment(turn.getMaxRecruitment() - recruitment);
 	}
 	
 	public void addRecruitment(CountryI c, int rec) {
-		if(recruitment - rec < 0 || !(player.getCountries().contains(c))) {
+		if(maxRecruitment - rec < 0 || !(player.getCountries().contains(c))) {
 			return;
 		}
 		c.setSoldiers(c.getSoldiers() + rec);

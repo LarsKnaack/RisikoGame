@@ -13,9 +13,9 @@ import de.htwg.risiko.turn.Turn;
 
 public class GameEngine {
 	
-	public static WorldI world = new World();
-	public static PlayerI player1 = new Player("Hans");
-	public static PlayerI player2 = new Player("Herbert");
+	public WorldI world;
+	public PlayerI player1 = new Player("Hans");
+	public PlayerI player2 = new Player("Herbert");
 	
 	private Turn turn;
 	private PlayerI currentPlayer;
@@ -23,12 +23,24 @@ public class GameEngine {
 	private CountryI attacker;
 	
 	public GameEngine() {
-		turn.startTurn();
 		currentPlayer = player2;
 	}
 
 	public void createMap() {
-		
+		world = new World();
+		CountryI ger = new Country("germany");
+		CountryI fra = new Country("france");
+		CountryI ch = new Country("switzerland");
+		CountryI aus = new Country("austria");
+		world.addCountry(ger);
+		world.addCountry(fra);
+		world.addCountry(ch);
+		world.addCountry(aus);
+		world.addEdge(ger, fra);
+		world.addEdge(ger, ch);
+		world.addEdge(ger, aus);
+		world.addEdge(fra, ch);
+		world.addEdge(aus, ch);
 	}
 
 	public void exit() {
@@ -37,9 +49,9 @@ public class GameEngine {
 
 	public void startGame() {
 		turn = new Turn();
+		turn.setWorld(world);
 		turn.setPlayer(player1, player2);
-		turn.getState().pull(turn);
-		
+		turn.getState().pull(turn);		
 	}
 
 	public void changePlayer() {
@@ -70,7 +82,7 @@ public class GameEngine {
 
 	public List<CountryI> getCandidates(CountryI c) {
 		List<CountryI> res = new LinkedList<CountryI>();
-		for (CountryI d: world.getNeighbouringCountryList(c)) {
+		for (CountryI d : world.getNeighbouringCountryList(c)) {
 			if(!getOwner(c).equals(getOwner(d))) {
 				res.add(d);
 			}
@@ -112,7 +124,8 @@ public class GameEngine {
 
 	public boolean selectRecruitment(CountryI c, int num) {
 		if(getOwner(c).equals(currentPlayer)) {
-			c.setSoldiers(c.getSoldiers() + num);
+			turn.setRecruitment(num);
+			turn.setRecCountry(c);
 			return true;
 		}
 		return false;

@@ -1,8 +1,5 @@
 package de.htwg.risiko.turn;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.WorldI;
@@ -24,18 +21,13 @@ public class StartTurn implements TurnState{
 	
 	private void init() {
 		int i = 0;
-		List<CountryI> res = new LinkedList<CountryI>();
 		for(CountryI c :  world.getWorld().keySet()){
-			c.setSoldiers(1);
+			c.setSoldiers(2);
 			if (i % 2 == 0) {
-				res = player1.getCountries();
-				res.add(c);
-				player1.setCountries(res);
+				player1.addCountry(c);
 				i++;
 			} else {
-				res = player2.getCountries();
-				res.add(c);
-				player2.setCountries(res);
+				player2.addCountry(c);
 				i++;
 			}
 		}	

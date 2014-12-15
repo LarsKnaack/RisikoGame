@@ -12,6 +12,9 @@ public class Turn {
 	private WorldI world;
 	private CountryI invader;
 	private CountryI defender;
+	private CountryI recCountry;
+	private int recruitment;
+	private int maxRecruitment;
 	public boolean end;
 	
 	public Turn() {
@@ -82,5 +85,36 @@ public class Turn {
 
 	public void setInvader(CountryI invader) {
 		this.invader = invader;
+	}
+
+	public CountryI getRecCountry() {
+		return recCountry;
+	}
+
+	public void setRecCountry(CountryI recCountry) {
+		this.recCountry = recCountry;
+	}
+
+	public int getRecruitment() {
+		return recruitment;
+	}
+
+	public void setRecruitment(int recruitment) {
+		this.recruitment = recruitment;
+	}
+
+	public void initRecruitment() {
+		maxRecruitment = player.getCountries().size() / 3;
+		if(maxRecruitment < 3) {
+			maxRecruitment = 3;
+		}
+	}
+
+	public int getMaxRecruitment() {
+		return maxRecruitment;
+	}
+
+	public void setMaxRecruitment(int maxRecruitment) {
+		this.maxRecruitment = maxRecruitment;
 	}
 }

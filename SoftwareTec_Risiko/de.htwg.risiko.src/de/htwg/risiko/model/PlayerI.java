@@ -6,6 +6,6 @@ public interface PlayerI {
 
 	public String getName();
 	public List<CountryI> getCountries();
-	public void setCountries(List<CountryI> countries);
-
+	public void addCountry(CountryI c);
+	public void removeCountry(CountryI c);
 }

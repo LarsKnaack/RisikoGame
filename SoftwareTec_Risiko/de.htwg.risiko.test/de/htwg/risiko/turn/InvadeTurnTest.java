@@ -1,7 +1,5 @@
 package de.htwg.risiko.turn;
 
-import static org.junit.Assert.*;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -10,8 +8,6 @@ import junit.framework.TestCase;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
-
 import de.htwg.risiko.controller.GameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
@@ -40,9 +36,7 @@ public class InvadeTurnTest extends TestCase{
 		world.addCountry(invader);
 		world.addCountry(defender);
 		world.addEdge(invader, defender);
-		t = new InvadeTurn(p);
-		t.setInvadingCountry(invader);
-		t.setDefendingCountry(defender);
+		t = new InvadeTurn();
 	}
 	
 	@After
@@ -52,7 +46,7 @@ public class InvadeTurnTest extends TestCase{
 	}
 
 	public void testPull() {
-		Turn s = new Turn(p);
+		Turn s = new Turn();
 		t.pull(s);
 		assertTrue(s.getState() instanceof RecruitmentTurn);
 	}
@@ -112,5 +106,4 @@ public class InvadeTurnTest extends TestCase{
 		t.setDefendingCountry(test);
 		assertFalse(t.getDefendingCountry() == test);
 	}
-
 }

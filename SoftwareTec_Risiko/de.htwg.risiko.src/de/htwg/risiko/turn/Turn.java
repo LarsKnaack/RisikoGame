@@ -6,21 +6,28 @@ import de.htwg.risiko.model.WorldI;
 
 public class Turn {
 	
-	private TurnState current;
-	private static PlayerI player;
-	private static PlayerI opponent;
-	private static WorldI world;
-	private static CountryI invader;
-	private static CountryI defender;
-	
-	public Turn(PlayerI p, WorldI w) {
-		player = p;
-		world = w;
-		current = new StartTurn();
-	}
+	private TurnState currentState;
+	private PlayerI player;
+	private PlayerI opponent;
+	private WorldI world;
+	private CountryI invader;
+	private CountryI defender;
+	public boolean end;
 	
 	public Turn() {
-		current = new StartTurn();
+		currentState = new StartTurn();
+	}
+
+	public void endTurn() {
+		end = true;
+	}
+
+	public void startTurn() {
+		end = false;
+	}
+
+	public boolean hasFinished() {
+		return end;
 	}
 	
 	public void setPlayer (PlayerI p, PlayerI o) {
@@ -33,43 +40,47 @@ public class Turn {
 		player = p;
 	}
 
-	public static WorldI getWorld () {
+	public WorldI getWorld () {
 		return world;
 	}
+
+	public void setWorld(WorldI w) {
+		world = w;
+	}
 	
-	public static PlayerI getPlayer () {
+	public PlayerI getPlayer () {
 		return player;
 	}
 
-	public static PlayerI getOpponent() {
+	public PlayerI getOpponent() {
 		return opponent;
 	}
 
-	public void setState (TurnState s) {
-		current = s;
+	public void setState(TurnState s) {
+		currentState = s;
 	}
 	
 	public TurnState getState() {
-		return current;
+		return currentState;
 	}
 	
 	public void pull () {
-		current.pull(this);
+		currentState.pull(this);
 	}
 
-	public static CountryI getDefender() {
+	public CountryI getDefender() {
 		return defender;
 	}
 
 	public void setDefender(CountryI defender) {
-		Turn.defender = defender;
+		this.defender = defender;
 	}
 
-	public static CountryI getInvader() {
+	public CountryI getInvader() {
 		return invader;
 	}
 
 	public void setInvader(CountryI invader) {
-		Turn.invader = invader;
+		this.invader = invader;
 	}
 }

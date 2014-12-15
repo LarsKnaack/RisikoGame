@@ -2,12 +2,14 @@ package de.htwg.risiko.turn;
 
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
+import de.htwg.risiko.model.WorldI;
 
 public class InvadeTurn implements TurnState{
 	
-	private PlayerI current;
-	private CountryI invadingCountry = Turn.getInvader();
-	private CountryI defendingCountry = Turn.getDefender();
+	private PlayerI player;
+	private CountryI invadingCountry;
+	private CountryI defendingCountry;
+	private WorldI world;
 	
 	int maxDefDice = 0;
 	int maxInvDice = 0;
@@ -15,14 +17,17 @@ public class InvadeTurn implements TurnState{
 	private static final int MAX_RECRUITMENT = 3;
 	private Die dice = new Die();
 	
-	public InvadeTurn(PlayerI p) {
-		current = p;
-	}
 	
 	@Override
 	public void pull (Turn turn) {
-		
-		turn.setState(new RecruitmentTurn(current));
+		if (turn.hasFinished()) {
+			turn.startTurn();
+			turn.setState(new RecruitmentTurn());
+		}
+		player = turn.getPlayer();
+		invadingCountry = turn.getInvader();
+		defendingCountry = turn.getDefender();
+		world = turn.getWorld();
 	}
 
 	void setMaxDice() {
@@ -85,7 +90,7 @@ public class InvadeTurn implements TurnState{
 	}
 	
 	public void setInvadingCountry(CountryI c) {
-		if (!current.getCountries().contains(c)) {
+		if (!player.getCountries().contains(c)) {
 			return;
 		}
 		invadingCountry = c;

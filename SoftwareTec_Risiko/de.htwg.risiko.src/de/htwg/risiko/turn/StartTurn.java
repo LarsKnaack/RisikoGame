@@ -3,7 +3,6 @@ package de.htwg.risiko.turn;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.htwg.risiko.controller.GameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.WorldI;
@@ -14,17 +13,13 @@ public class StartTurn implements TurnState{
 	private PlayerI player2;
 	private WorldI world;
 	
-	public StartTurn() {
-		player1 = GameEngine.player1;
-		player2 = GameEngine.player2;
-		world = GameEngine.world;
-	}
-	
-
 	@Override
 	public void pull(Turn turn) {
+		player1 = turn.getPlayer();
+		player2 = turn.getOpponent();
+		world = turn.getWorld();
 		init();
-		turn.setState(new InvadeTurn(player));
+		turn.setState(new InvadeTurn());
 	}
 	
 	private void init() {
@@ -43,11 +38,6 @@ public class StartTurn implements TurnState{
 				player2.setCountries(res);
 				i++;
 			}
-		}
-		
+		}	
 	}
-	
-	
-	
-
 }

@@ -18,14 +18,17 @@ public class GameEngine {
 	public static PlayerI player2 = new Player("Herbert");
 	
 	private Turn turn;
-	private boolean finished;
 	private PlayerI currentPlayer;
 	private CountryI target;
 	private CountryI attacker;
 	
 	public GameEngine() {
-		finished = false;
+		turn.startTurn();
 		currentPlayer = player2;
+	}
+
+	public void createMap() {
+		
 	}
 
 	public void exit() {
@@ -75,12 +78,8 @@ public class GameEngine {
 		return res;
 	}
 
-	public boolean isDone() {
-		return finished;
-	}
-
-	public void setFinished() {
-		finished = true;
+	public void endTurn() {
+		turn.endTurn();
 	}
 
 	public void setCurrentPlayer() {

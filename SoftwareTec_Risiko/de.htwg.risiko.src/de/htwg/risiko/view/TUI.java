@@ -4,7 +4,8 @@ import static java.lang.System.*;
 
 import java.util.Scanner;
 
-import de.htwg.risiko.controller.GameEngine;
+import de.htwg.risiko.controller.IGameEngine;
+import de.htwg.risiko.controller.impl.GameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
 
@@ -13,7 +14,7 @@ public class TUI {
 	private static final Scanner INSERT = new Scanner(in);
 	
 	public static void main(final String[] args) {
-		GameEngine ge = new GameEngine();
+		IGameEngine ge = new GameEngine();
 		out.println("Wanna play?");
         while (INSERT.hasNext()) {
         	if (INSERT.next().equals("yes")) {
@@ -27,14 +28,14 @@ public class TUI {
 		ge.setCurrentPlayer();
 		ge.startGame();
 
-		for (Country c : ge.world.getWorld().keySet()) {
+		for (Country c : ge.getWorld().getWorld().keySet()) {
 			out.printf("%s: %s %d\n", c.getName(), ge.getOwner(c).getName(), ge.getSoldiers(c));
 		}
 
 		out.println("\nselect attacker");
 		while (INSERT.hasNext()) {
-        	if (INSERT.next().equals(ge.getCountries(ge.player1).get(0).getName())) {
-        		ge.selectAttacker(ge.getCountries(ge.player1).get(0));
+        	if (INSERT.next().equals(ge.getCountries(ge.getCurrentPlayer()).get(0).getName())) {
+        		ge.selectAttacker(ge.getCountries(ge.getCurrentPlayer()).get(0));
         		break;
         	} else {
         		out.println("nope");
@@ -42,8 +43,8 @@ public class TUI {
         }
 		out.println("\nselect target");
 		while (INSERT.hasNext()) {
-        	if (INSERT.next().equals(ge.getCountries(ge.player2).get(0).getName())) {
-        		ge.selectTarget(ge.getCountries(ge.player2).get(0));
+        	if (INSERT.next().equals(ge.getCountries(ge.getOpponent()).get(0).getName())) {
+        		ge.selectTarget(ge.getCountries(ge.getOpponent()).get(0));
         		break;
         	} else {
         		out.println("nope");
@@ -53,14 +54,14 @@ public class TUI {
 		ge.endTurn();
 		ge.invade();
 		
-		for (Country c : ge.world.getWorld().keySet()) {
+		for (Country c : ge.getWorld().getWorld().keySet()) {
 			out.printf("%s: %s %d\n", c.getName(), ge.getOwner(c).getName(), ge.getSoldiers(c));
 		}
 		
 		out.println("\nselect recruitment");
 		while (INSERT.hasNext()) {
-        	if (INSERT.next().equals(ge.getCountries(ge.player1).get(1).getName())) {
-        		ge.selectRecruitment(ge.getCountries(ge.player1).get(1), 3);
+        	if (INSERT.next().equals(ge.getCountries(ge.getCurrentPlayer()).get(1).getName())) {
+        		ge.selectRecruitment(ge.getCountries(ge.getCurrentPlayer()).get(1), 3);
         		break;
         	} else {
         		out.println("nope");
@@ -71,7 +72,7 @@ public class TUI {
 
 //		out.println(ge.world.toString());
 
-		for (Country c : ge.world.getWorld().keySet()) {
+		for (Country c : ge.getWorld().getWorld().keySet()) {
 			out.printf("%s: %s %d\n", c.getName(), ge.getOwner(c).getName(), ge.getSoldiers(c));
 		}
 /*

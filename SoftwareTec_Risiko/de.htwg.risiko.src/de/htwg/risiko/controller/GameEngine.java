@@ -17,7 +17,9 @@ public class GameEngine {
 	public PlayerI player1 = new Player("Hans");
 	public PlayerI player2 = new Player("Herbert");
 	
+
 	private Turn turn;
+	private boolean finished;
 	private PlayerI currentPlayer;
 	private CountryI target;
 	private CountryI attacker;
@@ -42,6 +44,8 @@ public class GameEngine {
 		world.addEdge(fra, ch);
 		world.addEdge(aus, ch);
 	}
+	
+	
 
 	public void exit() {
 		System.exit(0);

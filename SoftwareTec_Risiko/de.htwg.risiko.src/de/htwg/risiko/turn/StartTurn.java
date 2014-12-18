@@ -3,6 +3,7 @@ package de.htwg.risiko.turn;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.WorldI;
+import de.htwg.risiko.view.Statistics;
 
 public class StartTurn implements TurnState{
 	

@@ -20,6 +20,10 @@ public class Player implements PlayerI {
 	public String getName() {
 		return name;
 	}
+	
+	public void setName(String s) {
+		name = s;
+	}
 
 	@Override
 	public List<CountryI> getCountries() {

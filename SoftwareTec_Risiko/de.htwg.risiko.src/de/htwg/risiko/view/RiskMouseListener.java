@@ -22,7 +22,7 @@ public class RiskMouseListener implements MouseListener, MouseMotionListener {
 			}
 			
 		}
-		
+	
 	}
 
 	@Override

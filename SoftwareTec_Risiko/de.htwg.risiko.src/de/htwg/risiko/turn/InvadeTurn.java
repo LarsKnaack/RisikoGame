@@ -64,6 +64,10 @@ public class InvadeTurn implements TurnState{
 				defendingCountry.setSoldiers(defendingCountry.getSoldiers() - 1);
 				maxDefDice--;
 			} else {
+                if (invadingCountry.getSoldiers() == 1) {
+                    maxInvDice = 0;
+                    return;
+                }
 				invadingCountry.setSoldiers(invadingCountry.getSoldiers() - 1);
 				maxInvDice--;
 			}

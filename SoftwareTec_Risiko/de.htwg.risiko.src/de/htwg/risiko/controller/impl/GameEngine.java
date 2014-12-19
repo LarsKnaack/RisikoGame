@@ -45,7 +45,7 @@ public class GameEngine extends Observable implements IGameEngine {
 		world.addEdge(fra, ch);
 		world.addEdge(aus, ch);
 	}
-
+	
 	public void exit() {
 		statusline = "bye";
 		notifyObservers();

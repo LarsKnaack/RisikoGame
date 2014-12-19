@@ -56,7 +56,7 @@ public class InvadeTurn implements TurnState{
 		dice.roll(invaderDice);
 		dice.roll(defenderDice);
 		if (maxInvDice < 2 || maxDefDice == 0) {
-			return;
+			throw new IllegalArgumentException("Not enough Soldiers in Invader");
 		}
 		for (int i = 0; i < invaderDice.length; i++) {
 			

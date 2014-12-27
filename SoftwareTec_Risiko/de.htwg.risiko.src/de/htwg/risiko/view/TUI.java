@@ -24,7 +24,7 @@ public class TUI {
         	}
         }
         out.println("okay");
-		ge.createMap();
+		ge.createMap(1);
 		ge.setCurrentPlayer();
 		ge.startGame();
 

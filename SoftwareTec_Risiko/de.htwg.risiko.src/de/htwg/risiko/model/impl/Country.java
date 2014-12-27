@@ -1,15 +1,33 @@
 package de.htwg.risiko.model.impl;
 
+import java.awt.Point;
+
 import de.htwg.risiko.model.CountryI;
 
 public class Country implements CountryI {
 	
 	private int soldiers;
 	private String name;
+	private Point location;
 
 	public Country(String n) {
 		soldiers = 0;
 		name = n;
+		location = new Point();
+	}
+	
+	public Country(String n, Point p) {
+		soldiers = 0;
+		name = n;
+		location = p;
+	}
+	
+	public void setLocation(Point p) {
+		location = p;
+	}
+	
+	public Point getLocation() {
+		return location;
 	}
 	
 	@Override
@@ -30,5 +48,10 @@ public class Country implements CountryI {
 	@Override
 	public void setName(String n) {
 		name = n;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
 	}
 }

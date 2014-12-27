@@ -3,14 +3,12 @@ package de.htwg.risiko.view;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import de.htwg.risiko.controller.GameEngine;
-import de.htwg.risiko.model.PlayerI;
 
 @SuppressWarnings("serial")
 public class StartDialog extends JDialog implements ActionListener {
@@ -61,15 +59,15 @@ public class StartDialog extends JDialog implements ActionListener {
 		Object source = arg0.getSource();
 		if(source == bConfirmP1) {
 			player1 = new String(player1Tf.getText());
-			GameEngine.player1.setName(player1);
+			GUI.controller.setCurrentPlayer();
+			GUI.controller.getCurrentPlayer().setName(player1);
 			player1Dialog.dispose();
 			player2Dialog.setVisible(true);
 		} else {
 			player2 = new String(player2Tf.getText());
+			GUI.controller.getOpponent().setName(player2);
 			player2Dialog.dispose();
-			Coordinates.setCoordinates();
-			GameEngine.player2.setName(player2);
-			GameEngine.startGame();
+			GUI.controller.startGame();
 			Statistics.update();
 		}
 	}

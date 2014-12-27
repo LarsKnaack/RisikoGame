@@ -1,5 +1,7 @@
 package de.htwg.risiko.model;
 
+import java.awt.Point;
+
 public interface CountryI {
 
 	
@@ -11,5 +13,9 @@ public interface CountryI {
 	public String getName();
 	//get Name of the Country
 	public void setName(String n);
+	
+	public void setLocation(Point p);
+	
+	public Point getLocation();
 
 }

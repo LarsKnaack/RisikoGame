@@ -40,7 +40,7 @@ public class TextUI implements IObserver {
 			continu = false;
 			break;
 		case "n":
-			ge.createMap();
+			ge.createMap(1);
 			ge.startGame();
 			break;
 		case "a":

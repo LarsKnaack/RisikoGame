@@ -1,8 +1,16 @@
 package de.htwg.risiko.controller.impl;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
+import de.htwg.risiko.RiskMap;
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
@@ -29,22 +37,27 @@ public class GameEngine extends Observable implements IGameEngine {
 		notifyObservers();
 	}
 
-	public void createMap() {
+	public void createMap(int i) {
 		world = new World();
-		CountryI ger = new Country("germany");
-		CountryI fra = new Country("france");
-		CountryI ch = new Country("switzerland");
-		CountryI aus = new Country("austria");
-		world.addCountry(ger);
-		world.addCountry(fra);
-		world.addCountry(ch);
-		world.addCountry(aus);
-		world.addEdge(ger, fra);
-		world.addEdge(ger, ch);
-		world.addEdge(ger, aus);
-		world.addEdge(fra, ch);
-		world.addEdge(aus, ch);
+		if (i == 1) {
+			CountryI ger = new Country("germany");
+			CountryI fra = new Country("france");
+			CountryI ch = new Country("switzerland");
+			CountryI aus = new Country("austria");
+			world.addCountry(ger);
+			world.addCountry(fra);
+			world.addCountry(ch);
+			world.addCountry(aus);
+			world.addEdge(ger, fra);
+			world.addEdge(ger, ch);
+			world.addEdge(ger, aus);
+			world.addEdge(fra, ch);
+			world.addEdge(aus, ch);
+		} else if(i == 2) {
+			RiskMap.create(world);
+		}
 	}
+	
 	
 	public void exit() {
 		statusline = "bye";

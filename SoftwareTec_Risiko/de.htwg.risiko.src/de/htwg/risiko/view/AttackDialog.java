@@ -53,8 +53,13 @@ public class AttackDialog extends JDialog implements ActionListener{
 		try{
 			GUI.controller.selectTarget((CountryI) neighbours.getSelectedItem());
 			GUI.controller.invade();
+			
 			Statistics.update();
 			myDialog.dispose();
+			int res = JOptionPane.showConfirmDialog(this, "Do you want to end your Invade Turn?");
+			if (res == JOptionPane.YES_OPTION) {
+				GUI.controller.endTurn();
+			}
 		} catch(IllegalArgumentException x) {
 			JOptionPane.showMessageDialog(this, x.getMessage());
 		} catch(NullPointerException n) {

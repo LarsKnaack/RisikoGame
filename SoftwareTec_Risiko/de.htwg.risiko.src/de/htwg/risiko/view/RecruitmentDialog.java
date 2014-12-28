@@ -25,11 +25,12 @@ public class RecruitmentDialog implements ActionListener{
 		JDialog main = new JDialog();
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(GUI.controller.getMaxRecruitment());
+		sb.append("Recruitment available ").append(GUI.controller.getMaxRecruitment());
 		
 		lableMaxRec = new JLabel(sb.toString());
 		recruitment = new JTextField(20);
 		add = new JButton("Add");
+		add.addActionListener(this);
 		
 		main.add(lableMaxRec, BorderLayout.WEST);
 		main.add(recruitment, BorderLayout.EAST);
@@ -47,7 +48,14 @@ public class RecruitmentDialog implements ActionListener{
 		
 		int i = Integer.parseInt(recruitment.getText());
 		
-		GUI.controller.selectRecruitment(current, i);
+		if (GUI.controller.selectRecruitment(current, i)){
+			GUI.controller.recruit();
+			Statistics.update();
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("Recruitment available ").append(GUI.controller.getMaxRecruitment());
+		lableMaxRec.setText(sb.toString());
 	}
 
 }

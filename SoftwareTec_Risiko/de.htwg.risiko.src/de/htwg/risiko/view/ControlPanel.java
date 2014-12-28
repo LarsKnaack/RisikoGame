@@ -55,11 +55,10 @@ public class ControlPanel extends JPanel implements ActionListener {
 		if (source == endTurn) {
 			GUI.controller.changePlayer();
 			Statistics.update();
-		} else if(source == attackB) {
-			new AttackDialog(current);
+		} else if(source == addRecB) {
+			new RecruitmentDialog(current);
 		} else {
-			System.out.println("RecruitmentDialog");
-			//new RecruitmentDialog(current);
+			new AttackDialog(current);
 		}
 	}
 

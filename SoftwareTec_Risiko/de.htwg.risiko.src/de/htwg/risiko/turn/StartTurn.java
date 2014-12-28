@@ -17,7 +17,7 @@ public class StartTurn implements TurnState{
 		player2 = turn.getOpponent();
 		world = turn.getWorld();
 		init();
-		turn.setState(new RecruitmentTurn());
+		turn.setState(new InvadeTurn());
 	}
 	
 	private void init() {

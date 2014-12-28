@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.turn.InvadeTurn;
 
 public class ControlPanel extends JPanel implements ActionListener {
 	
@@ -56,6 +57,9 @@ public class ControlPanel extends JPanel implements ActionListener {
 			Statistics.update();
 		} else if(source == attackB) {
 			new AttackDialog(current);
+		} else {
+			System.out.println("RecruitmentDialog");
+			//new RecruitmentDialog(current);
 		}
 	}
 

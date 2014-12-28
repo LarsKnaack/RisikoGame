@@ -17,13 +17,13 @@ public class StartTurn implements TurnState{
 		player2 = turn.getOpponent();
 		world = turn.getWorld();
 		init();
-		turn.setState(new InvadeTurn());
+		turn.setState(new RecruitmentTurn());
 	}
 	
 	private void init() {
 		int i = 0;
 		for(CountryI c :  world.getWorld().keySet()){
-			c.setSoldiers(2);
+			c.setSoldiers(3);
 			if (i % 2 == 0) {
 				player1.addCountry(c);
 				i++;

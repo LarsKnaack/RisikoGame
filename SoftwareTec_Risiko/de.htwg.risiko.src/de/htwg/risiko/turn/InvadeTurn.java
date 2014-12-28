@@ -33,6 +33,7 @@ public class InvadeTurn implements TurnState{
 		defendingCountry = turn.getDefender();
 		world = turn.getWorld();
 		if (winner().equals(invadingCountry)) {
+			defendingCountry.setSoldiers(0);
 			player.addCountry(defendingCountry);
 			opponent.removeCountry(defendingCountry);
 		}

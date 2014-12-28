@@ -19,6 +19,7 @@ import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.model.impl.World;
 import de.htwg.risiko.turn.Turn;
+import de.htwg.risiko.turn.TurnState;
 import de.htwg.risiko.util.observer.Observable;
 
 public class GameEngine extends Observable implements IGameEngine {
@@ -35,6 +36,10 @@ public class GameEngine extends Observable implements IGameEngine {
 	public GameEngine() {
 		currentPlayer = player2;
 		notifyObservers();
+	}
+	
+	public int getMaxRecruitment() {
+		return turn.getMaxRecruitment();
 	}
 
 	public void createMap(int i) {
@@ -57,7 +62,6 @@ public class GameEngine extends Observable implements IGameEngine {
 			RiskMap.create(world);
 		}
 	}
-	
 	
 	public void exit() {
 		statusline = "bye";

@@ -66,6 +66,7 @@ public class GUI extends JFrame {
 		
 		System.out.println(this.getWidth());
 		System.out.println(this.getHeight());
+		
 		new StartDialog();
 	}
 }

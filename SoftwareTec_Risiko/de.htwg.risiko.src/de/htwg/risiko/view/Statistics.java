@@ -2,6 +2,7 @@ package de.htwg.risiko.view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,11 +40,15 @@ public class Statistics extends JPanel {
 	
 	public static void update() {
 		StringBuilder sbP1 = new StringBuilder();
-		for (CountryI c: GUI.controller.getCurrentPlayer().getCountries()) {
+		List<CountryI> countriesP1 = GUI.controller.getCurrentPlayer().getCountries();
+		Collections.sort(countriesP1);
+		for (CountryI c: countriesP1) {
 			sbP1.append(c.getSoldiers()).append(" ").append(c.getName()).append("\n");
 		}
 		StringBuilder sbP2 = new StringBuilder();
-		for (CountryI c: GUI.controller.getOpponent().getCountries()) {
+		List<CountryI> countriesP2 = GUI.controller.getOpponent().getCountries();
+		Collections.sort(countriesP2);
+		for (CountryI c: countriesP2) {
 			sbP2.append(c.getSoldiers()).append(" ").append(c.getName()).append("\n");
 		}
 		

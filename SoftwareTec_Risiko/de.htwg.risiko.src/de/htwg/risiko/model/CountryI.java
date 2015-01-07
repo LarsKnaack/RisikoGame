@@ -2,7 +2,9 @@ package de.htwg.risiko.model;
 
 import java.awt.Point;
 
-public interface CountryI {
+import de.htwg.risiko.model.impl.Country;
+
+public interface CountryI extends Comparable<CountryI>{
 
 	
 	//get soldiers positioned in the Country (saved in global variable)
@@ -17,5 +19,9 @@ public interface CountryI {
 	public void setLocation(Point p);
 	
 	public Point getLocation();
+	
+	int compareTo(Country o);
+	
+	
 
 }

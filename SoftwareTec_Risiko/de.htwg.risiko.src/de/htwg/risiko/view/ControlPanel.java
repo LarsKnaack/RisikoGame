@@ -53,7 +53,6 @@ public class ControlPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
 		if (source == endTurn) {
-			GUI.controller.endTurn();
 			GUI.controller.changePlayer();
 			Statistics.update();
 		} else if(source == addRecB) {

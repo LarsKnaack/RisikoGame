@@ -13,9 +13,6 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class StartDialog extends JDialog implements ActionListener {
 	
-	public static String player1;
-	public static String player2;
-	
 	private JButton bConfirmP1;
 	private JButton bConfirmP2;
 	
@@ -57,6 +54,8 @@ public class StartDialog extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
+		String player1;
+		String player2;
 		if(source == bConfirmP1) {
 			player1 = new String(player1Tf.getText());
 			GUI.controller.setCurrentPlayer();

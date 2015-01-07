@@ -1,6 +1,9 @@
 package de.htwg.risiko.view;
 
 import static java.lang.System.*;
+
+import java.util.Scanner;
+
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
@@ -38,7 +41,7 @@ public class TextUI implements IObserver {
 			out.printf("%s:%"+p1+"s%"+p2+"d\n", s1, s2, s3);
 		}
 		out.println("\n_______________________________________________________________________\n");
-		out.println("q:     quit\nn:     new game\na:     select attacker\nt:     select target\nat:    attack\nr:     select country for recruitment\nnum:   select number of recruitments\nm:     recruit");
+		out.println("q:     quit\nn:     new game\ne:     end turn");
 		out.println("_______________________________________________________________________\n");
 	}
 
@@ -46,6 +49,96 @@ public class TextUI implements IObserver {
 		boolean continu = true;
 
 		switch (line) {
+		case "q":
+			out.println("Are you sure? (y/n)");
+			Scanner scan1 = new Scanner(System.in);
+			if (scan1.next().equals("y")) {
+				ge.exit();
+			}
+			break;
+		case "n":
+			out.println("Player1, please enter your name:");
+			Scanner scanner = new Scanner(System.in);
+			ge.getOpponent().setName(scanner.nextLine());
+			out.println("Player2, please enter your name:");
+
+			ge.getCurrentPlayer().setName(scanner.nextLine());
+			ge.createMap(1);
+			ge.startGame();
+			break;
+		case "e":
+			ge.endTurn();
+			break;
+		}
+
+		if (line.matches("[A-Za-z ]+[,][ ][A-Za-z-]+")) {
+			int aFlag = 0;
+			int tFlag = 0;
+			if (ge.getStatus().equals("now select recruitment")) {
+				out.println("You already finished your turn!");
+				return continu;
+			}
+			String arg[] = line.split(", ");
+			for (CountryI c : ge.getWorld().getWorld().keySet()) {
+				if (arg[0].equals(c.getName())) {
+					aFlag++;
+					if (!ge.selectAttacker(c)) {
+						out.println("Attacker is invalid!");
+						return continu;	    
+					}
+				}
+				if (arg[1].equals(c.getName())) {
+					tFlag++;
+					if (!ge.selectTarget(c)) {
+						out.println("Target is invalid!");
+					    return continu;
+					}
+				}
+			}
+			if (aFlag < 1) {
+				out.println("Attacker is invalid!");
+			} else if (tFlag < 1) {
+				out.println("Target is invalid!");
+			} else {
+				ge.invade();
+			}
+			if(ge.getOpponent().getCountries().isEmpty()) {
+				out.println("\nCongratulations, " + ge.getCurrentPlayer().getName() + " has won!");
+				continu = false;
+			}
+		}
+
+		if (line.matches("[A-Za-z ]+[,][ ][1-99]")) {
+			int rFlag = 0;
+			if (!ge.getStatus().equals("now select recruitment")) {
+				out.println("You have to end your turn first before you can recruit!");
+				return continu;
+			}
+			String arg[] = line.split(", ");
+			for (CountryI c : ge.getWorld().getWorld().keySet()) {
+				if (arg[0].equals(c.getName())) {
+					rFlag++;
+					if (!ge.selectRecruitment(c, Integer.parseInt(arg[1]))) {
+						out.println("Recruitment is invalid!");
+					    return continu;
+					}
+					break;
+				}
+			}
+			if (rFlag > 0) {
+				ge.recruit();
+			} else {
+				out.println("Country is invalid!");
+			}
+
+			if (ge.getMaxRecruitment() == 0) {
+				ge.changePlayer();
+				mode = '0';
+			} else {
+				printTUI();
+			}
+		}
+/*		switch (line) {
 		case "q":
 			continu = false;
 			break;
@@ -115,9 +208,9 @@ public class TextUI implements IObserver {
 					//mode = 'n';
 					rec = c;
 				}
-
-			}
-		}
+*/
+		//	}
+		//}
 		return continu;
 	}
 }

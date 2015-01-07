@@ -1,5 +1,7 @@
 package de.htwg.risiko;
 
+import static java.lang.System.out;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -29,6 +31,7 @@ public class Risiko {
 	private Risiko(int i) {
 		controller = new GameEngine();
 		if (i == 1) {
+			out.println("Welcome to RiskGame!\n\nPress \"n\" to start a new game!\n");
 			tui = new TextUI(controller);
 			//controller.createMap(i);
 			//tui.printTUI();
@@ -56,7 +59,7 @@ public class Risiko {
 		if (tui != null) {
 			boolean continu = true;
 			while (continu) {
-				continu = tui.processInputLine(scanner.next());
+				continu = tui.processInputLine(scanner.nextLine());
 			}
 		}
 	}

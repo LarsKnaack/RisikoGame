@@ -156,7 +156,7 @@ public class GameEngine extends Observable implements IGameEngine {
 		if (getOwner(c).equals(currentPlayer) && turn.getMaxRecruitment() > 0) {
 			turn.setRecruitment(num);
 			turn.setRecCountry(c);
-			statusline = c.getName() + " selected";
+			//statusline = c.getName() + " selected";
 			//notifyObservers();
 			return true;
 		}

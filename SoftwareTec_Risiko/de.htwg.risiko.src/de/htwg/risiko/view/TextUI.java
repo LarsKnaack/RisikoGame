@@ -41,7 +41,7 @@ public class TextUI implements IObserver {
 			out.printf("%s:%"+p1+"s%"+p2+"d\n", s1, s2, s3);
 		}
 		out.println("\n_______________________________________________________________________\n");
-		out.println("q:     quit\nn:     new game\ne:     end turn");
+		out.println("q:     quit              country1, country2:     attack\nn:     new game          country, x:             recruit\ne:     end turn          country:                show candidates");
 		out.println("_______________________________________________________________________\n");
 	}
 
@@ -137,6 +137,16 @@ public class TextUI implements IObserver {
 			} else {
 				printTUI();
 			}
+		}
+
+		if (line.matches("[A-Za-z ]+")) {
+			for (CountryI c : ge.getWorld().getWorld().keySet()) {
+				if (line.equals(c.getName())) {
+					out.println(ge.getCandidates(c));
+					return continu;
+				}
+			}
+			out.println("Country is invalid!");
 		}
 /*		switch (line) {
 		case "q":

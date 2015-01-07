@@ -50,4 +50,9 @@ public class Country implements CountryI {
 		name = n;
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 }

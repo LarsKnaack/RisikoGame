@@ -41,7 +41,7 @@ public class TextUI implements IObserver {
 			continu = false;
 			break;
 		case "n":
-			ge.createMap();
+			ge.createMap(2);
 			ge.startGame();
 			break;
 		case "a":
@@ -98,5 +98,4 @@ public class TextUI implements IObserver {
 		}
 		return continu;
 	}
-
 }

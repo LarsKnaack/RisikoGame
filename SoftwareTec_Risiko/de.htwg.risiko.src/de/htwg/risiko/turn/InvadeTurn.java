@@ -33,6 +33,7 @@ public class InvadeTurn implements TurnState{
 		defendingCountry = turn.getDefender();
 		world = turn.getWorld();
 		if (winner().equals(invadingCountry)) {
+			defendingCountry.setSoldiers(0);
 			player.addCountry(defendingCountry);
 			opponent.removeCountry(defendingCountry);
 			invadingCountry.setSoldiers(invadingCountry.getSoldiers() - 1);
@@ -60,6 +61,12 @@ public class InvadeTurn implements TurnState{
 		int[] defenderDice = new int[maxDefDice];
 		dice.roll(invaderDice);
 		dice.roll(defenderDice);
+/*<<<<<<< HEAD
+=======
+		if (maxInvDice < 2 || maxDefDice == 0) {
+			throw new IllegalArgumentException("Not enough Soldiers");
+		}
+>>>>>>> branch 'master' of git@github.com:Team2Softwaretec/Risiko.git*/
 		for (int i = 0; i < invaderDice.length; i++) {
 			
 			int a = max(invaderDice);

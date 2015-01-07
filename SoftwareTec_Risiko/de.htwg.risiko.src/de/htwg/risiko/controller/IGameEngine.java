@@ -1,15 +1,19 @@
 package de.htwg.risiko.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.WorldI;
+import de.htwg.risiko.turn.Turn;
+import de.htwg.risiko.turn.TurnState;
 import de.htwg.risiko.util.observer.IObservable;
 
 public interface IGameEngine extends IObservable {
 
-	public void createMap();
+	public void createMap(int i);
 
 	public void exit();
 
@@ -46,4 +50,6 @@ public interface IGameEngine extends IObservable {
 	public PlayerI getOpponent();
 
 	public String getStatus();
+	
+	public int getMaxRecruitment();
 }

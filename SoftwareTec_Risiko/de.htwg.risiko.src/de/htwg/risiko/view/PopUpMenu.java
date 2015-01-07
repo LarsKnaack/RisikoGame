@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import de.htwg.risiko.RiskMap;
+
 @SuppressWarnings("serial")
 public class PopUpMenu extends JFrame implements ActionListener {
 
@@ -27,7 +29,7 @@ public class PopUpMenu extends JFrame implements ActionListener {
 	}
 	
 	public void showMenu(MouseEvent e) {
-		country = new JLabel(Coordinates.check(new Point(e.getX(), e.getY())).toUpperCase());
+		country = new JLabel(RiskMap.check(new Point(e.getX(), e.getY())).getName().toUpperCase());
 		main.add(country);
 		main.addSeparator();
 		main.add(add);

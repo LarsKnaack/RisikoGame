@@ -23,6 +23,7 @@ public class StartDialog extends JDialog implements ActionListener {
 	private JDialog player2Dialog;
 	
 	public StartDialog() {
+		
 		player1Dialog = new JDialog(this);
 		player2Dialog = new JDialog(this);
 		JLabel lPlayer1Tf = new JLabel("Name of Player 1");
@@ -54,11 +55,12 @@ public class StartDialog extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
+		
 		String player1;
 		String player2;
 		if(source == bConfirmP1) {
+			GUI.controller.startGame();
 			player1 = new String(player1Tf.getText());
-			GUI.controller.setCurrentPlayer();
 			GUI.controller.getCurrentPlayer().setName(player1);
 			player1Dialog.dispose();
 			player2Dialog.setVisible(true);
@@ -66,7 +68,7 @@ public class StartDialog extends JDialog implements ActionListener {
 			player2 = new String(player2Tf.getText());
 			GUI.controller.getOpponent().setName(player2);
 			player2Dialog.dispose();
-			GUI.controller.startGame();
+			
 			Statistics.update();
 		}
 	}

@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import junit.framework.TestCase;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.World;
-import junit.framework.TestCase;
 
 public class WorldTest extends TestCase {
 	

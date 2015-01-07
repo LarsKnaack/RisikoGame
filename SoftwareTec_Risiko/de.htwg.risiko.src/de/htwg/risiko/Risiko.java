@@ -1,15 +1,11 @@
 package de.htwg.risiko;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.net.URL;
 import java.util.Scanner;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.controller.impl.GameEngine;
-import de.htwg.risiko.model.WorldI;
-import de.htwg.risiko.view.TextUI;
 import de.htwg.risiko.view.GUI;
+import de.htwg.risiko.view.TextUI;
 
 public class Risiko {
 

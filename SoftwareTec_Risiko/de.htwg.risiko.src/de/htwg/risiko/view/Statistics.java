@@ -3,16 +3,13 @@ package de.htwg.risiko.view;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.PlayerI;
 
 @SuppressWarnings("serial")
 public class Statistics extends JPanel {

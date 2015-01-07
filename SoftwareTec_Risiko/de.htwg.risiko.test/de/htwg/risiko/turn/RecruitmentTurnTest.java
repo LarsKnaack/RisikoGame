@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import junit.framework.TestCase;
-
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;

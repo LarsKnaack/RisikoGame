@@ -1,15 +1,8 @@
 package de.htwg.risiko.model;
-import static org.junit.Assert.*;
-
-import java.awt.Color;
 import java.awt.Point;
 
 import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import de.htwg.risiko.model.impl.Country;
-import de.htwg.risiko.model.impl.Player;
 
 public class CountryTest extends TestCase {
 	

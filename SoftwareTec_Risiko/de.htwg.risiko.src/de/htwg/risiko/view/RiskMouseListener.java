@@ -5,8 +5,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import javax.swing.BorderFactory;
-
 import de.htwg.risiko.RiskMap;
 import de.htwg.risiko.model.CountryI;
 

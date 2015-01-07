@@ -1,17 +1,12 @@
 package de.htwg.risiko;
 
-import static java.lang.System.out;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.net.URL;
 import java.util.Scanner;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.controller.impl.GameEngine;
-import de.htwg.risiko.model.WorldI;
-import de.htwg.risiko.view.TextUI;
 import de.htwg.risiko.view.GUI;
+import de.htwg.risiko.view.TextUI;
 
 public class Risiko {
 
@@ -31,7 +26,7 @@ public class Risiko {
 	private Risiko(int i) {
 		controller = new GameEngine();
 		if (i == 1) {
-			out.println("Welcome to RiskGame!\n\nPress \"n\" to start a new game!\n");
+			System.out.println("Welcome to RiskGame!\n\nPress \"n\" to start a new game!\n");
 			tui = new TextUI(controller);
 			//controller.createMap(i);
 			//tui.printTUI();

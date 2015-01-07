@@ -1,7 +1,6 @@
 package de.htwg.risiko.turn;
 
 import junit.framework.TestCase;
-
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.model.impl.World;

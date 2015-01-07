@@ -1,14 +1,8 @@
 package de.htwg.risiko.turn;
 
-import static org.junit.Assert.*;
-
 import java.util.Random;
 
 import junit.framework.TestCase;
-
-import org.junit.Test;
-
-import de.htwg.risiko.turn.Die;
 
 public class DieTest extends TestCase {
 	

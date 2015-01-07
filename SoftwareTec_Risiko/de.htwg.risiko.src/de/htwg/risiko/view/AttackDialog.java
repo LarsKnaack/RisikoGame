@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import de.htwg.risiko.model.CountryI;
 
+@SuppressWarnings("serial")
 public class AttackDialog extends JDialog implements ActionListener{
 	
 	private JComboBox<CountryI> neighbours;

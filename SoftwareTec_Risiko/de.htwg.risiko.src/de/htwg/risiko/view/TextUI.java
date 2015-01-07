@@ -1,8 +1,9 @@
 package de.htwg.risiko.view;
 
-import static java.lang.System.*;
 
 import java.util.Scanner;
+
+import static java.lang.System.out;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;

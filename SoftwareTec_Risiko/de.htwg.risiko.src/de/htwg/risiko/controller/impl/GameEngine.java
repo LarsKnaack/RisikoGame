@@ -18,7 +18,6 @@ public class GameEngine extends Observable implements IGameEngine {
 	public PlayerI player1 = new Player("Hans");
 	public PlayerI player2 = new Player("Herbert");
 	private Turn turn;
-	private boolean finished;
 	private PlayerI currentPlayer;
 	private CountryI target;
 	private CountryI attacker;
@@ -104,16 +103,18 @@ public class GameEngine extends Observable implements IGameEngine {
 
 	public void endTurn() {
 		turn.endTurn();
+		turn.getState().pull(turn);
+		statusline = "now select recruitment";
 		notifyObservers();
 	}
 
 	public void setCurrentPlayer() {
 		if (currentPlayer.equals(player1)) {
 			currentPlayer = player2;
-			notifyObservers();
+			//notifyObservers();
 		} else {
 			currentPlayer = player1;
-			notifyObservers();
+			//notifyObservers();
 		}
 	}
 
@@ -125,33 +126,36 @@ public class GameEngine extends Observable implements IGameEngine {
 		if (getCandidates(attacker).contains(c)) {
 			target = c;
 			statusline = c.getName() + " selected";
-			notifyObservers();
+			//notifyObservers();
 			return true;
 		}
-		notifyObservers();
+		statusline = "not possible";
+		//notifyObservers();
 		return false;
 	}
 
 	public boolean selectAttacker(CountryI c) {
-		if (getCountries(currentPlayer).contains(c)) {
+		if (getCountries(currentPlayer).contains(c) && getSoldiers(c) > 1) {
 			attacker = c;
 			statusline = c.getName() + " selected";
-			notifyObservers();
+			//notifyObservers();
 			return true;
 		}
-		notifyObservers();
+		statusline = "not possible";
+		//notifyObservers();
 		return false;
 	}
 
 	public boolean selectRecruitment(CountryI c, int num) {
-		if (getOwner(c).equals(currentPlayer)) {
+		if (getOwner(c).equals(currentPlayer) && turn.getMaxRecruitment() > 0) {
 			turn.setRecruitment(num);
 			turn.setRecCountry(c);
 			statusline = c.getName() + " selected";
-			notifyObservers();
+			//notifyObservers();
 			return true;
 		}
-		notifyObservers();
+		statusline = "not possible";
+		//notifyObservers();
 		return false;
 	}
 

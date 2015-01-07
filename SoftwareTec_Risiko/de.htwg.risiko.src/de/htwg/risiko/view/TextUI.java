@@ -10,7 +10,7 @@ import de.htwg.risiko.util.observer.IObserver;
 public class TextUI implements IObserver {
 
 	IGameEngine ge;
-	int num = 1;
+	int num = 0;
 	CountryI rec;
 	char mode = 0;
 
@@ -25,6 +25,7 @@ public class TextUI implements IObserver {
 	}
 
 	public void printTUI() {
+		out.println(ge.getCurrentPlayer().getName());
 		out.println(ge.getStatus());
 		//out.println(ge.getWorld().toString());
 		for (Country c : ge.getWorld().getWorld().keySet()) {
@@ -52,16 +53,34 @@ public class TextUI implements IObserver {
 		case "r":
 			mode = 'r';
 			break;
+		case "e":
+			ge.endTurn();
+			break;
 		case "at":
 			ge.invade();
 			break;
 		case "m":
 			ge.recruit();
+			//ge.changePlayer();
+			break;
+		case "num":
+			mode = 'n';
 			break;
 		}
 
+		if (mode == 'm') {
+			mode = 'n';
+			num = Integer.parseInt(line);
+		}
 		if (mode == 'n') {
-			ge.selectRecruitment(rec, num);
+			if (num != 0) {
+				if(!ge.selectRecruitment(rec, num)) {
+					ge.changePlayer();
+					mode = '0';
+				}
+			} else {
+				mode = 'm';
+			}
 		}
 
 		for (CountryI c : ge.getWorld().getWorld().keySet()) {
@@ -71,7 +90,7 @@ public class TextUI implements IObserver {
 				} else if (mode == 't') {
 					ge.selectTarget(c);
 				} else if (mode == 'r') {
-					mode = 'n';
+					//mode = 'n';
 					rec = c;
 				}
 

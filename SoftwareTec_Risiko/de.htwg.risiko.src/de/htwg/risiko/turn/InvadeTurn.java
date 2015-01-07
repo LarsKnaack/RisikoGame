@@ -35,6 +35,8 @@ public class InvadeTurn implements TurnState{
 		if (winner().equals(invadingCountry)) {
 			player.addCountry(defendingCountry);
 			opponent.removeCountry(defendingCountry);
+			invadingCountry.setSoldiers(invadingCountry.getSoldiers() - 1);
+			defendingCountry.setSoldiers(1);
 		}
 	}
 
@@ -51,13 +53,13 @@ public class InvadeTurn implements TurnState{
 
 	private void invade() {
 		setMaxDice();
+		if (maxInvDice < 2) {
+			throw new IllegalArgumentException("Not enough Soldiers in Invader");
+		}
 		int[] invaderDice = new int[maxInvDice];
 		int[] defenderDice = new int[maxDefDice];
 		dice.roll(invaderDice);
 		dice.roll(defenderDice);
-		if (maxInvDice < 2 || maxDefDice == 0) {
-			throw new IllegalArgumentException("Not enough Soldiers in Invader");
-		}
 		for (int i = 0; i < invaderDice.length; i++) {
 			
 			int a = max(invaderDice);
@@ -65,6 +67,10 @@ public class InvadeTurn implements TurnState{
 
 			if (invaderDice[a] > defenderDice[d]) {
 				defendingCountry.setSoldiers(defendingCountry.getSoldiers() - 1);
+				if (defendingCountry.getSoldiers() == 0) {
+					maxDefDice = 0;
+					return;
+				}
 				maxDefDice--;
 			} else {
                 if (invadingCountry.getSoldiers() == 1) {

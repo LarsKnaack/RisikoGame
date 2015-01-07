@@ -60,6 +60,7 @@ public class GameEngine extends Observable implements IGameEngine {
 		turn = new Turn();
 		turn.setWorld(world);
 		turn.setPlayer(player1, player2);
+		setCurrentPlayer();
 		turn.getState().pull(turn);
 		statusline = "Game initialised";
 		notifyObservers();
@@ -82,7 +83,7 @@ public class GameEngine extends Observable implements IGameEngine {
 
 	public void recruit() {
 		turn.getState().pull(turn);
-		notifyObservers();
+		//notifyObservers();
 	}
 
 	public PlayerI getOwner(CountryI c) {

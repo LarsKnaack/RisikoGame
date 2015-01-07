@@ -11,20 +11,22 @@ public class RecruitmentTurn implements TurnState {
 	@Override
 	public void pull(Turn turn) {
 		maxRecruitment = turn.getMaxRecruitment();
-		if (maxRecruitment <= 0) {
+		recCountry = turn.getRecCountry();
+		recruitment = turn.getRecruitment();
+		addRecruitment(turn);
+		if (turn.getMaxRecruitment() == 0) {
 			turn.setState(new InvadeTurn());
 			return;
 		}
-		recCountry = turn.getRecCountry();
-		recruitment = turn.getRecruitment();
-		addRecruitment();
-		turn.setMaxRecruitment(turn.getMaxRecruitment() - recruitment);
 	}
 	
-	public void addRecruitment() {
+	public void addRecruitment(Turn t) {
 		if(maxRecruitment - recruitment < 0) {
+			System.out.printf("you only have %d recruitments left!\n", maxRecruitment);
 			return;
 		}
 		recCountry.setSoldiers(recCountry.getSoldiers() + recruitment);
+		t.setMaxRecruitment(maxRecruitment - recruitment);
+		System.out.printf("%d units added to %s! (%d recruitments left)\n", recruitment, recCountry.getName(), t.getMaxRecruitment());
 	}
 }

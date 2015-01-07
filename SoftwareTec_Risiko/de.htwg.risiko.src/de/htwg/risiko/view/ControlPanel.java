@@ -15,7 +15,7 @@ import de.htwg.risiko.turn.InvadeTurn;
 
 public class ControlPanel extends JPanel implements ActionListener {
 	
-	static JPanel mainPanel;
+	static JPanel mainPanel = new JPanel();
 	
 	JButton attackB;
 	JButton addRecB;
@@ -25,7 +25,7 @@ public class ControlPanel extends JPanel implements ActionListener {
 	private static CountryI current;
 	
 	public ControlPanel() {
-		mainPanel = new JPanel();
+		//mainPanel = new JPanel();
 		this.setBackground(Color.RED);
 		mainPanel.setBackground(Color.RED);
 		mainPanel.setBorder(tb);

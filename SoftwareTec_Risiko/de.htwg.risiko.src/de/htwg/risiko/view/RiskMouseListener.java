@@ -13,7 +13,6 @@ import de.htwg.risiko.model.CountryI;
 
 public class RiskMouseListener implements MouseListener, MouseMotionListener {
 	
-	private PopUpMenu menu;
 	private CountryI country;
 
 	@Override
@@ -23,14 +22,7 @@ public class RiskMouseListener implements MouseListener, MouseMotionListener {
 		if(e.getButton() == 1 && GUI.controller.getCountries(GUI.controller.getCurrentPlayer()).contains(country)) {
 			ControlPanel.setCurrentCountry(country);
 			ControlPanel.updateTitle(country.getName());
-			
-		} else {
-			if(!(menu == null)) {
-				menu.desappearMenu();
-			}
-			
 		}
-	
 	}
 
 	@Override

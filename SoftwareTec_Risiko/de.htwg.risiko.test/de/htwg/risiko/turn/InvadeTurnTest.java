@@ -8,7 +8,9 @@ import junit.framework.TestCase;
 
 import org.junit.After;
 import org.junit.Before;
-import de.htwg.risiko.controller.GameEngine;
+
+import de.htwg.risiko.controller.IGameEngine;
+import de.htwg.risiko.controller.impl.GameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
@@ -16,7 +18,7 @@ import de.htwg.risiko.model.impl.World;
 
 public class InvadeTurnTest extends TestCase{
 	
-	
+	private IGameEngine ge;
 	private World world;
 	private Player p;
 	CountryI invader;
@@ -26,12 +28,11 @@ public class InvadeTurnTest extends TestCase{
 	
 	@Before
 	public void setUp() {
-		world = (World) GameEngine.world;
+		ge = new GameEngine();
+		world = new World();
 		p = new Player("Player1");
 		invader = new Country("Invader");
-		inv = new LinkedList<CountryI>();
-		inv.add(invader);
-		p.setCountries(inv);
+		p.addCountry(invader);
 		defender = new Country("Defender");
 		world.addCountry(invader);
 		world.addCountry(defender);

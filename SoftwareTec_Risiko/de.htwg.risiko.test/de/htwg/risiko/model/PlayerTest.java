@@ -14,24 +14,21 @@ import de.htwg.risiko.model.impl.Player;
 
 public class PlayerTest extends TestCase {
 	
-	public void testGetName() {
+	public void testGetSetName() {
 		Player p = new Player("Player");
 		assertEquals(p.getName(), "Player");
+		p.setName("Test");
+		assertEquals(p.getName(), "Test");
 	}
 	
-	public void testSetCountries() {
-		Player p = new Player("Hans");
-		List<CountryI> c = new LinkedList<CountryI>();
-		CountryI test = new Country("test");
-		c.add(test);
-		p.setCountries(c);
-	}
 	public void testGetCountries() {
 		Player p = new Player("Player");
 		List<CountryI> countries = new LinkedList<CountryI>();
 		CountryI test = new Country("test");
 		countries.add(test);
-		p.setCountries(countries);
+		p.addCountry(test);
 		assertEquals(p.getCountries(), countries);
+		p.removeCountry(test);
+		assertTrue(p.getCountries().isEmpty());
 	}
 }

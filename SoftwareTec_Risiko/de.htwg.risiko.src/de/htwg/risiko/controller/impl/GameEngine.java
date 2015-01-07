@@ -1,14 +1,7 @@
 package de.htwg.risiko.controller.impl;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 import de.htwg.risiko.RiskMap;
 import de.htwg.risiko.controller.IGameEngine;
@@ -18,9 +11,7 @@ import de.htwg.risiko.model.WorldI;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.model.impl.World;
-import de.htwg.risiko.turn.InvadeTurn;
 import de.htwg.risiko.turn.Turn;
-import de.htwg.risiko.turn.TurnState;
 import de.htwg.risiko.util.observer.Observable;
 
 public class GameEngine extends Observable implements IGameEngine {
@@ -82,6 +73,8 @@ public class GameEngine extends Observable implements IGameEngine {
 	public void changePlayer() {
 		setCurrentPlayer();
 		turn.switchPlayer(currentPlayer);
+		turn.setMaxRecruitment(0);
+		turn.getState().pull(turn);
 		statusline = "It's your turn " + currentPlayer.getName();
 		notifyObservers();
 	}

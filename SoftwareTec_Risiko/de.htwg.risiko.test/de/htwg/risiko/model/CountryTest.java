@@ -31,4 +31,10 @@ public class CountryTest extends TestCase {
 		test.setLocation(new Point (3,4));
 		assertEquals(test.getLocation(), new Point (3,4));
 	}
+	
+	public void testToString() {
+		CountryI test = new Country("test");
+		String s = test.toString();
+		assertEquals(s, "test");
+	}
 }

@@ -3,13 +3,12 @@ package de.htwg.risiko.view;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 import de.htwg.risiko.RiskMap;
 import de.htwg.risiko.model.CountryI;
 
 
-public class RiskMouseListener implements MouseListener, MouseMotionListener {
+public class RiskMouseListener implements MouseListener {
 	
 	private CountryI country;
 
@@ -42,15 +41,4 @@ public class RiskMouseListener implements MouseListener, MouseMotionListener {
 	public void mouseReleased(MouseEvent arg0) {
 		
 	}
-
-	@Override
-	public void mouseDragged(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent arg0) {
-	}
-
 }

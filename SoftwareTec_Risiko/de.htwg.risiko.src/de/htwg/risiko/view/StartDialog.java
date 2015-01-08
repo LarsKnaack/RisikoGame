@@ -67,7 +67,6 @@ public class StartDialog extends JDialog implements ActionListener {
 			player2 = new String(player2Tf.getText());
 			GUI.controller.getOpponent().setName(player2);
 			player2Dialog.dispose();
-			
 			Statistics.update();
 		}
 	}

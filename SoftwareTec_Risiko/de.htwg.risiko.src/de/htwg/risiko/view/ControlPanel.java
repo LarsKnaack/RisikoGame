@@ -24,7 +24,6 @@ public class ControlPanel extends JPanel implements ActionListener {
 	private static CountryI current;
 	
 	public ControlPanel() {
-		//mainPanel = new JPanel();
 		this.setBackground(Color.RED);
 		mainPanel.setBackground(Color.RED);
 		mainPanel.setBorder(tb);

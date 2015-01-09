@@ -7,6 +7,7 @@ import de.htwg.risiko.model.WorldI;
 public class Turn {
 	
 	private TurnState currentState;
+	private String status;
 	private PlayerI player;
 	private PlayerI opponent;
 	private WorldI world;
@@ -116,5 +117,13 @@ public class Turn {
 
 	public void setMaxRecruitment(int maxRecruitment) {
 		this.maxRecruitment = maxRecruitment;
+	}
+
+	public void setStatus(String s) {
+		status = "\n" + s;
+	}
+
+	public String getStatus() {
+		return status;
 	}
 }

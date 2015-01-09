@@ -31,14 +31,14 @@ public class TextUI implements IObserver {
 	public void printTUI() {
 		out.println("\n["+ge.getCurrentPlayer().getName()+"]\n");
 		out.println("-----------------------------------------------------------------------");
-		out.println(">>>"+ge.getStatus()+"<<<");
+		out.println(">>>"+ge.getStatus());
 		out.println("-----------------------------------------------------------------------\n");
 		for (Country c : ge.getWorld().getWorld().keySet()) {
 			String s1 = c.getName();
 			String s2 = ge.getOwner(c).getName();
 			int s3 =  ge.getSoldiers(c);
 			int p1 = 30 - s1.length();
-			int p2 = 30;// - s2.length();
+			int p2 = 30;
 			out.printf("%s:%"+p1+"s%"+p2+"d\n", s1, s2, s3);
 		}
 		out.println("\n_______________________________________________________________________\n");
@@ -66,16 +66,16 @@ public class TextUI implements IObserver {
 			ge.getCurrentPlayer().setName(scanner.nextLine());
 			ge.createMap(1);
 			ge.startGame();
-			break;
+			return continu;
 		case "e":
 			ge.endTurn();
-			break;
+			return continu;
 		}
 
-		if (line.matches("[A-Za-z ]+[,][ ][A-Za-z-]+")) {
+		if (line.matches("[A-Za-z ]+[,][ ][A-Za-z ]+")) {
 			int aFlag = 0;
 			int tFlag = 0;
-			if (ge.getStatus().equals("now select recruitment")) {
+			if (ge.getStatus().contains("now select recruitment")) {
 				out.println("You already finished your turn!");
 				return continu;
 			}
@@ -84,22 +84,26 @@ public class TextUI implements IObserver {
 				if (arg[0].equals(c.getName())) {
 					aFlag++;
 					if (!ge.selectAttacker(c)) {
-						out.println("Attacker is invalid!");
+						out.printf("Attacker %s is invalid!\n", c.getName());
 						return continu;	    
 					}
-				}
-				if (arg[1].equals(c.getName())) {
-					tFlag++;
-					if (!ge.selectTarget(c)) {
-						out.println("Target is invalid!");
-					    return continu;
+					for (CountryI c1 : ge.getCandidates(c)) {
+						if (arg[1].equals(c1.getName())) {
+							tFlag++;
+							if (!ge.selectTarget(c1)) {
+								out.printf("Target %s is invalid!\n", c1.getName());
+							    return continu;
+							}
+						}
 					}
+					break;
 				}
 			}
+
 			if (aFlag < 1) {
-				out.println("Attacker is invalid!");
+				out.println("No such attacking country!");
 			} else if (tFlag < 1) {
-				out.println("Target is invalid!");
+				out.println("No such target country!");
 			} else {
 				ge.invade();
 			}
@@ -111,7 +115,7 @@ public class TextUI implements IObserver {
 
 		if (line.matches("[A-Za-z ]+[,][ ][1-99]")) {
 			int rFlag = 0;
-			if (!ge.getStatus().equals("now select recruitment")) {
+			if (!ge.getStatus().contains("now select recruitment")) {
 				out.println("You have to end your turn first before you can recruit!");
 				return continu;
 			}
@@ -135,8 +139,6 @@ public class TextUI implements IObserver {
 			if (ge.getMaxRecruitment() == 0) {
 				ge.changePlayer();
 				mode = '0';
-			} else {
-				printTUI();
 			}
 		}
 
@@ -149,79 +151,6 @@ public class TextUI implements IObserver {
 			}
 			out.println("Country is invalid!");
 		}
-/*		switch (line) {
-		case "q":
-			continu = false;
-			break;
-		case "n":
-			ge.createMap(1);
-			ge.startGame();
-			break;
-		case "a":
-			mode = 'a';
-			break;
-		case "t":
-			mode = 't';
-			break;
-		case "r":
-			mode = 'r';
-			break;
-		case "e":
-			ge.endTurn();
-			break;
-		case "at":
-			ge.invade();
-			if(ge.getOpponent().getCountries().isEmpty()) {
-				out.println("\n" + ge.getCurrentPlayer().getName() + " has won!");
-				continu = false;
-			}
-			break;
-		case "m":
-			ge.recruit();
-			if (ge.getMaxRecruitment() == 0) {
-				ge.changePlayer();
-				mode = '0';
-			} else {
-				printTUI();
-			}
-			break;
-		case "num":
-			mode = 'n';
-			break;
-		}
-
-		if (mode == 'm') {
-			mode = 'n';
-			num = Integer.parseInt(line);
-		}
-		if (mode == 'n') {
-			if (num != 0) {
-				if(!ge.selectRecruitment(rec, num)) {
-					mode = '0';
-				}
-				num = 0;
-			} else {
-				mode = 'm';
-			}
-		}
-
-		for (CountryI c : ge.getWorld().getWorld().keySet()) {
-			if (line.equals(c.getName())) {
-				if (mode == 'a') {
-					if(!ge.selectAttacker(c)) {
-						mode = '0';
-					}
-				} else if (mode == 't') {
-					if(!ge.selectTarget(c)) {
-						mode = '0';
-					}
-				} else if (mode == 'r') {
-					//mode = 'n';
-					rec = c;
-				}
-*/
-		//	}
-		//}
 		return continu;
 	}
 }

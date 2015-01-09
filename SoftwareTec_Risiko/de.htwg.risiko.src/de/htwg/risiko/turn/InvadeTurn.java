@@ -9,6 +9,7 @@ public class InvadeTurn implements TurnState{
 	private PlayerI opponent;
 	private CountryI invadingCountry;
 	private CountryI defendingCountry;
+	private StringBuilder sb;
 	
 	int maxDefDice = 0;
 	int maxInvDice = 0;
@@ -29,15 +30,16 @@ public class InvadeTurn implements TurnState{
 		opponent = turn.getOpponent();
 		invadingCountry = turn.getInvader();
 		defendingCountry = turn.getDefender();
-
+		sb = new StringBuilder();
 
 		if (winner().equals(invadingCountry) && defendingCountry.getSoldiers() == 0) {
-			System.out.printf("%s conquered %s!\n", player.getName(), defendingCountry.getName());
+			sb.append(String.format("%s conquered %s!\n", player.getName(), defendingCountry.getName()));
 			player.addCountry(defendingCountry);
 			opponent.removeCountry(defendingCountry);
 			invadingCountry.setSoldiers(invadingCountry.getSoldiers() - maxInvDice);
 			defendingCountry.setSoldiers(maxInvDice);
 		}
+		turn.setStatus(sb.toString());
 	}
 
 	void setMaxDice() {
@@ -66,7 +68,7 @@ public class InvadeTurn implements TurnState{
 			int a = max(invaderDice);
 			int d = max(defenderDice);
 
-			System.out.printf("%d - %d\n", invaderDice[a], defenderDice[d]);
+			sb.append(String.format("%d - %d\n", invaderDice[a], defenderDice[d]));
 
 			if (invaderDice[a] > defenderDice[d]) {
 				maxDefDice--;
@@ -89,10 +91,10 @@ public class InvadeTurn implements TurnState{
 	public CountryI winner() {
 		invade();
 		if (maxDefDice <= 0) {
-			System.out.println("Invader wins");
+			sb.append("Invader wins\n");
 			return invadingCountry;
 		} else {
-			//System.out.println("defender wins");
+			sb.append(String.format("%s has successfully defended %s!\n", opponent.getName(), defendingCountry.getName()));
 			return defendingCountry;
 		}
 	}

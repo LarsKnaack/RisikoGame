@@ -10,12 +10,12 @@ import de.htwg.risiko.model.impl.Player;
 
 public class RecruitmentTurnTest extends TestCase {
 	
-	public void testPull() {
+	/*public void testPull() {
 		RecruitmentTurn t = new RecruitmentTurn();
 		Turn s = new Turn();
 		t.pull(s);
 		assertTrue(s.getState() instanceof InvadeTurn);
-	}
+	}*/
 	
 	/*public void testAddRecruitment() {
 		Player p = new Player("Hans");

@@ -17,7 +17,7 @@ import de.htwg.risiko.model.impl.World;
 
 public class InvadeTurnTest extends TestCase{
 	
-	private IGameEngine ge;
+	/*private IGameEngine ge;
 	private World world;
 	private Player p;
 	CountryI invader;
@@ -94,7 +94,7 @@ public class InvadeTurnTest extends TestCase{
 		assertEquals(t.maxInvDice, 2);
 	}
 	
-	/*public void testSetInvadingCountryFails() {
+	public void testSetInvadingCountryFails() {
 		world = new World();
 		Country test = new Country("test");
 		t.setInvadingCountry(test);

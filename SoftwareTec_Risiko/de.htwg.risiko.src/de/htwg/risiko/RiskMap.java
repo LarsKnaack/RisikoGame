@@ -115,6 +115,7 @@ public class RiskMap {
 		world.addEdge(easternAustralia, newGuinea);
 		world.addEdge(easternUS, centralAmerica);
 		world.addEdge(easternUS, ontario);
+		world.addEdge(egypt, northAfrica);
 		world.addEdge(egypt, eastAfrica);
 		world.addEdge(egypt, middleEast);
 		world.addEdge(greatBritain, northernEU);

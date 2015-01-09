@@ -17,7 +17,7 @@ public class RecruitmentTurnTest extends TestCase {
 		assertTrue(s.getState() instanceof InvadeTurn);
 	}
 	
-	public void testAddRecruitment() {
+	/*public void testAddRecruitment() {
 		Player p = new Player("Hans");
 		CountryI test = new Country("test");
 		List<CountryI> res = new LinkedList<CountryI>();
@@ -37,5 +37,5 @@ public class RecruitmentTurnTest extends TestCase {
 		RecruitmentTurn t = new RecruitmentTurn();
 		t.addRecruitment(test, 4);
 		assertEquals(test.getSoldiers(), 0);
-	}
+	}*/
 }

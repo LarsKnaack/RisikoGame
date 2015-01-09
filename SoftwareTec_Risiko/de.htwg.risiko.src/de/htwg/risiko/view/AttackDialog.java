@@ -15,7 +15,7 @@ import de.htwg.risiko.model.CountryI;
 public class AttackDialog extends JDialog implements ActionListener{
 	
 	private JComboBox<CountryI> neighbours;
-	private JComboBox<Integer> numberofSoldiers;
+	//private JComboBox<Integer> numberofSoldiers;
 	private JButton attack;
 	private JDialog myDialog;
 
@@ -34,12 +34,6 @@ public class AttackDialog extends JDialog implements ActionListener{
 		neighbours.setEditable(false);
 		myDialog.add(neighbours, BorderLayout.WEST);
 		
-		numberofSoldiers = new JComboBox<Integer>();
-		for(int i = 1; i <= current.getSoldiers(); i++) {
-			numberofSoldiers.addItem(i);
-		}
-		numberofSoldiers.setEditable(false);
-		myDialog.add(numberofSoldiers, BorderLayout.EAST);
 		myDialog.add(attack, BorderLayout.SOUTH);
 		
 		myDialog.pack();

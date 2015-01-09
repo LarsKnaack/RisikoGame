@@ -106,6 +106,16 @@ public class GameEngine extends Observable implements IGameEngine {
 		}
 		return res;
 	}
+	
+	public List<CountryI> getNeighbours(CountryI c) {
+		List<CountryI> res = new LinkedList<CountryI>();
+		for (CountryI d : world.getNeighbouringCountryList(c)) {
+			if(getOwner(c).equals(getOwner(d))) {
+				res.add(d);
+			}
+		}
+		return res;
+	}
 
 	public void endTurn() {
 		turn.endTurn();

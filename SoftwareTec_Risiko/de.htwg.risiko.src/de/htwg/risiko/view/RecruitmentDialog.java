@@ -39,6 +39,8 @@ public class RecruitmentDialog implements ActionListener{
 		main.pack();
 		main.setVisible(true);
 		
+		main.setLocationRelativeTo(null);
+		
 		// TODO Auto-generated constructor stub
 		
 	}

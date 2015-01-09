@@ -55,8 +55,10 @@ public class ControlPanel extends JPanel implements ActionListener {
 			Statistics.update();
 		} else if(source == addRecB) {
 			new RecruitmentDialog(current);
-		} else {
+		} else if(source == attackB){
 			new AttackDialog(current);
+		} else {
+			new MoveDialog(current);
 		}
 	}
 

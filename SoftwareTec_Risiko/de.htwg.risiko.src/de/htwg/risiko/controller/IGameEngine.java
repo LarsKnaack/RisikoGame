@@ -26,6 +26,8 @@ public interface IGameEngine extends IObservable {
 	public List<CountryI> getCountries(PlayerI p);
 
 	public List<CountryI> getCandidates(CountryI c);
+	
+	public List<CountryI> getNeighbours(CountryI c);
 
 	public void endTurn();
 

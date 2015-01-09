@@ -3,6 +3,9 @@ package de.htwg.risiko.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.URL;
 
 import javax.swing.BorderFactory;
@@ -13,7 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
+import de.htwg.risiko.RiskMap;
 import de.htwg.risiko.controller.IGameEngine;
+import de.htwg.risiko.model.CountryI;
 
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
@@ -24,7 +29,17 @@ public class GUI extends JFrame {
 		
 		controller = ge;
 		
-		this.addMouseListener(new RiskMouseListener());
+		this.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				Point p = new Point(e.getX(), e.getY());
+				CountryI country = RiskMap.check(p);
+				if(e.getButton() == 1 && GUI.controller.getCountries(GUI.controller.getCurrentPlayer()).contains(country)) {
+					ControlPanel.setCurrentCountry(country);
+					ControlPanel.updateTitle(country.getName());
+				}
+			}
+		});
+		
 		this.setTitle("Risk Game");
 		this.setResizable(true);
 		this.setVisible(true);
@@ -68,6 +83,7 @@ public class GUI extends JFrame {
 		System.out.println(this.getHeight());
 		
 		new StartDialog();
+		//new Initialisation();
 	}
 }
 

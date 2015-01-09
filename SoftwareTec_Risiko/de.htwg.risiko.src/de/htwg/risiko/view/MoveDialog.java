@@ -14,14 +14,14 @@ public class MoveDialog extends JDialog implements ActionListener{
 	
 	private static CountryI current;
 	
-	private JComboBox<CountryI> neighbours;
+	private JComboBox<CountryI> neighbours = new JComboBox<CountryI>();
 	private JComboBox<Integer> numberOfSoldiers;
 	private JButton moveB;
 	
 	public MoveDialog(CountryI c) {
 		current = c;
 		JDialog main = new JDialog(this, "Please select country");
-		neighbours = new JComboBox<CountryI>();
+		//neighbours = new JComboBox<CountryI>();
 		for (CountryI ci : GUI.controller.getNeighbours(current)) {
 			neighbours.addItem(ci);
 		}

@@ -16,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
-import de.htwg.risiko.RiskMap;
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 

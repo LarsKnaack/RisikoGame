@@ -1,12 +1,10 @@
-package de.htwg.risiko;
+package de.htwg.risiko.view;
 
 
 import java.util.Scanner;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.controller.impl.GameEngine;
-import de.htwg.risiko.view.GUI;
-import de.htwg.risiko.view.TextUI;
 
 public final class Risiko {
 

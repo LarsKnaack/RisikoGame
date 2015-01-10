@@ -15,7 +15,6 @@ import de.htwg.risiko.model.CountryI;
 public class AttackDialog extends JDialog implements ActionListener{
 	
 	private JComboBox<CountryI> neighbours;
-	//private JComboBox<Integer> numberofSoldiers;
 	private JButton attack;
 	private JDialog myDialog;
 
@@ -33,11 +32,9 @@ public class AttackDialog extends JDialog implements ActionListener{
 		}
 		neighbours.setEditable(false);
 		myDialog.add(neighbours, BorderLayout.WEST);
-		
 		myDialog.add(attack, BorderLayout.SOUTH);
 		
 		myDialog.pack();
-		
 		myDialog.setVisible(true);
 		myDialog.setLocationRelativeTo(null);
 		
@@ -57,10 +54,6 @@ public class AttackDialog extends JDialog implements ActionListener{
 			}
 		} catch(IllegalArgumentException x) {
 			JOptionPane.showMessageDialog(this, x.getMessage());
-		} catch(NullPointerException n) {
-			JOptionPane.showMessageDialog(this, "Please select a country");
 		}
-		
 	}
-
 }

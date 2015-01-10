@@ -16,11 +16,11 @@ public class ControlPanel extends JPanel implements ActionListener {
 	
 	static JPanel mainPanel = new JPanel();
 	
-	JButton attackB;
-	JButton addRecB;
-	JButton moveSoldiersB;
-	JButton endTurn;
-	public static TitledBorder tb = BorderFactory.createTitledBorder("Land");
+	private JButton attackB;
+	private JButton addRecB;
+	private JButton moveSoldiersB;
+	private JButton endTurn;
+	private static TitledBorder tb = BorderFactory.createTitledBorder("Land");
 	private static CountryI current;
 	
 	public ControlPanel() {
@@ -50,12 +50,12 @@ public class ControlPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
-		if (source == endTurn) {
+		if (source.equals(endTurn)) {
 			GUI.controller.changePlayer();
 			Statistics.update();
-		} else if(source == addRecB) {
+		} else if(source.equals(addRecB)) {
 			new RecruitmentDialog(current);
-		} else if(source == attackB){
+		} else if(source.equals(attackB)){
 			new AttackDialog(current);
 		} else {
 			new MoveDialog(current);

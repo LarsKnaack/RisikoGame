@@ -57,7 +57,7 @@ public class StartDialog extends JDialog implements ActionListener {
 		
 		String player1;
 		String player2;
-		if(source == bConfirmP1) {
+		if(source.equals(bConfirmP1)) {
 			GUI.controller.startGame();
 			player1 = new String(player1Tf.getText());
 			GUI.controller.getCurrentPlayer().setName(player1);

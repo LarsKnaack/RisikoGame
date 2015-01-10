@@ -14,8 +14,8 @@ import de.htwg.risiko.model.CountryI;
 @SuppressWarnings("serial")
 public class Statistics extends JPanel {
 	
-	static JTextArea player1;
-	static JTextArea player2;
+	private static JTextArea player1;
+	private static JTextArea player2;
 	
 	public Statistics() {
 		this.setBackground(Color.RED);

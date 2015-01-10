@@ -79,11 +79,7 @@ public class GUI extends JFrame {
 		this.setLocationRelativeTo(null);
 		mainPanel.setBackground(Color.RED);
 		
-		System.out.println(this.getWidth());
-		System.out.println(this.getHeight());
-		
 		new StartDialog();
-		//new Initialisation();
 	}
 }
 

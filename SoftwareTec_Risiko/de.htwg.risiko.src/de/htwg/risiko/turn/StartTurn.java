@@ -3,12 +3,10 @@ package de.htwg.risiko.turn;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.WorldI;
-import de.htwg.risiko.model.impl.Country;
 
 public class StartTurn implements TurnState{
 	

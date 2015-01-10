@@ -1,13 +1,15 @@
 package de.htwg.risiko.controller.impl;
 
+import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
+
+import com.google.inject.Inject;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.WorldI;
-import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.model.impl.World;
 import de.htwg.risiko.turn.Turn;
@@ -15,38 +17,24 @@ import de.htwg.risiko.util.observer.Observable;
 
 public class GameEngine extends Observable implements IGameEngine {
 	private WorldI world;
-	private PlayerI player1 = new Player("Hans");
-	private PlayerI player2 = new Player("Herbert");
+	private PlayerI player1 = new Player("player1");
+	private PlayerI player2 = new Player("player2");
 	private Turn turn;
 	private PlayerI currentPlayer;
 	private CountryI target;
 	private CountryI attacker;
 	private String statusline = "Welcome to RiskGame!";
 
+	@Inject
 	public GameEngine() {
 		currentPlayer = player2;
+		createMap();
 		notifyObservers();
 	}
 
-	public void createMap(int i) {
+	public void createMap() {
 		world = new World();
-		if (i == 1) {
-			CountryI ger = new Country("germany");
-			CountryI fra = new Country("france");
-			CountryI ch = new Country("switzerland");
-			CountryI aus = new Country("austria");
-			world.addCountry(ger);
-			world.addCountry(fra);
-			world.addCountry(ch);
-			world.addCountry(aus);
-			world.addEdge(ger, fra);
-			world.addEdge(ger, ch);
-			world.addEdge(ger, aus);
-			world.addEdge(fra, ch);
-			world.addEdge(aus, ch);
-		} else if(i == 2) {
-			RiskMap.create(world);
-		}
+		RiskMap.create(world);
 	}
 	
 	public void exit() {
@@ -189,10 +177,21 @@ public class GameEngine extends Observable implements IGameEngine {
 		return turn.getMaxRecruitment();
 	}
 	
-	public void moveSoldiers(int i, CountryI source, CountryI target) {
+	public void moveSoldiers(int i, CountryI source, CountryI tar) {
 		if (i < source.getSoldiers()) {
 			source.setSoldiers(source.getSoldiers() - i);
-			target.setSoldiers(target.getSoldiers() + i);
+			tar.setSoldiers(tar.getSoldiers() + i);
 		}
+		notifyObservers();
+	}
+
+	public CountryI check(Point p) {
+		for(CountryI c : world.getWorld().keySet()) {
+			if(c.getLocation().distance(p) <= 20) {
+				System.out.println("jo\n\n\n");
+				return c;
+			}
+		}
+		return null;
 	}
 }

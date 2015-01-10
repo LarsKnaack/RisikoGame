@@ -1,5 +1,6 @@
 package de.htwg.risiko.controller;
 
+import java.awt.Point;
 import java.util.List;
 
 import de.htwg.risiko.model.CountryI;
@@ -9,7 +10,7 @@ import de.htwg.risiko.util.observer.IObservable;
 
 public interface IGameEngine extends IObservable {
 
-	void createMap(int i);
+	void createMap();
 
 	void exit();
 
@@ -52,4 +53,6 @@ public interface IGameEngine extends IObservable {
 	int getMaxRecruitment();
 	
 	void moveSoldiers(int i, CountryI source, CountryI target);
+
+	CountryI check(Point p);
 }

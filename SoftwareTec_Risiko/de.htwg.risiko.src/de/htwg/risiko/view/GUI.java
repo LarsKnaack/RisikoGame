@@ -16,24 +16,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
+import com.google.inject.Inject;
+
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.controller.impl.RiskMap;
 import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.util.observer.Event;
+import de.htwg.risiko.util.observer.IObserver;
 
 @SuppressWarnings("serial")
-public class GUI extends JFrame {
+public class GUI extends JFrame implements IObserver {
 	
 	public static IGameEngine controller;
-	
-	public GUI(IGameEngine ge) {
+
+	@Inject
+	public GUI(final IGameEngine ge) {
 		
 		controller = ge;
+		controller.addObserver(this);
 		
 		this.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				Point p = new Point(e.getX(), e.getY());
-				CountryI country = RiskMap.check(p);
-				if(e.getButton() == 1 && GUI.controller.getCountries(GUI.controller.getCurrentPlayer()).contains(country)) {
+				CountryI country = controller.check(p);
+				if(e.getButton() == 1 && controller.getCountries(controller.getCurrentPlayer()).contains(country)) {
 					ControlPanel.setCurrentCountry(country);
 					ControlPanel.updateTitle(country.getName());
 				}
@@ -80,6 +85,11 @@ public class GUI extends JFrame {
 		mainPanel.setBackground(Color.RED);
 		
 		new StartDialog();
+	}
+
+	@Override
+	public void update(Event e) {
+			
 	}
 }
 

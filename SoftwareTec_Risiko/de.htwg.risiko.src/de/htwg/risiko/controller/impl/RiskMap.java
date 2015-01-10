@@ -181,14 +181,4 @@ public class RiskMap {
 		
 		w = world;
 	}
-
-	
-	public static CountryI check(Point p) {
-		for(CountryI c : w.getWorld().keySet()) {
-			if(c.getLocation().distance(p) <= 20) {
-				return c;
-			}
-		}
-		return null;
-	}
 }

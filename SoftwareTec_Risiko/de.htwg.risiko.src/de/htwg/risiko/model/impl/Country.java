@@ -60,10 +60,4 @@ public class Country implements CountryI {
 	public int compareTo(CountryI o) {
 		return this.name.compareTo(o.getName());
 	}
-
-	@Override
-	public int compareTo(Country o) {
-		return this.name.compareTo(o.getName());
-	}
-	
 }

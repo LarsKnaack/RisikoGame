@@ -33,7 +33,7 @@ public class TextUI implements IObserver {
 		out.println("-----------------------------------------------------------------------");
 		out.println(">>>"+ge.getStatus());
 		out.println("-----------------------------------------------------------------------\n");
-		for (Country c : ge.getWorld().getWorld().keySet()) {
+		for (CountryI c : ge.getWorld().getWorld().keySet()) {
 			String s1 = c.getName();
 			String s2 = ge.getOwner(c).getName();
 			int s3 =  ge.getSoldiers(c);

@@ -9,15 +9,15 @@ import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.WorldI;
 
 public class World implements WorldI {
-	private Map<Country, LinkedList<Country>> world;
+	private Map<CountryI, LinkedList<CountryI>> world;
 
 	public World() {
-		world = new HashMap<Country, LinkedList<Country>>();
+		world = new HashMap<CountryI, LinkedList<CountryI>>();
 	}
 
 	@Override
 	public void addCountry(CountryI v) {
-		world.put((Country) v, new LinkedList<Country>());
+		world.put((CountryI) v, new LinkedList<CountryI>());
 	}
 
 	@Override
@@ -40,11 +40,11 @@ public class World implements WorldI {
 		return getNeighbouringCountryList(v).contains(w);
 	}
 
-	public Map<Country, LinkedList<Country>> getWorld() {
+	public Map<CountryI, LinkedList<CountryI>> getWorld() {
 		return world;
 	}
 
-	public void setWorld(Map<Country, LinkedList<Country>> world) {
+	public void setWorld(Map<CountryI, LinkedList<CountryI>> world) {
 		this.world = world;
 	}
 }

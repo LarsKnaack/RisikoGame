@@ -12,7 +12,6 @@ import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.model.impl.World;
 import de.htwg.risiko.turn.Turn;
 import de.htwg.risiko.util.observer.Observable;
-import de.htwg.risiko.view.RiskMap;
 
 public class GameEngine extends Observable implements IGameEngine {
 	private WorldI world;

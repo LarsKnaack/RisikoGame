@@ -1,4 +1,4 @@
-package de.htwg.risiko.view;
+package de.htwg.risiko.controller.impl;
 
 import java.awt.Point;
 

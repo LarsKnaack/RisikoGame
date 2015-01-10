@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
+import de.htwg.risiko.controller.impl.RiskMap;
 import de.htwg.risiko.model.CountryI;
 
 public class Initialisation extends JFrame{

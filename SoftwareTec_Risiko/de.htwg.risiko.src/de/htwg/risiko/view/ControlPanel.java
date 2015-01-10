@@ -14,7 +14,7 @@ import de.htwg.risiko.model.CountryI;
 @SuppressWarnings("serial")
 public class ControlPanel extends JPanel implements ActionListener {
 	
-	static JPanel mainPanel = new JPanel();
+	private static JPanel mainPanel = new JPanel();
 	
 	private JButton attackB;
 	private JButton addRecB;

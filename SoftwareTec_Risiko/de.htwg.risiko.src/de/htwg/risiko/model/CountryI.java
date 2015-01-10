@@ -8,17 +8,17 @@ public interface CountryI extends Comparable<CountryI>{
 
 	
 	//get soldiers positioned in the Country (saved in global variable)
-	public int getSoldiers();
+	int getSoldiers();
 	//get soldiers positioned in the Country (saved in global variable)
-	public void setSoldiers(int e);
+	void setSoldiers(int e);
 	//get Name of the Country
-	public String getName();
+	String getName();
 	//get Name of the Country
-	public void setName(String n);
+	void setName(String n);
 	
-	public void setLocation(Point p);
+	void setLocation(Point p);
 	
-	public Point getLocation();
+	Point getLocation();
 	
 	int compareTo(Country o);
 	

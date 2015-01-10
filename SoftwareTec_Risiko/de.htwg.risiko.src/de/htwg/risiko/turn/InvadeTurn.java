@@ -11,8 +11,8 @@ public class InvadeTurn implements TurnState{
 	private CountryI defendingCountry;
 	private StringBuilder sb;
 	
-	int maxDefDice = 0;
-	int maxInvDice = 0;
+	private int maxDefDice = 0;
+	private int maxInvDice = 0;
 	
 	private static final int MAX_RECRUITMENT = 3;
 	private Die dice = new Die();

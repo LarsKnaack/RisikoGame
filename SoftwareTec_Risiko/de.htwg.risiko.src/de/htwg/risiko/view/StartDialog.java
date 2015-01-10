@@ -20,15 +20,16 @@ public class StartDialog extends JDialog implements ActionListener {
 	
 	private JDialog player1Dialog;
 	private JDialog player2Dialog;
+	private static final int LENGTH = 20;
 	
 	public StartDialog() {
 		
 		player1Dialog = new JDialog(this);
 		player2Dialog = new JDialog(this);
 		JLabel lPlayer1Tf = new JLabel("Name of Player 1");
-		player1Tf = new JTextField(20);
+		player1Tf = new JTextField(LENGTH);
 		JLabel lPlayer2Tf = new JLabel("Name of Player 2");
-		player2Tf = new JTextField(20);
+		player2Tf = new JTextField(LENGTH);
 		bConfirmP2 = new JButton("Start Game");
 		bConfirmP1 = new JButton("Save Player 1");
 		bConfirmP1.addActionListener(this);

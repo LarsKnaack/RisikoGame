@@ -16,7 +16,8 @@ public class Turn {
 	private CountryI recCountry;
 	private int recruitment;
 	private int maxRecruitment;
-	public boolean end;
+	private boolean end;
+	private static final int MAX = 3;
 	
 	public Turn() {
 		currentState = new StartTurn();
@@ -105,9 +106,9 @@ public class Turn {
 	}
 
 	public void initRecruitment() {
-		maxRecruitment = player.getCountries().size() / 3;
-		if(maxRecruitment < 3) {
-			maxRecruitment = 3;
+		maxRecruitment = player.getCountries().size() / MAX;
+		if(maxRecruitment < MAX) {
+			maxRecruitment = MAX;
 		}
 	}
 

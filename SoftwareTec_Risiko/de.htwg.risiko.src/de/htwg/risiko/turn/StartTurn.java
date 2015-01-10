@@ -15,6 +15,7 @@ public class StartTurn implements TurnState{
 	private PlayerI player1;
 	private PlayerI player2;
 	private WorldI world;
+	private static final int INIT_SOLDIERS = 3;
 	
 	@Override
 	public void pull(Turn turn) {
@@ -33,7 +34,7 @@ public class StartTurn implements TurnState{
 		Collections.shuffle(countries);
 		
 		for(CountryI c :  countries){
-			c.setSoldiers(3);
+			c.setSoldiers(INIT_SOLDIERS);
 			if (i % 2 == 0) {
 				player1.addCountry(c);
 				i++;

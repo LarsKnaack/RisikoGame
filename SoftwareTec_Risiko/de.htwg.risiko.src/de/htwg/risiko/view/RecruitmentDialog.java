@@ -17,6 +17,7 @@ public class RecruitmentDialog implements ActionListener{
 	private JTextField recruitment;
 	private JButton add;
 	private CountryI current;
+	private static final int LENGTH = 20;
 
 	public RecruitmentDialog(CountryI c) {
 		
@@ -28,7 +29,7 @@ public class RecruitmentDialog implements ActionListener{
 		sb.append("Recruitment available ").append(GUI.controller.getMaxRecruitment());
 		
 		lableMaxRec = new JLabel(sb.toString());
-		recruitment = new JTextField(20);
+		recruitment = new JTextField(LENGTH);
 		add = new JButton("Add");
 		add.addActionListener(this);
 		

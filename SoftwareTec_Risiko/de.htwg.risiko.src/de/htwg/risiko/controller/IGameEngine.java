@@ -9,47 +9,47 @@ import de.htwg.risiko.util.observer.IObservable;
 
 public interface IGameEngine extends IObservable {
 
-	public void createMap(int i);
+	void createMap(int i);
 
-	public void exit();
+	void exit();
 
-	public void startGame();
+	void startGame();
 
-	public void changePlayer();
+	void changePlayer();
 
-	public void invade();
+	void invade();
 
-	public void recruit();
+	void recruit();
 
-	public PlayerI getOwner(CountryI c);
+	PlayerI getOwner(CountryI c);
 	
-	public List<CountryI> getCountries(PlayerI p);
+	List<CountryI> getCountries(PlayerI p);
 
-	public List<CountryI> getCandidates(CountryI c);
+	List<CountryI> getCandidates(CountryI c);
 	
-	public List<CountryI> getNeighbours(CountryI c);
+	List<CountryI> getNeighbours(CountryI c);
 
-	public void endTurn();
+	void endTurn();
 
-	public void setCurrentPlayer();
+	void setCurrentPlayer();
 
-	public int getSoldiers(CountryI c);
+	int getSoldiers(CountryI c);
 
-	public boolean selectTarget(CountryI c);
+	boolean selectTarget(CountryI c);
 
-	public boolean selectAttacker(CountryI c);
+	boolean selectAttacker(CountryI c);
 
-	public boolean selectRecruitment(CountryI c, int num);
+	boolean selectRecruitment(CountryI c, int num);
 
-	public WorldI getWorld();
+	WorldI getWorld();
 
-	public PlayerI getCurrentPlayer();
+	PlayerI getCurrentPlayer();
 
-	public PlayerI getOpponent();
+	PlayerI getOpponent();
 
-	public String getStatus();
+	String getStatus();
 	
-	public int getMaxRecruitment();
+	int getMaxRecruitment();
 	
-	public void moveSoldiers(int i, CountryI source, CountryI target);
+	void moveSoldiers(int i, CountryI source, CountryI target);
 }

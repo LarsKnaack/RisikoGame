@@ -8,7 +8,7 @@ import de.htwg.risiko.controller.impl.GameEngine;
 import de.htwg.risiko.view.GUI;
 import de.htwg.risiko.view.TextUI;
 
-public class Risiko {
+public final class Risiko {
 
 	private static Scanner scanner;
 	private static TextUI tui;

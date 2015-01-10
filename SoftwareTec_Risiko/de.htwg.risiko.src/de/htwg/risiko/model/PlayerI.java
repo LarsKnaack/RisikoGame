@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface PlayerI {
 
-	public String getName();
-	public void setName(String s);
-	public List<CountryI> getCountries();
-	public void addCountry(CountryI c);
-	public void removeCountry(CountryI c);
+	String getName();
+	void setName(String s);
+	List<CountryI> getCountries();
+	void addCountry(CountryI c);
+	void removeCountry(CountryI c);
 }

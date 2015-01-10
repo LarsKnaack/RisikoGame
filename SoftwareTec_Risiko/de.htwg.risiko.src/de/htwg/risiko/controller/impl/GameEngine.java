@@ -15,9 +15,9 @@ import de.htwg.risiko.turn.Turn;
 import de.htwg.risiko.util.observer.Observable;
 
 public class GameEngine extends Observable implements IGameEngine {
-	public WorldI world;
-	public PlayerI player1 = new Player("Hans");
-	public PlayerI player2 = new Player("Herbert");
+	private WorldI world;
+	private PlayerI player1 = new Player("Hans");
+	private PlayerI player2 = new Player("Herbert");
 	private Turn turn;
 	private PlayerI currentPlayer;
 	private CountryI target;

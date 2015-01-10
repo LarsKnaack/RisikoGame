@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.controller.impl.GameEngine;
+import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
 
 public class TUI {
@@ -28,7 +29,7 @@ public class TUI {
 		ge.setCurrentPlayer();
 		ge.startGame();
 
-		for (Country c : ge.getWorld().getWorld().keySet()) {
+		for (CountryI c : ge.getWorld().getWorld().keySet()) {
 			out.printf("%s: %s %d\n", c.getName(), ge.getOwner(c).getName(), ge.getSoldiers(c));
 		}
 
@@ -54,7 +55,7 @@ public class TUI {
 		ge.endTurn();
 		ge.invade();
 		
-		for (Country c : ge.getWorld().getWorld().keySet()) {
+		for (CountryI c : ge.getWorld().getWorld().keySet()) {
 			out.printf("%s: %s %d\n", c.getName(), ge.getOwner(c).getName(), ge.getSoldiers(c));
 		}
 		
@@ -72,7 +73,7 @@ public class TUI {
 
 //		out.println(ge.world.toString());
 
-		for (Country c : ge.getWorld().getWorld().keySet()) {
+		for (CountryI c : ge.getWorld().getWorld().keySet()) {
 			out.printf("%s: %s %d\n", c.getName(), ge.getOwner(c).getName(), ge.getSoldiers(c));
 		}
 /*

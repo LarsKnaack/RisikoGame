@@ -151,6 +151,39 @@ public class TextUI implements IObserver {
 			}
 			out.println("Country is invalid!");
 		}
+
+		if (line.matches("[A-Za-z ]+[,][ ][A-Za-z ]+[,][ ][1-99]")) {
+			int sFlag = 0;
+			int tFlag = 0;
+			CountryI source = new Country("");
+			CountryI target = new Country("");
+			if (ge.getStatus().contains("now select recruitment")) {
+				out.println("You already finished your turn!");
+				return continu;
+			}
+			String arg[] = line.split(", ");
+			for (CountryI c : ge.getCountries(ge.getCurrentPlayer())) {
+				if (arg[0].equals(c.getName())) {
+					source = c;
+					sFlag++;
+					for (CountryI c1 : ge.getNeighbours(c)) {
+						if (arg[1].equals(c1.getName())) {
+							target = c1;
+							tFlag++;
+						}
+					}
+					break;
+				}
+			}
+
+			if (sFlag < 1) {
+				out.println("Invalid source country!");
+			} else if (tFlag < 1) {
+				out.println("Invalid target country!");
+			} else {
+				ge.moveSoldiers(Integer.parseInt(arg[2]), source, target);
+			}
+		}
 		return continu;
 	}
 }

@@ -14,14 +14,14 @@ public class MoveDialog extends JDialog implements ActionListener{
 	
 	private static CountryI current;
 	
-	private JComboBox<CountryI> neighbours = new JComboBox<CountryI>();
+	private JComboBox<CountryI> neighbours;
 	private JComboBox<Integer> numberOfSoldiers;
 	private JButton moveB;
 	
 	public MoveDialog(CountryI c) {
 		current = c;
 		JDialog main = new JDialog(this, "Please select country");
-		//neighbours = new JComboBox<CountryI>();
+		neighbours = new JComboBox<CountryI>();
 		for (CountryI ci : GUI.controller.getNeighbours(current)) {
 			neighbours.addItem(ci);
 		}
@@ -30,6 +30,7 @@ public class MoveDialog extends JDialog implements ActionListener{
 			numberOfSoldiers.addItem(i);
 		}
 		moveB = new JButton("Move");
+		moveB.addActionListener(this);
 		main.add(neighbours, BorderLayout.EAST);
 		main.add(numberOfSoldiers, BorderLayout.WEST);
 		main.add(moveB, BorderLayout.SOUTH);
@@ -42,7 +43,10 @@ public class MoveDialog extends JDialog implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		CountryI target = (CountryI) neighbours.getSelectedItem();
+		int num = (int) numberOfSoldiers.getSelectedItem();
+		GUI.controller.moveSoldiers(num, current, target);
+		Statistics.update();
 		
 	}
 

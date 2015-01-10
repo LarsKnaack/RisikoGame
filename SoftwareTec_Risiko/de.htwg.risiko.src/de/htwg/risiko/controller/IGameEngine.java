@@ -50,4 +50,6 @@ public interface IGameEngine extends IObservable {
 	public String getStatus();
 	
 	public int getMaxRecruitment();
+	
+	public void moveSoldiers(int i, CountryI source, CountryI target);
 }

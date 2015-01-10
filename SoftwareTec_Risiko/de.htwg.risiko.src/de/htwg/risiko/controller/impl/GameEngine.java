@@ -202,4 +202,11 @@ public class GameEngine extends Observable implements IGameEngine {
 	public int getMaxRecruitment() {
 		return turn.getMaxRecruitment();
 	}
+	
+	public void moveSoldiers(int i, CountryI source, CountryI target) {
+		if (i < source.getSoldiers()) {
+			source.setSoldiers(source.getSoldiers() - i);
+			target.setSoldiers(target.getSoldiers() + i);
+		}
+	}
 }

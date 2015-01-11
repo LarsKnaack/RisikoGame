@@ -5,13 +5,10 @@ import java.util.Random;
 import junit.framework.TestCase;
 
 public class DieTest extends TestCase {
-	
-	public void testGetRandom() {
+
+	public void testDie() {
 		Die test = new Die();
-		Random r = new Random();
-		r.setSeed(1);
-		test.setRandom(r);
-		assertEquals(r, test.getRandom());
+		assertTrue(test.getRandom() != null);
 	}
 	
 	public void testRoll() {

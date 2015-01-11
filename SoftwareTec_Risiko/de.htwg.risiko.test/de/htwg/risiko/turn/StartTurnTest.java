@@ -13,8 +13,14 @@ public class StartTurnTest extends TestCase{
 		t.setPlayer(new Player("Hans"), new Player("Herbert"));
 		t.setWorld(new World());
 		t.getWorld().addCountry(new Country("ghj"));
-		t.pull();
+		t.getWorld().addCountry(new Country("gkk"));
+		t.getWorld().addCountry(new Country("giij"));
+		t.getWorld().addCountry(new Country("gsskk"));
+		StartTurn s = new StartTurn();
+		t.setState(s);
+		s.pull(t);
 		assertTrue(t.getState() instanceof InvadeTurn);
+		assertTrue(!t.getPlayer().getCountries().isEmpty() && !t.getOpponent().getCountries().isEmpty());
 	}
 
 	public void testInit() {
@@ -22,9 +28,11 @@ public class StartTurnTest extends TestCase{
 		t.setPlayer(new Player("Hans"), new Player("Herbert"));
 		t.setWorld(new World());
 		t.getWorld().addCountry(new Country("ghj"));
+		t.getWorld().addCountry(new Country("gkk"));
+		t.getWorld().addCountry(new Country("giij"));
+		t.getWorld().addCountry(new Country("gsskk"));
 		t.pull();
-		assertTrue(t.getPlayer().getCountries().size() + t.getOpponent().getCountries().size() == t.getWorld().getWorld().size());
-		
+		assertTrue(!t.getPlayer().getCountries().isEmpty() && !t.getOpponent().getCountries().isEmpty());
 	}
 
 }

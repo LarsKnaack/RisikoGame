@@ -55,9 +55,7 @@ public class InvadeTurn implements TurnState{
 
 	private void invade() {
 		setMaxDice();
-		if (maxInvDice < 1) {
-			throw new IllegalArgumentException("Not enough Soldiers in Invader");
-		}
+
 		int[] invaderDice = new int[maxInvDice];
 		int[] defenderDice = new int[maxDefDice];
 		dice.roll(invaderDice);
@@ -73,15 +71,9 @@ public class InvadeTurn implements TurnState{
 			if (invaderDice[a] > defenderDice[d]) {
 				maxDefDice--;
 				defendingCountry.setSoldiers(defendingCountry.getSoldiers() - 1);
-	            if (maxInvDice == 1) {
-	                return;
-	            }
 			} else {
 				invadingCountry.setSoldiers(invadingCountry.getSoldiers() - 1);
 				maxInvDice--;
-	            if (maxInvDice == 0) {
-	                return;
-	            }
 			}
 			invaderDice[a] = 0;
 			defenderDice[d] = 0;
@@ -100,7 +92,7 @@ public class InvadeTurn implements TurnState{
 	}
 	
 	private int max(int[] a) {
-		int max = a[0];
+		int max = 0;
 		int res = 0;
 		for (int i = 0; i < a.length; i++){
 			if (a[i] > max) {

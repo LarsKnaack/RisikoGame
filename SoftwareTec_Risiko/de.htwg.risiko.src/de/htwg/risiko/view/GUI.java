@@ -27,6 +27,9 @@ import de.htwg.risiko.util.observer.IObserver;
 public class GUI extends JFrame implements IObserver {
 	
 	private static IGameEngine controller;
+	
+	private static final Dimension D_GAMEFIELD = new Dimension(697, 445);
+	private static final Dimension D_FRAME = new Dimension(1000, 560);
 
 	@Inject
 	public GUI(final IGameEngine ge) {
@@ -58,7 +61,7 @@ public class GUI extends JFrame implements IObserver {
 		JLabel backround = new JLabel(new ImageIcon(img));
 		backround.setLayout(new FlowLayout());
 		gamefield.add(backround);
-		gamefield.setMinimumSize(new Dimension(697, 445));
+		gamefield.setMinimumSize(D_GAMEFIELD);
 		
 		JPanel statistics = new Statistics();
 		statistics.setBorder(BorderFactory.createTitledBorder("Statistics"));
@@ -79,7 +82,7 @@ public class GUI extends JFrame implements IObserver {
 		layout.putConstraint(SpringLayout.SOUTH, control, 5, SpringLayout.SOUTH, mainPanel);
 		
 		this.setContentPane(mainPanel);
-		this.setMinimumSize(new Dimension(1000, 560));
+		this.setMinimumSize(D_FRAME);
 		this.pack();
 		this.setLocationRelativeTo(null);
 		mainPanel.setBackground(Color.RED);

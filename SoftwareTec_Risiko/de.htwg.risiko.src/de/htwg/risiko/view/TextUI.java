@@ -191,7 +191,7 @@ public class TextUI implements IObserver {
 			}
 			if(ge.getOpponent().getCountries().isEmpty()) {
 				logger.info("\nCongratulations, " + ge.getCurrentPlayer().getName() + " has won!");
-				continu = false;
+				return false;
 			}
 		}
 		return continu;

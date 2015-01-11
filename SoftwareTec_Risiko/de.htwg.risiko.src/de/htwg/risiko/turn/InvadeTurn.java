@@ -5,7 +5,6 @@ import de.htwg.risiko.model.PlayerI;
 
 public class InvadeTurn implements TurnState{
 	
-	private PlayerI player;
 	private PlayerI opponent;
 	private CountryI invadingCountry;
 	private CountryI defendingCountry;
@@ -26,7 +25,7 @@ public class InvadeTurn implements TurnState{
 			turn.initRecruitment();
 			return;
 		}
-		player = turn.getPlayer();
+		PlayerI player = turn.getPlayer();
 		opponent = turn.getOpponent();
 		invadingCountry = turn.getInvader();
 		defendingCountry = turn.getDefender();

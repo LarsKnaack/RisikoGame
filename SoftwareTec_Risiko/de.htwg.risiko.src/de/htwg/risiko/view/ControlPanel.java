@@ -60,7 +60,7 @@ public class ControlPanel extends JPanel implements ActionListener {
 			new RecruitmentDialog(current);
 		} else if(source.equals(attackB)){
 			new AttackDialog(current);
-		} else {
+		} else if (source.equals(moveSoldiersB)){
 			new MoveDialog(current);
 		}
 	}

@@ -10,6 +10,8 @@ import de.htwg.risiko.controller.impl.GameEngine;
 import de.htwg.risiko.model.CountryI;
 
 public class TUI {
+	
+	private TUI() { }
 
 	private static final Scanner INSERT = new Scanner(in);
 	

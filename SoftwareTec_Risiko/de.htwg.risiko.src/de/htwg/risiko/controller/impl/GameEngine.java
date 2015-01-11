@@ -32,7 +32,7 @@ public class GameEngine extends Observable implements IGameEngine {
 		notifyObservers();
 	}
 
-	public void createMap() {
+	public final void createMap() {
 		world = new World();
 		RiskMap.create(world);
 	}

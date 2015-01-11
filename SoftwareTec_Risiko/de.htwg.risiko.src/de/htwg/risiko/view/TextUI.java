@@ -2,9 +2,7 @@ package de.htwg.risiko.view;
 
 
 import java.util.Scanner;
-
 import org.apache.log4j.Logger;
-
 import com.google.inject.Inject;
 
 import static java.lang.System.out;
@@ -14,12 +12,14 @@ import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.util.observer.Event;
 import de.htwg.risiko.util.observer.IObserver;
 
+@SuppressWarnings("unused")
 public class TextUI implements IObserver {
 
-	IGameEngine ge;
-	int num = 0;
-	CountryI rec;
-	char mode = 0;
+	private IGameEngine ge;
+	
+	private int num = 0;
+	private CountryI rec;
+	private char mode = 0;
 	private Logger logger = Logger.getLogger("de.htwg.risiko.view");
 
 	@Inject

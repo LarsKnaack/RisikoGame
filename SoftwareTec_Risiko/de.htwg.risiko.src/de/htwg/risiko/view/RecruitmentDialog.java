@@ -9,15 +9,16 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 
-public class RecruitmentDialog implements ActionListener{
+public class RecruitmentDialog {
 	
 	private JLabel lableMaxRec;
 	private JTextField recruitment;
-	private JButton add;
 	private CountryI current;
 	private static final int LENGTH = 20;
+	private static IGameEngine controller = GUI.getController();
 
 	public RecruitmentDialog(CountryI c) {
 		
@@ -26,12 +27,26 @@ public class RecruitmentDialog implements ActionListener{
 		JDialog main = new JDialog();
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append("Recruitment available ").append(GUI.controller.getMaxRecruitment());
+		sb.append("Recruitment available ").append(controller.getMaxRecruitment());
 		
 		lableMaxRec = new JLabel(sb.toString());
 		recruitment = new JTextField(LENGTH);
-		add = new JButton("Add");
-		add.addActionListener(this);
+		JButton add = new JButton("Add");
+		add.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				int i = Integer.parseInt(recruitment.getText());
+				
+				if (controller.selectRecruitment(current, i)){
+					controller.recruit();
+					Statistics.update();
+				}
+				
+				StringBuilder sb = new StringBuilder();
+				sb.append("Recruitment available ").append(controller.getMaxRecruitment());
+				lableMaxRec.setText(sb.toString());
+			}
+		});
 		
 		main.add(lableMaxRec, BorderLayout.WEST);
 		main.add(recruitment, BorderLayout.EAST);
@@ -44,21 +59,6 @@ public class RecruitmentDialog implements ActionListener{
 		
 		// TODO Auto-generated constructor stub
 		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		
-		int i = Integer.parseInt(recruitment.getText());
-		
-		if (GUI.controller.selectRecruitment(current, i)){
-			GUI.controller.recruit();
-			Statistics.update();
-		}
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append("Recruitment available ").append(GUI.controller.getMaxRecruitment());
-		lableMaxRec.setText(sb.toString());
 	}
 
 }

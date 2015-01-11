@@ -2,9 +2,7 @@ package de.htwg.risiko.view;
 
 
 import java.util.Scanner;
-
 import org.apache.log4j.Logger;
-
 import com.google.inject.Inject;
 
 import static java.lang.System.out;
@@ -14,12 +12,14 @@ import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.util.observer.Event;
 import de.htwg.risiko.util.observer.IObserver;
 
+@SuppressWarnings("unused")
 public class TextUI implements IObserver {
 
-	IGameEngine ge;
-	int num = 0;
-	CountryI rec;
-	char mode = 0;
+	private IGameEngine ge;
+	
+	private int num = 0;
+	private CountryI rec;
+	private char mode = 0;
 	private Logger logger = Logger.getLogger("de.htwg.risiko.view");
 
 	@Inject
@@ -77,46 +77,7 @@ public class TextUI implements IObserver {
 			return continu;
 		}
 
-		if (line.matches("[A-Za-z ]+[,][ ][A-Za-z ]+")) {
-			int aFlag = 0;
-			int tFlag = 0;
-			if (ge.getStatus().contains("now select recruitment")) {
-				logger.info("You already finished your turn!");
-				return continu;
-			}
-			String arg[] = line.split(", ");
-			for (CountryI c : ge.getWorld().getWorld().keySet()) {
-				if (arg[0].equals(c.getName())) {
-					aFlag++;
-					if (!ge.selectAttacker(c)) {
-						logger.info(String.format("Attacker %s is invalid!\n", c.getName()));
-						return continu;	    
-					}
-					for (CountryI c1 : ge.getCandidates(c)) {
-						if (arg[1].equals(c1.getName())) {
-							tFlag++;
-							if (!ge.selectTarget(c1)) {
-								logger.info(String.format("Target %s is invalid!\n", c1.getName()));
-							    return continu;
-							}
-						}
-					}
-					break;
-				}
-			}
-
-			if (aFlag < 1) {
-				logger.info("No such attacking country!");
-			} else if (tFlag < 1) {
-				logger.info("No such target country!");
-			} else {
-				ge.invade();
-			}
-			if(ge.getOpponent().getCountries().isEmpty()) {
-				logger.info("\nCongratulations, " + ge.getCurrentPlayer().getName() + " has won!");
-				continu = false;
-			}
-		}
+		continu = checkAttackerTarget(line, continu);
 
 		if (line.matches("[A-Za-z ]+[,][ ][1-99]")) {
 			int rFlag = 0;
@@ -187,6 +148,50 @@ public class TextUI implements IObserver {
 				logger.info("Invalid target country!");
 			} else {
 				ge.moveSoldiers(Integer.parseInt(arg[2]), source, target);
+			}
+		}
+		return continu;
+	}
+
+	private boolean checkAttackerTarget(String line, boolean continu) {
+		if (line.matches("[A-Za-z ]+[,][ ][A-Za-z ]+")) {
+			int aFlag = 0;
+			int tFlag = 0;
+			if (ge.getStatus().contains("now select recruitment")) {
+				logger.info("You already finished your turn!");
+				return continu;
+			}
+			String arg[] = line.split(", ");
+			for (CountryI c : ge.getWorld().getWorld().keySet()) {
+				if (arg[0].equals(c.getName())) {
+					aFlag++;
+					if (!ge.selectAttacker(c)) {
+						logger.info(String.format("Attacker %s is invalid!\n", c.getName()));
+						return continu;	    
+					}
+					for (CountryI c1 : ge.getCandidates(c)) {
+						if (arg[1].equals(c1.getName())) {
+							tFlag++;
+							if (!ge.selectTarget(c1)) {
+								logger.info(String.format("Target %s is invalid!\n", c1.getName()));
+							    return continu;
+							}
+						}
+					}
+					break;
+				}
+			}
+
+			if (aFlag < 1) {
+				logger.info("No such attacking country!");
+			} else if (tFlag < 1) {
+				logger.info("No such target country!");
+			} else {
+				ge.invade();
+			}
+			if(ge.getOpponent().getCountries().isEmpty()) {
+				logger.info("\nCongratulations, " + ge.getCurrentPlayer().getName() + " has won!");
+				return false;
 			}
 		}
 		return continu;

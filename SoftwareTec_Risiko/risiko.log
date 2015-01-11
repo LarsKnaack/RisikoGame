@@ -317,3 +317,169 @@ DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method
 DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 4400 nanoSeconds.
 DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
 DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 5867 nanoSeconds.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method addObserver was called.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method addObserver was finished in 48322 nanoSeconds.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 9836 nanoSeconds.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 21381 nanoSeconds.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 1283 nanoSeconds.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2566 nanoSeconds.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method addObserver was called.
+DEBUG main de.htwg.risiko.controller.wrappedimpl - Controller method addObserver was finished in 1283 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method startGame was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method startGame was finished in 45746033 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 1283 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 5559 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 3421 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 4704 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 4277 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 4704 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was finished in 250590 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2139 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was finished in 65427 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was finished in 481083 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2993 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was finished in 29934 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectAttacker was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectAttacker was finished in 158222 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCandidates was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCandidates was finished in 126151 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectTarget was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectTarget was finished in 241183 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method invade was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method invade was finished in 6234403 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2566 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 3849 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2138 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2994 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was finished in 163354 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2566 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was finished in 25657 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectAttacker was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectAttacker was finished in 14112 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCandidates was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCandidates was finished in 44473 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectTarget was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectTarget was finished in 314307 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method invade was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method invade was finished in 663680 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2565 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2994 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 1711 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 3421 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectAttacker was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectAttacker was finished in 33355 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCandidates was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCandidates was finished in 87236 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectTarget was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectTarget was finished in 85953 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method invade was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method invade was finished in 617069 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2138 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2993 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 1711 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2993 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method endTurn was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method endTurn was finished in 11980452 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was finished in 127005 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2566 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was finished in 31217 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was finished in 100065 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2994 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was finished in 28651 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was finished in 43190 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectRecruitment was finished in 91940 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method recruit was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method recruit was finished in 609371 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2566 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2566 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 1710 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2993 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was finished in 3422 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was finished in 148388 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 1711 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was finished in 26940 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was finished in 4704 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectRecruitment was finished in 36776 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method recruit was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method recruit was finished in 612792 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2565 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 3421 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2566 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 3421 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was finished in 4704 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method check was finished in 247170 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2994 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCountries was finished in 26940 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was finished in 4276 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method selectRecruitment was finished in 37631 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method recruit was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method recruit was finished in 517431 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2993 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2993 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getCurrentPlayer was finished in 2138 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getOpponent was finished in 2566 nanoSeconds.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was called.
+DEBUG AWT-EventQueue-0 de.htwg.risiko.controller.wrappedimpl - Controller method getMaxRecruitment was finished in 3421 nanoSeconds.

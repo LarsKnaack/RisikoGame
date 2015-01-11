@@ -9,12 +9,15 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 
 @SuppressWarnings("serial")
 public class ControlPanel extends JPanel implements ActionListener {
 	
 	private static JPanel mainPanel = new JPanel();
+	
+	private static IGameEngine controller = GUI.getController();
 	
 	private JButton attackB;
 	private JButton addRecB;
@@ -51,13 +54,13 @@ public class ControlPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		Object source = arg0.getSource();
 		if (source.equals(endTurn)) {
-			GUI.controller.changePlayer();
+			controller.changePlayer();
 			Statistics.update();
 		} else if(source.equals(addRecB)) {
 			new RecruitmentDialog(current);
 		} else if(source.equals(attackB)){
 			new AttackDialog(current);
-		} else {
+		} else if (source.equals(moveSoldiersB)){
 			new MoveDialog(current);
 		}
 	}

@@ -7,27 +7,45 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 
-@SuppressWarnings("serial")
-public class AttackDialog extends JDialog implements ActionListener{
+public class AttackDialog {
 	
 	private JComboBox<CountryI> neighbours;
-	private JButton attack;
 	private JDialog myDialog;
+	private static IGameEngine controller = GUI.getController();
 
 	public AttackDialog(CountryI current) {
 		
-		GUI.controller.selectAttacker(current);
+		controller.selectAttacker(current);
 		
-		myDialog = new JDialog(this, "Attack");
-		attack = new JButton("Attack");
-		attack.addActionListener(this);
+		myDialog = new JDialog();
+		myDialog.setTitle("Please select country");
+		JButton attack = new JButton("Attack");
+		attack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try{
+					controller.selectTarget((CountryI) neighbours.getSelectedItem());
+					controller.invade();
+					
+					Statistics.update();
+					myDialog.dispose();
+					int res = JOptionPane.showConfirmDialog(new JFrame(), "Do you want to end your Invade Turn?");
+					if (res == JOptionPane.YES_OPTION) {
+						controller.endTurn();
+					}
+				} catch(IllegalArgumentException x) {
+					JOptionPane.showMessageDialog(new JFrame(), x.getMessage());
+				}
+			}
+		});
 		
 		neighbours = new JComboBox<CountryI>();
-		for(CountryI c : GUI.controller.getCandidates(current)) {
+		for(CountryI c : controller.getCandidates(current)) {
 			neighbours.addItem(c);
 		}
 		neighbours.setEditable(false);
@@ -38,22 +56,5 @@ public class AttackDialog extends JDialog implements ActionListener{
 		myDialog.setVisible(true);
 		myDialog.setLocationRelativeTo(null);
 		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		try{
-			GUI.controller.selectTarget((CountryI) neighbours.getSelectedItem());
-			GUI.controller.invade();
-			
-			Statistics.update();
-			myDialog.dispose();
-			int res = JOptionPane.showConfirmDialog(this, "Do you want to end your Invade Turn?");
-			if (res == JOptionPane.YES_OPTION) {
-				GUI.controller.endTurn();
-			}
-		} catch(IllegalArgumentException x) {
-			JOptionPane.showMessageDialog(this, x.getMessage());
-		}
 	}
 }

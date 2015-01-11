@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 
 @SuppressWarnings("serial")
@@ -16,6 +17,8 @@ public class Statistics extends JPanel {
 	
 	private static JTextArea player1;
 	private static JTextArea player2;
+	
+	private static IGameEngine controller = GUI.getController();
 	
 	public Statistics() {
 		this.setBackground(Color.RED);
@@ -37,20 +40,20 @@ public class Statistics extends JPanel {
 	
 	public static void update() {
 		StringBuilder sbP1 = new StringBuilder();
-		List<CountryI> countriesP1 = GUI.controller.getCurrentPlayer().getCountries();
+		List<CountryI> countriesP1 = controller.getCurrentPlayer().getCountries();
 		Collections.sort(countriesP1);
 		for (CountryI c: countriesP1) {
 			sbP1.append(c.getSoldiers()).append(" ").append(c.getName()).append("\n");
 		}
 		StringBuilder sbP2 = new StringBuilder();
-		List<CountryI> countriesP2 = GUI.controller.getOpponent().getCountries();
+		List<CountryI> countriesP2 = controller.getOpponent().getCountries();
 		Collections.sort(countriesP2);
 		for (CountryI c: countriesP2) {
 			sbP2.append(c.getSoldiers()).append(" ").append(c.getName()).append("\n");
 		}
 		
-		player1.setBorder(BorderFactory.createTitledBorder(GUI.controller.getCurrentPlayer().getName()));
-		player2.setBorder(BorderFactory.createTitledBorder(GUI.controller.getOpponent().getName()));
+		player1.setBorder(BorderFactory.createTitledBorder(controller.getCurrentPlayer().getName()));
+		player2.setBorder(BorderFactory.createTitledBorder(controller.getOpponent().getName()));
 
 		player1.setText(sbP1.toString());
 		player2.setText(sbP2.toString());

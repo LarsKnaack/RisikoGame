@@ -26,7 +26,11 @@ import de.htwg.risiko.util.observer.IObserver;
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements IObserver {
 	
-	public static IGameEngine controller;
+	private static IGameEngine controller;
+	
+	private static final Dimension D_GAMEFIELD = new Dimension(697, 445);
+	private static final Dimension D_FRAME = new Dimension(1000, 560);
+	private static final int BORDER_SPRING = 5;
 
 	@Inject
 	public GUI(final IGameEngine ge) {
@@ -52,13 +56,13 @@ public class GUI extends JFrame implements IObserver {
 		
 		JPanel mainPanel = new JPanel();
 		JPanel gamefield = new JPanel();
-		gamefield.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		gamefield.setBorder(BorderFactory.createEmptyBorder());
 		gamefield.setLayout(new BoxLayout(gamefield, BoxLayout.PAGE_AXIS));
 		URL img = GUI.class.getResource("Risk.jpg");
 		JLabel backround = new JLabel(new ImageIcon(img));
 		backround.setLayout(new FlowLayout());
 		gamefield.add(backround);
-		gamefield.setMinimumSize(new Dimension(697, 445));
+		gamefield.setMinimumSize(D_GAMEFIELD);
 		
 		JPanel statistics = new Statistics();
 		statistics.setBorder(BorderFactory.createTitledBorder("Statistics"));
@@ -70,16 +74,16 @@ public class GUI extends JFrame implements IObserver {
 		mainPanel.add(gamefield);
 		mainPanel.add(statistics);
 		mainPanel.add(control);
-		layout.putConstraint(SpringLayout.WEST, gamefield, 5, SpringLayout.WEST, mainPanel);
-		layout.putConstraint(SpringLayout.NORTH, gamefield, 5, SpringLayout.NORTH, mainPanel);
-		layout.putConstraint(SpringLayout.WEST, statistics, 5, SpringLayout.EAST, gamefield);
-		layout.putConstraint(SpringLayout.NORTH, statistics, 5, SpringLayout.NORTH, mainPanel);
+		layout.putConstraint(SpringLayout.WEST, gamefield, BORDER_SPRING, SpringLayout.WEST, mainPanel);
+		layout.putConstraint(SpringLayout.NORTH, gamefield, BORDER_SPRING, SpringLayout.NORTH, mainPanel);
+		layout.putConstraint(SpringLayout.WEST, statistics, BORDER_SPRING, SpringLayout.EAST, gamefield);
+		layout.putConstraint(SpringLayout.NORTH, statistics, BORDER_SPRING, SpringLayout.NORTH, mainPanel);
 		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, control, 0, SpringLayout.HORIZONTAL_CENTER, gamefield);
 		layout.putConstraint(SpringLayout.NORTH, control, 0, SpringLayout.SOUTH, gamefield);
-		layout.putConstraint(SpringLayout.SOUTH, control, 5, SpringLayout.SOUTH, mainPanel);
+		layout.putConstraint(SpringLayout.SOUTH, control, BORDER_SPRING, SpringLayout.SOUTH, mainPanel);
 		
 		this.setContentPane(mainPanel);
-		this.setMinimumSize(new Dimension(1000, 560));
+		this.setMinimumSize(D_FRAME);
 		this.pack();
 		this.setLocationRelativeTo(null);
 		mainPanel.setBackground(Color.RED);
@@ -90,6 +94,10 @@ public class GUI extends JFrame implements IObserver {
 	@Override
 	public void update(Event e) {
 			
+	}
+	
+	public static IGameEngine getController() {
+		return controller;
 	}
 }
 

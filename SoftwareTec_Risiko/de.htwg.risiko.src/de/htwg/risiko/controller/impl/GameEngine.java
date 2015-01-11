@@ -24,6 +24,8 @@ public class GameEngine extends Observable implements IGameEngine {
 	private CountryI target;
 	private CountryI attacker;
 	private String statusline = "Welcome to RiskGame!";
+	
+	private static final int DISTANCE = 20;
 
 	@Inject
 	public GameEngine() {
@@ -32,9 +34,9 @@ public class GameEngine extends Observable implements IGameEngine {
 		notifyObservers();
 	}
 
-	public void createMap() {
+	public final void createMap() {
 		world = new World();
-		RiskMap.create(world);
+		new RiskMap(world);
 	}
 	
 	public void exit() {
@@ -187,8 +189,7 @@ public class GameEngine extends Observable implements IGameEngine {
 
 	public CountryI check(Point p) {
 		for(CountryI c : world.getWorld().keySet()) {
-			if(c.getLocation().distance(p) <= 20) {
-				System.out.println("jo\n\n\n");
+			if(c.getLocation().distance(p) <= DISTANCE) {
 				return c;
 			}
 		}

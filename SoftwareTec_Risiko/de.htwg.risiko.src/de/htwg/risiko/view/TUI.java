@@ -8,9 +8,10 @@ import java.util.Scanner;
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.controller.impl.GameEngine;
 import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.impl.Country;
 
 public class TUI {
+	
+	private TUI() { }
 
 	private static final Scanner INSERT = new Scanner(in);
 	
@@ -71,15 +72,10 @@ public class TUI {
 		ge.recruit();
 		ge.recruit();
 
-//		out.println(ge.world.toString());
-
 		for (CountryI c : ge.getWorld().getWorld().keySet()) {
 			out.printf("%s: %s %d\n", c.getName(), ge.getOwner(c).getName(), ge.getSoldiers(c));
 		}
-/*
-		for (CountryI c : ge.getCountries(ge.player1)) {
-			out.printf("%s: %d\n", c.getName(), c.getSoldiers());
-		}*/
+
 
 		ge.changePlayer();
 	}

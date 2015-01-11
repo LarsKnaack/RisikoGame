@@ -11,13 +11,9 @@ import javax.swing.JTextField;
 
 import de.htwg.risiko.controller.IGameEngine;
 
-@SuppressWarnings("serial")
-public class StartDialog extends JDialog implements ActionListener {
+public class StartDialog {
 	
 	private static IGameEngine controller = GUI.getController();
-	
-	private JButton bConfirmP1;
-	private JButton bConfirmP2;
 	
 	private JTextField player1Tf;
 	private JTextField player2Tf;
@@ -28,16 +24,33 @@ public class StartDialog extends JDialog implements ActionListener {
 	
 	public StartDialog() {
 		
-		player1Dialog = new JDialog(this);
-		player2Dialog = new JDialog(this);
+		player1Dialog = new JDialog();
+		player2Dialog = new JDialog();
 		JLabel lPlayer1Tf = new JLabel("Name of Player 1");
 		player1Tf = new JTextField(LENGTH);
 		JLabel lPlayer2Tf = new JLabel("Name of Player 2");
 		player2Tf = new JTextField(LENGTH);
-		bConfirmP2 = new JButton("Start Game");
-		bConfirmP1 = new JButton("Save Player 1");
-		bConfirmP1.addActionListener(this);
-		bConfirmP2.addActionListener(this);
+		JButton bConfirmP2 = new JButton("Start Game");
+		JButton bConfirmP1 = new JButton("Save Player 1");
+		
+		bConfirmP1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.startGame();
+				String player1 = new String(player1Tf.getText());
+				controller.getCurrentPlayer().setName(player1);
+				player1Dialog.dispose();
+				player2Dialog.setVisible(true);
+			}
+		});
+		
+		bConfirmP2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String player2 = new String(player2Tf.getText());
+				controller.getOpponent().setName(player2);
+				player2Dialog.dispose();
+				Statistics.update();
+			}
+		});
 		
 		player1Dialog.add(lPlayer1Tf, BorderLayout.WEST);
 		player1Dialog.add(player1Tf, BorderLayout.EAST);
@@ -55,25 +68,4 @@ public class StartDialog extends JDialog implements ActionListener {
 		player2Dialog.setResizable(false);
 		player2Dialog.setLocationRelativeTo(null);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		Object source = arg0.getSource();
-		
-		String player1;
-		String player2;
-		if(source.equals(bConfirmP1)) {
-			controller.startGame();
-			player1 = new String(player1Tf.getText());
-			controller.getCurrentPlayer().setName(player1);
-			player1Dialog.dispose();
-			player2Dialog.setVisible(true);
-		} else {
-			player2 = new String(player2Tf.getText());
-			controller.getOpponent().setName(player2);
-			player2Dialog.dispose();
-			Statistics.update();
-		}
-	}
-
 }

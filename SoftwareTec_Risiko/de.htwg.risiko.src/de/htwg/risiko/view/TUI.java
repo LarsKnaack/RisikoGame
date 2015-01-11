@@ -8,7 +8,6 @@ import java.util.Scanner;
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.controller.impl.GameEngine;
 import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.impl.Country;
 
 public class TUI {
 

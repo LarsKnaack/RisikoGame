@@ -60,7 +60,7 @@ public class InvadeTurn implements TurnState{
 		dice.roll(invaderDice);
 		dice.roll(defenderDice);
 
-		for (int i = 0; i < defenderDice.length; i++) {
+		for (int i = 0; i < defenderDice.length && i < invaderDice.length; i++) {
 			
 			int a = max(invaderDice);
 			int d = max(defenderDice);

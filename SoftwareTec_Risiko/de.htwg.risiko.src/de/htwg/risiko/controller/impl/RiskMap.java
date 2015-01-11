@@ -52,11 +52,17 @@ final class RiskMap {
 	private static final CountryI easternAustralia = new Country("Eastern Australia", new Point(661, 416));
 
 
-	public static void create(WorldI world) {
-		
+	RiskMap(WorldI world) {
 		addCountries(world);
 		addEdges(world);
 	}
+	
+	/*public static void create(WorldI world) {
+		
+		addCountries(world);
+		addEdges(world);
+	}*/
+	
 	private static void addCountries(WorldI world) {
 		
 		world.addCountry(alaska);

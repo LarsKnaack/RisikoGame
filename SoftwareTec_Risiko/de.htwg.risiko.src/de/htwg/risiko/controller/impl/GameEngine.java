@@ -34,7 +34,7 @@ public class GameEngine extends Observable implements IGameEngine {
 
 	public final void createMap() {
 		world = new World();
-		RiskMap.create(world);
+		new RiskMap(world);
 	}
 	
 	public void exit() {

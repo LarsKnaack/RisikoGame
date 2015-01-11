@@ -57,12 +57,6 @@ final class RiskMap {
 		addEdges(world);
 	}
 	
-	/*public static void create(WorldI world) {
-		
-		addCountries(world);
-		addEdges(world);
-	}*/
-	
 	private static void addCountries(WorldI world) {
 		
 		world.addCountry(alaska);
@@ -110,7 +104,6 @@ final class RiskMap {
 	}
 	
 	private static void addEdges(WorldI world) {
-		 
 		world.addEdge(alaska, kamchatka);
 		world.addEdge(alaska, alberta);
 		world.addEdge(alaska, northwestTerritory);

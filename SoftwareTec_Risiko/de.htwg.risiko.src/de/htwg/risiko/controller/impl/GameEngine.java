@@ -188,7 +188,6 @@ public class GameEngine extends Observable implements IGameEngine {
 	public CountryI check(Point p) {
 		for(CountryI c : world.getWorld().keySet()) {
 			if(c.getLocation().distance(p) <= 20) {
-				System.out.println("jo\n\n\n");
 				return c;
 			}
 		}

@@ -31,11 +31,9 @@ public final class Risiko {
 		PropertyConfigurator.configure("log4j.properties");
 		Injector injector = Guice.createInjector(new RisikoModule());
 		controller = injector.getInstance(IGameEngine.class);
-//		controller.createMap();	
 		@SuppressWarnings("unused")
 		GUI gui = injector.getInstance(GUI.class);
 		tui = injector.getInstance(TextUI.class);
-//		controller = new GameEngine();	
 	}
 
 	public IGameEngine getController() {

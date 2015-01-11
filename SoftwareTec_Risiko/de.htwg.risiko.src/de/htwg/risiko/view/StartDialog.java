@@ -9,8 +9,12 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import de.htwg.risiko.controller.IGameEngine;
+
 @SuppressWarnings("serial")
 public class StartDialog extends JDialog implements ActionListener {
+	
+	private static IGameEngine controller = GUI.getController();
 	
 	private JButton bConfirmP1;
 	private JButton bConfirmP2;
@@ -59,14 +63,14 @@ public class StartDialog extends JDialog implements ActionListener {
 		String player1;
 		String player2;
 		if(source.equals(bConfirmP1)) {
-			GUI.controller.startGame();
+			controller.startGame();
 			player1 = new String(player1Tf.getText());
-			GUI.controller.getCurrentPlayer().setName(player1);
+			controller.getCurrentPlayer().setName(player1);
 			player1Dialog.dispose();
 			player2Dialog.setVisible(true);
 		} else {
 			player2 = new String(player2Tf.getText());
-			GUI.controller.getOpponent().setName(player2);
+			controller.getOpponent().setName(player2);
 			player2Dialog.dispose();
 			Statistics.update();
 		}

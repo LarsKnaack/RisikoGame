@@ -26,7 +26,7 @@ import de.htwg.risiko.util.observer.IObserver;
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements IObserver {
 	
-	public static IGameEngine controller;
+	private static IGameEngine controller;
 
 	@Inject
 	public GUI(final IGameEngine ge) {
@@ -90,6 +90,10 @@ public class GUI extends JFrame implements IObserver {
 	@Override
 	public void update(Event e) {
 			
+	}
+	
+	public static IGameEngine getController() {
+		return controller;
 	}
 }
 

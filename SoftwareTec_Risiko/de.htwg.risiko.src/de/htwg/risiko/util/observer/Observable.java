@@ -21,15 +21,11 @@ public class Observable implements IObservable {
 		subscribers.clear();
 	}
 
-	public void notifyObservers() {
-		notifyObservers(null);
-	}
-
 	@Override
-	public void notifyObservers(Event e) {
+	public void notifyObservers() {
 		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
 			IObserver observer = iter.next();
-			observer.update(e);
+			observer.update();
 		}
 	}
 }

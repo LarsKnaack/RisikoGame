@@ -20,7 +20,6 @@ import com.google.inject.Inject;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.util.observer.Event;
 import de.htwg.risiko.util.observer.IObserver;
 
 @SuppressWarnings("serial")
@@ -31,6 +30,7 @@ public class GUI extends JFrame implements IObserver {
 	private static final Dimension D_GAMEFIELD = new Dimension(697, 445);
 	private static final Dimension D_FRAME = new Dimension(1000, 560);
 	private static final int BORDER_SPRING = 5;
+	private JPanel status;
 
 	@Inject
 	public GUI(final IGameEngine ge) {
@@ -67,6 +67,9 @@ public class GUI extends JFrame implements IObserver {
 		JPanel statistics = new Statistics();
 		statistics.setBorder(BorderFactory.createTitledBorder("Statistics"));
 		
+		status = new Status();
+		status.setBorder(BorderFactory.createTitledBorder("Status"));
+		
 		JPanel control = new ControlPanel();
 		
 		SpringLayout layout = new SpringLayout();
@@ -74,6 +77,7 @@ public class GUI extends JFrame implements IObserver {
 		mainPanel.add(gamefield);
 		mainPanel.add(statistics);
 		mainPanel.add(control);
+		mainPanel.add(status);
 		layout.putConstraint(SpringLayout.WEST, gamefield, BORDER_SPRING, SpringLayout.WEST, mainPanel);
 		layout.putConstraint(SpringLayout.NORTH, gamefield, BORDER_SPRING, SpringLayout.NORTH, mainPanel);
 		layout.putConstraint(SpringLayout.WEST, statistics, BORDER_SPRING, SpringLayout.EAST, gamefield);
@@ -81,6 +85,8 @@ public class GUI extends JFrame implements IObserver {
 		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, control, 0, SpringLayout.HORIZONTAL_CENTER, gamefield);
 		layout.putConstraint(SpringLayout.NORTH, control, 0, SpringLayout.SOUTH, gamefield);
 		layout.putConstraint(SpringLayout.SOUTH, control, BORDER_SPRING, SpringLayout.SOUTH, mainPanel);
+		layout.putConstraint(SpringLayout.NORTH, status, BORDER_SPRING, SpringLayout.SOUTH, statistics);
+		layout.putConstraint(SpringLayout.WEST, status, BORDER_SPRING, SpringLayout.EAST, gamefield);
 		
 		this.setContentPane(mainPanel);
 		this.setMinimumSize(D_FRAME);
@@ -92,8 +98,9 @@ public class GUI extends JFrame implements IObserver {
 	}
 
 	@Override
-	public void update(Event e) {
-			
+	public void update() {
+		Statistics.update();
+		Status.updateHistory();
 	}
 	
 	public static IGameEngine getController() {

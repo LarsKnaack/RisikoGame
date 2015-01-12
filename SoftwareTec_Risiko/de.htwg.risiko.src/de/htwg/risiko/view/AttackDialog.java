@@ -32,7 +32,6 @@ public class AttackDialog {
 					controller.selectTarget((CountryI) neighbours.getSelectedItem());
 					controller.invade();
 					
-					Statistics.update();
 					myDialog.dispose();
 					int res = JOptionPane.showConfirmDialog(new JFrame(), "Do you want to end your Invade Turn?");
 					if (res == JOptionPane.YES_OPTION) {

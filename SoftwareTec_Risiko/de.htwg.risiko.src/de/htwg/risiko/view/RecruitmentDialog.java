@@ -39,7 +39,6 @@ public class RecruitmentDialog {
 				
 				if (controller.selectRecruitment(current, i)){
 					controller.recruit();
-					Statistics.update();
 				}
 				
 				StringBuilder sb = new StringBuilder();

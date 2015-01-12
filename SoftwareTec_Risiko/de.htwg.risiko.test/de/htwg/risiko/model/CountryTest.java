@@ -30,4 +30,10 @@ public class CountryTest extends TestCase {
 		String s = test.toString();
 		assertEquals(s, "test");
 	}
+	
+	public void testCompareTo() {
+		CountryI a = new Country("a");
+		CountryI b = new Country("b");
+		assertEquals(a.compareTo(b), "a".compareTo("b"));
+	}
 }

@@ -9,7 +9,6 @@ import static java.lang.System.out;
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
-import de.htwg.risiko.util.observer.Event;
 import de.htwg.risiko.util.observer.IObserver;
 
 @SuppressWarnings("unused")
@@ -29,7 +28,7 @@ public class TextUI implements IObserver {
 	}
 
 	@Override
-	public void update(Event e) {
+	public void update() {
 		printTUI();
 	}
 

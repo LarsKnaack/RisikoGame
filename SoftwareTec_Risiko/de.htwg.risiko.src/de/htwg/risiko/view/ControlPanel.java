@@ -55,7 +55,6 @@ public class ControlPanel extends JPanel implements ActionListener {
 		Object source = arg0.getSource();
 		if (source.equals(endTurn)) {
 			controller.changePlayer();
-			Statistics.update();
 		} else if(source.equals(addRecB)) {
 			new RecruitmentDialog(current);
 		} else if(source.equals(attackB)){

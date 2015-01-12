@@ -10,12 +10,12 @@ import de.htwg.risiko.model.impl.World;
 
 public class WorldTest extends TestCase {
 	
-	/*public void testSetWorld() {
+	public void testSetWorld() {
 		World world = new World();
 		Map<CountryI, LinkedList<CountryI>> test = new HashMap<CountryI, LinkedList<CountryI>>();
 		world.setWorld(test);
 		assertEquals(world.getWorld(), test);
-	}*/
+	}
 
 	public void testAddCountry() {
 		World world = new World();

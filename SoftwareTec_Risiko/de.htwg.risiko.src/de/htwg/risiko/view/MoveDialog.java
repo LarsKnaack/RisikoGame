@@ -13,7 +13,7 @@ import de.htwg.risiko.model.CountryI;
 
 public class MoveDialog {
 	
-	private static CountryI current;
+	private CountryI current;
 	
 	private JComboBox<CountryI> neighbours;
 	private JComboBox<Integer> numberOfSoldiers;
@@ -38,7 +38,6 @@ public class MoveDialog {
 				CountryI target = (CountryI) neighbours.getSelectedItem();
 				int num = (int) numberOfSoldiers.getSelectedItem();
 				controller.moveSoldiers(num, current, target);
-				Statistics.update();
 				
 			}
 		});

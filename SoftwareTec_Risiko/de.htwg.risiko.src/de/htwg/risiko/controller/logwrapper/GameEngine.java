@@ -11,7 +11,6 @@ import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.PlayerI;
 import de.htwg.risiko.model.WorldI;
-import de.htwg.risiko.util.observer.Event;
 import de.htwg.risiko.util.observer.IObservable;
 import de.htwg.risiko.util.observer.IObserver;
 
@@ -224,12 +223,6 @@ public class GameEngine implements IGameEngine, IObservable {
 		post();
 	}
 
-	@Override
-	public void notifyObservers(Event e) {
-		pre();
-		realController.notifyObservers(e);
-		post();
-	}
 
 	@Override
 	public CountryI check(Point p) {

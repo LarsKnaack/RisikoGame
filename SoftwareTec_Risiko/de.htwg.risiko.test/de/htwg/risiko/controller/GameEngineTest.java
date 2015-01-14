@@ -14,7 +14,7 @@ import de.htwg.risiko.util.observer.IObserver;
 import junit.framework.TestCase;
 
 public class GameEngineTest extends TestCase {
-
+	
 	static
 	{
 	    Logger rootLogger = Logger.getRootLogger();

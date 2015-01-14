@@ -27,7 +27,7 @@ public class RecruitmentDialog {
 		String title = "Add Soldiers to " + current.getName()+ " ";
 		main.setTitle(title);
 		
-		JComboBox<Integer> number = new JComboBox<Integer>();
+		final JComboBox<Integer> number = new JComboBox<Integer>();
 		setItems(number);
 		
 		

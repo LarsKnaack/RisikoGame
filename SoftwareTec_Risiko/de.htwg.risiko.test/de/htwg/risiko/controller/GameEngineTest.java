@@ -1,7 +1,6 @@
 package de.htwg.risiko.controller;
 
 import java.awt.Point;
-import java.util.Observer;
 
 import de.htwg.risiko.controller.logwrapper.GameEngine;
 import de.htwg.risiko.model.CountryI;

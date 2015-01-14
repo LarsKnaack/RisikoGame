@@ -148,6 +148,8 @@ public class TextUI implements IObserver {
 			} else {
 				ge.moveSoldiers(Integer.parseInt(arg[2]), source, target);
 			}
+
+			continu = checkAttackerTarget(line, continu);
 		}
 		return continu;
 	}

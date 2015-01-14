@@ -18,7 +18,7 @@ public class GameEngineTest extends TestCase {
 	static
 	{
 	    Logger rootLogger = Logger.getRootLogger();
-	    rootLogger.setLevel(Level.INFO);
+	    rootLogger.setLevel(Level.DEBUG);
 	    rootLogger.addAppender(new ConsoleAppender(
 	               new PatternLayout("%-6r [%p] %c - %m%n")));
 	}

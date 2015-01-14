@@ -2,6 +2,11 @@ package de.htwg.risiko.controller;
 
 import java.awt.Point;
 
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+
 import de.htwg.risiko.controller.logwrapper.GameEngine;
 import de.htwg.risiko.model.CountryI;
 import de.htwg.risiko.model.impl.Country;
@@ -9,6 +14,14 @@ import de.htwg.risiko.util.observer.IObserver;
 import junit.framework.TestCase;
 
 public class GameEngineTest extends TestCase {
+
+	static
+	{
+	    Logger rootLogger = Logger.getRootLogger();
+	    rootLogger.setLevel(Level.INFO);
+	    rootLogger.addAppender(new ConsoleAppender(
+	               new PatternLayout("%-6r [%p] %c - %m%n")));
+	}
 
 	IGameEngine ge = new GameEngine();
 

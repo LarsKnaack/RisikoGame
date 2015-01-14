@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -14,10 +15,8 @@ import de.htwg.risiko.model.CountryI;
 
 public class RecruitmentDialog {
 	
-	private JLabel lableMaxRec;
-	private JTextField recruitment;
+	private JLabel country;
 	private CountryI current;
-	private static final int LENGTH = 20;
 	private static IGameEngine controller = GUI.getController();
 
 	public RecruitmentDialog(CountryI c) {
@@ -25,39 +24,46 @@ public class RecruitmentDialog {
 		current = c;
 		
 		JDialog main = new JDialog();
+		String title = "Add Soldiers to " + current.getName()+ " ";
+		main.setTitle(title);
+		
+		JComboBox<Integer> number = new JComboBox<Integer>();
+		setItems(number);
+		
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append("Recruitment available ").append(controller.getMaxRecruitment());
+		sb.append("Add Soldiers to ").append(current.getName());
 		
-		lableMaxRec = new JLabel(sb.toString());
-		recruitment = new JTextField(LENGTH);
+		country = new JLabel(sb.toString());
 		JButton add = new JButton("Add");
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				int i = Integer.parseInt(recruitment.getText());
-				
-				if (controller.selectRecruitment(current, i)){
-					controller.recruit();
+				if(current != null) {
+					int i = (int) number.getSelectedItem();
+					
+					if (controller.selectRecruitment(current, i)){
+						controller.recruit();
+					}
+					setItems(number);
 				}
-				
-				StringBuilder sb = new StringBuilder();
-				sb.append("Recruitment available ").append(controller.getMaxRecruitment());
-				lableMaxRec.setText(sb.toString());
 			}
 		});
 		
-		main.add(lableMaxRec, BorderLayout.WEST);
-		main.add(recruitment, BorderLayout.EAST);
+		main.add(country, BorderLayout.WEST);
+		main.add(number, BorderLayout.EAST);
 		main.add(add, BorderLayout.SOUTH);
 		
 		main.pack();
 		main.setVisible(true);
-		
 		main.setLocationRelativeTo(null);
 		
-		// TODO Auto-generated constructor stub
-		
+	}
+
+	private void setItems(JComboBox<Integer> number) {
+		number.removeAllItems();
+		for (int i = 1; i <= controller.getMaxRecruitment(); i++) {
+			number.addItem(i);
+		}
 	}
 
 }

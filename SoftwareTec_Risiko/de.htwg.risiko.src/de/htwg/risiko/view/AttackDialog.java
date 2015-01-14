@@ -24,7 +24,6 @@ public class AttackDialog {
 		controller.selectAttacker(current);
 		
 		myDialog = new JDialog();
-		myDialog.setTitle("Please select country");
 		JButton attack = new JButton("Attack");
 		attack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -48,7 +47,7 @@ public class AttackDialog {
 			neighbours.addItem(c);
 		}
 		neighbours.setEditable(false);
-		myDialog.add(neighbours, BorderLayout.WEST);
+		myDialog.add(neighbours, BorderLayout.NORTH);
 		myDialog.add(attack, BorderLayout.SOUTH);
 		
 		myDialog.pack();

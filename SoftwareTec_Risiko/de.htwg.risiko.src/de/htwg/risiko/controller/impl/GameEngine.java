@@ -143,7 +143,7 @@ public class GameEngine extends Observable implements IGameEngine {
 	}
 
 	public boolean selectRecruitment(CountryI c, int num) {
-		if (getOwner(c).equals(currentPlayer) && turn.getMaxRecruitment() > 0) {
+		if (getOwner(c).equals(currentPlayer) && getMaxRecruitment() > 0) {
 			turn.setRecruitment(num);
 			turn.setRecCountry(c);
 			return true;

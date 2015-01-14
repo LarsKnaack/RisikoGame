@@ -3,6 +3,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import de.htwg.risiko.controller.GameEngineTest;
 import de.htwg.risiko.turn.DieTest;
 import de.htwg.risiko.turn.InvadeTurnTest;
 import de.htwg.risiko.turn.RecruitmentTurnTest;
@@ -14,7 +15,7 @@ import de.htwg.util.observer.OberservableTest;
 @RunWith(Suite.class)
 
 @SuiteClasses({CountryTest.class, PlayerTest.class, WorldTest.class, TurnTest.class,
-	 StartTurnTest.class, RecruitmentTurnTest.class, InvadeTurnTest.class, DieTest.class, OberservableTest.class})
+	 StartTurnTest.class, RecruitmentTurnTest.class, InvadeTurnTest.class, DieTest.class, OberservableTest.class, GameEngineTest.class})
 
 public class AllTests {
 

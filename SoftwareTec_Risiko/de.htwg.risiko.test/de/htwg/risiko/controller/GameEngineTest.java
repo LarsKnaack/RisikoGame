@@ -123,6 +123,15 @@ public class GameEngineTest extends TestCase {
 		assertFalse(res.contains(country1));
 	}
 	
+	public void testGetNeighbours() {
+		ge.startGame();
+		PlayerI test = ge.getCurrentPlayer();
+		PlayerI opp = ge.getOpponent();
+		CountryI countryTest = test.getCountries().get(1);
+		CountryI countryOpp = opp.getCountries().get(1);
+		assertFalse(ge.getNeighbours(countryTest).contains(countryOpp));
+	}
+	
 	public void testSelectAttacker() {
 		PlayerI test = ge.getCurrentPlayer();
 		CountryI countryTest = new Country("countryTest");

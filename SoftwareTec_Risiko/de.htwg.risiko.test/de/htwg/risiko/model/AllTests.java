@@ -9,8 +9,6 @@ import de.htwg.risiko.turn.InvadeTurnTest;
 import de.htwg.risiko.turn.RecruitmentTurnTest;
 import de.htwg.risiko.turn.StartTurnTest;
 import de.htwg.risiko.turn.TurnTest;
-import de.htwg.risiko.view.GUITest;
-import de.htwg.risiko.view.TextUITest;
 import de.htwg.util.observer.OberservableTest;
 
 
@@ -18,8 +16,7 @@ import de.htwg.util.observer.OberservableTest;
 
 @SuiteClasses({CountryTest.class, PlayerTest.class, WorldTest.class, TurnTest.class,
 	 StartTurnTest.class, RecruitmentTurnTest.class, InvadeTurnTest.class, DieTest.class,
-	 OberservableTest.class, GameEngineTest.class, TextUITest.class, 
-	 GUITest.class})
+	 OberservableTest.class, GameEngineTest.class})
 
 public class AllTests {
 

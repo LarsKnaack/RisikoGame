@@ -51,11 +51,11 @@ public class GameEngine implements IGameEngine, IObservable {
 		post();
 	}
 	
-	public void exit() {
+	/*public void exit() {
 		pre();
 		realController.exit();
 		post();
-	}
+	}*/
 
 	public void startGame() {
 		pre();

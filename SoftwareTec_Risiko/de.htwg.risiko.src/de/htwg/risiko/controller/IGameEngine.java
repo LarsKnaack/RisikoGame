@@ -23,7 +23,7 @@ public interface IGameEngine extends IObservable {
 	/**
 	 * exits the Game with System.exit(0)
 	 */
-	void exit();
+	//void exit();
 
 	/**
 	 * set all private variables and create a new Turn

@@ -71,7 +71,6 @@ public class InvadeTurnTest extends TestCase {
 		c1.setSoldiers(2);
 
 		i.pull(t);
-		System.out.println(t.getStatus());
 		assertTrue(t.getState() instanceof InvadeTurn);
 	}
 	

@@ -1,47 +1,91 @@
 # Risiko
 
-## 1. Purpose of the project
+### 1. Purpose of the project
 * Develop a game for the lecture "Software Engineering" at HTWG Konstanz
 
-## 2. The client, the customer and other stakeholders
+### 2. The client, the customer and other stakeholders
 * Free to use
 * Prof. Dr. Marco Boger
 
-## 3. Users of the product
+### 3. Users of the product
 * Free to use for everyone
 
-## 4. Mandated Constraints
+### 4. Mandated Constraints
 * Requires java
 * Tested on Windows, but should run on every system
 
-## 5. Naming Conventions and Definitions
+### 5. Naming Conventions and Definitions
 * Interfaces begin with "I"
 * implementation of Interfaces in subpackage "impl" 
 
-## 6. Relevant Facts and Assumptions
-* - 
-## 7. The Scope of the Work
+### 6. Relevant Facts and Assumptions
+* -
+ 
+### 7. The Scope of the Work
 * Presentation and documentation of the product
 
-## 8. The Scope of the Product
+### 8. The Scope of the Product
 * Multiplayer
 * Countries are assigned randomly to the players at the beginning of a game
 * 
 
-## 9. Functional and Data Requirements
+### 9. Functional and Data Requirements
+* -
+ 
+### 10. Look and Feel Requirements
 * - 
-## 10. Look and Feel Requirements
-* - 
-## 11. Usability and Humanity Requirements
+
+### 11. Usability and Humanity Requirements
 * GUI to play the game
 
-## 12. Performance Requirements
+### 12. Performance Requirements
 * -
 
-## 13. Operational and Environmental Requirements
+### 13. Operational and Environmental Requirements
 * -
 
-## Structure of the game
+### 14. Maintainability and Support Requirements
+* Test on other OS
+
+### 15. Security Requirements
+* -
+
+### 16. Cultural and Political Requirements
+* -
+
+### 17. Legal Requirements
+* License
+
+### 18. Open Issues
+* -
+
+### 19. Off-the-Shelf Solutions
+* -
+
+### 20. New Problems
+* -
+
+### 21. Tasks
+* Improve usability
+* Create a possibility to choose which player gets which country
+* Create a possibility to set the number of defending and invading soldiers
+
+### 22. Migration to the New Product
+* -
+
+### 23. Risks
+* -
+
+### 24. Costs
+* -
+
+### 25. User Documentation and Training
+* -
+
+### 26. Waiting Room
+* -
+
+### Structure of the game
 * Risiko.java
 	* Contains a method to call UI
 * RisikoModule.java
@@ -63,20 +107,19 @@
 		* Represents a die
 		* Contains methods to roll a die and to set the random
 	* TurnState
-		*
-		*
+		* Interface for a turn
+		* implements a simple state pattern
 	* Turn
-		*
-		*
+		* Implementation of Turn, which changes its behaviour, when internal state changes
 	* StartTurn
-		*
-		*
+		* Assigns countries randomly to players
+		* calls InvadeTurn
 	* InvadeTurn
-		*
-		*
+		* Provides the possibility to invade a country
+		* calls RecruitmentTurn
 	* RecruitmentTurn
-		*
-		*
+		* Provides the possibility to add soldiers to a country
+		* calls InvadeTurn
 * package util.observer
 	* contains observer pattern
 * package controller

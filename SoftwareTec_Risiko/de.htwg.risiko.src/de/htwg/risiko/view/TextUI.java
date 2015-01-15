@@ -20,6 +20,8 @@ public class TextUI implements IObserver {
 	private CountryI rec;
 	private char mode = 0;
 	private Logger logger = Logger.getLogger("de.htwg.risiko.view");
+	
+	private static final int LENGTH = 30;
 
 	@Inject
 	public TextUI(IGameEngine controller) {
@@ -41,8 +43,8 @@ public class TextUI implements IObserver {
 			String s1 = c.getName();
 			String s2 = ge.getOwner(c).getName();
 			int s3 =  ge.getSoldiers(c);
-			int p1 = 30 - s1.length();
-			int p2 = 30;
+			int p1 = LENGTH - s1.length();
+			int p2 = LENGTH;
 			logger.info(String.format("%s:%"+p1+"s%"+p2+"d\n", s1, s2, s3));
 		}
 		logger.info("\n_______________________________________________________________________\n");
@@ -59,7 +61,6 @@ public class TextUI implements IObserver {
 			Scanner scan1 = new Scanner(System.in);
 			if (scan1.next().equals("y")) {
 				System.exit(0);
-				//ge.exit();
 			}
 			break;
 		case "n":

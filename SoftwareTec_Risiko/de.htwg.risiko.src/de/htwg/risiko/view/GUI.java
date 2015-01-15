@@ -30,7 +30,6 @@ public class GUI extends JFrame implements IObserver {
 	private static final Dimension D_GAMEFIELD = new Dimension(697, 445);
 	private static final Dimension D_FRAME = new Dimension(1000, 560);
 	private static final int BORDER_SPRING = 5;
-	private JPanel status;
 
 	@Inject
 	public GUI(final IGameEngine ge) {
@@ -67,7 +66,7 @@ public class GUI extends JFrame implements IObserver {
 		JPanel statistics = new Statistics();
 		statistics.setBorder(BorderFactory.createTitledBorder("Statistics"));
 		
-		status = new Status();
+		JPanel status = new Status();
 		status.setBorder(BorderFactory.createTitledBorder("Status"));
 		
 		JPanel control = new ControlPanel();

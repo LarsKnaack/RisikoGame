@@ -40,12 +40,7 @@ public class InvadeTurnTest extends TestCase {
 
 		c.setSoldiers(2);
 		c1.setSoldiers(2);
-			
-		d = new Die();
-		rand = new Random();
-		rand.setSeed(4);
-		d.setRandom(rand);
-		i.setDie(d);
+		
 		assertEquals(t.getDefender(), i.winner());
 
 		t.endTurn();
@@ -67,12 +62,17 @@ public class InvadeTurnTest extends TestCase {
 		InvadeTurn i = new InvadeTurn();
 		t.setState(i);
 
+		Die d = new Die();
+		Random rand = new Random();
+		rand.setSeed(2);
+		i.setDie(d);
+		
 		c.setSoldiers(2);
 		c1.setSoldiers(2);
 
 		i.pull(t);
+		System.out.println(t.getStatus());
 		assertTrue(t.getState() instanceof InvadeTurn);
 	}
-	
 	
 }

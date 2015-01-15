@@ -8,14 +8,12 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import de.htwg.risiko.controller.IGameEngine;
 import de.htwg.risiko.model.CountryI;
 
 public class RecruitmentDialog {
 	
-	private JLabel country;
 	private CountryI current;
 	private static IGameEngine controller = GUI.getController();
 
@@ -34,7 +32,7 @@ public class RecruitmentDialog {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Add Soldiers to ").append(current.getName());
 		
-		country = new JLabel(sb.toString());
+		JLabel country = new JLabel(sb.toString());
 		JButton add = new JButton("Add");
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

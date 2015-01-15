@@ -50,12 +50,6 @@ public class GameEngine implements IGameEngine, IObservable {
 		realController.createMap();
 		post();
 	}
-	
-	/*public void exit() {
-		pre();
-		realController.exit();
-		post();
-	}*/
 
 	public void startGame() {
 		pre();

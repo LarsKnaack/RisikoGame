@@ -52,4 +52,27 @@ public class InvadeTurnTest extends TestCase {
 		i.pull(t);
 		assertTrue(t.getState() instanceof RecruitmentTurn);
 	}
+	
+	public void testPullDefenderWins() {
+		
+		Turn t = new Turn();
+		t.setPlayer(new Player("Hans"), new Player("Herbert"));
+		t.setWorld(new World());
+		Country c = new Country("ghj");
+		Country c1 = new Country("sdfj");
+		t.getWorld().addCountry(c);
+		t.getWorld().addCountry(c1);
+		t.setInvader(c);
+		t.setDefender(c1);
+		InvadeTurn i = new InvadeTurn();
+		t.setState(i);
+
+		c.setSoldiers(2);
+		c1.setSoldiers(2);
+
+		i.pull(t);
+		assertTrue(t.getState() instanceof InvadeTurn);
+	}
+	
+	
 }

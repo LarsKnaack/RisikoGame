@@ -58,7 +58,8 @@ public class TextUI implements IObserver {
 			logger.info("Are you sure? (y/n)");
 			Scanner scan1 = new Scanner(System.in);
 			if (scan1.next().equals("y")) {
-				ge.exit();
+				System.exit(0);
+				//ge.exit();
 			}
 			break;
 		case "n":

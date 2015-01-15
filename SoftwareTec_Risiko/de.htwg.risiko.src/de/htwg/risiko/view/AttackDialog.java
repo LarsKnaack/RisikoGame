@@ -11,15 +11,15 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 
 public class AttackDialog {
 	
-	private JComboBox<CountryI> neighbours;
+	private JComboBox<ICountry> neighbours;
 	private JDialog myDialog;
 	private static IGameEngine controller = GUI.getController();
 
-	public AttackDialog(CountryI current) {
+	public AttackDialog(ICountry current) {
 		
 		controller.selectAttacker(current);
 		
@@ -28,7 +28,7 @@ public class AttackDialog {
 		attack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-					controller.selectTarget((CountryI) neighbours.getSelectedItem());
+					controller.selectTarget((ICountry) neighbours.getSelectedItem());
 					controller.invade();
 					
 					myDialog.dispose();
@@ -42,8 +42,8 @@ public class AttackDialog {
 			}
 		});
 		
-		neighbours = new JComboBox<CountryI>();
-		for(CountryI c : controller.getCandidates(current)) {
+		neighbours = new JComboBox<ICountry>();
+		for(ICountry c : controller.getCandidates(current)) {
 			neighbours.addItem(c);
 		}
 		neighbours.setEditable(false);

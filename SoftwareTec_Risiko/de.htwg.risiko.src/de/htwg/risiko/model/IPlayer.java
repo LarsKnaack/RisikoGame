@@ -8,7 +8,7 @@ import java.util.List;
  * @author Lars Knaack, Heiko Ettwein
  *
  */
-public interface PlayerI {
+public interface IPlayer {
 
 	/**
 	 * get the name of the player
@@ -27,19 +27,19 @@ public interface PlayerI {
 	 * the list is stored in a private variable
 	 * @return list of all countries
 	 */
-	List<CountryI> getCountries();
+	List<ICountry> getCountries();
 	
 	/**
 	 * add a country to the list of countries
 	 * this is needed for invading
 	 * @param c country to add
 	 */
-	void addCountry(CountryI c);
+	void addCountry(ICountry c);
 	
 	/**
 	 * remove country from the list of countries
 	 * this is needed for invading
 	 * @param c country to remove
 	 */
-	void removeCountry(CountryI c);
+	void removeCountry(ICountry c);
 }

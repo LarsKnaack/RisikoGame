@@ -9,22 +9,22 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 
 public class MoveDialog {
 	
-	private CountryI current;
+	private ICountry current;
 	
-	private JComboBox<CountryI> neighbours;
+	private JComboBox<ICountry> neighbours;
 	private JComboBox<Integer> numberOfSoldiers;
 	private static IGameEngine controller = GUI.getController();
 	
-	public MoveDialog(CountryI c) {
+	public MoveDialog(ICountry c) {
 		current = c;
 		JDialog main = new JDialog();
 		main.setTitle("Please select country");
-		neighbours = new JComboBox<CountryI>();
-		for (CountryI ci : controller.getNeighbours(current)) {
+		neighbours = new JComboBox<ICountry>();
+		for (ICountry ci : controller.getNeighbours(current)) {
 			neighbours.addItem(ci);
 		}
 		numberOfSoldiers = new JComboBox<Integer>();
@@ -35,7 +35,7 @@ public class MoveDialog {
 		
 		moveB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CountryI target = (CountryI) neighbours.getSelectedItem();
+				ICountry target = (ICountry) neighbours.getSelectedItem();
 				int num = (int) numberOfSoldiers.getSelectedItem();
 				controller.moveSoldiers(num, current, target);
 				

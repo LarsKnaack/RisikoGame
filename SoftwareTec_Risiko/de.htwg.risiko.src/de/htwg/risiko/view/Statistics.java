@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 
 @SuppressWarnings("serial")
 public class Statistics extends JPanel {
@@ -40,15 +40,15 @@ public class Statistics extends JPanel {
 	
 	public static void update() {
 		StringBuilder sbP1 = new StringBuilder();
-		List<CountryI> countriesP1 = controller.getCurrentPlayer().getCountries();
+		List<ICountry> countriesP1 = controller.getCurrentPlayer().getCountries();
 		Collections.sort(countriesP1);
-		for (CountryI c: countriesP1) {
+		for (ICountry c: countriesP1) {
 			sbP1.append(c.getSoldiers()).append(" ").append(c.getName()).append("\n");
 		}
 		StringBuilder sbP2 = new StringBuilder();
-		List<CountryI> countriesP2 = controller.getOpponent().getCountries();
+		List<ICountry> countriesP2 = controller.getOpponent().getCountries();
 		Collections.sort(countriesP2);
-		for (CountryI c: countriesP2) {
+		for (ICountry c: countriesP2) {
 			sbP2.append(c.getSoldiers()).append(" ").append(c.getName()).append("\n");
 		}
 		

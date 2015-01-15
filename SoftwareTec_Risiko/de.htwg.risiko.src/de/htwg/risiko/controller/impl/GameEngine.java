@@ -7,22 +7,22 @@ import java.util.List;
 import com.google.inject.Inject;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.PlayerI;
-import de.htwg.risiko.model.WorldI;
+import de.htwg.risiko.model.ICountry;
+import de.htwg.risiko.model.IPlayer;
+import de.htwg.risiko.model.IWorld;
 import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.model.impl.World;
 import de.htwg.risiko.turn.Turn;
 import de.htwg.risiko.util.observer.Observable;
 
 public class GameEngine extends Observable implements IGameEngine {
-	private WorldI world;
-	private PlayerI player1 = new Player("player1");
-	private PlayerI player2 = new Player("player2");
+	private IWorld world;
+	private IPlayer player1 = new Player("player1");
+	private IPlayer player2 = new Player("player2");
 	private Turn turn;
-	private PlayerI currentPlayer;
-	private CountryI target;
-	private CountryI attacker;
+	private IPlayer currentPlayer;
+	private ICountry target;
+	private ICountry attacker;
 	private String statusline = "Welcome to RiskGame!";
 	
 	private static final int DISTANCE = 20;
@@ -70,20 +70,20 @@ public class GameEngine extends Observable implements IGameEngine {
 		notifyObservers();
 	}
 
-	public PlayerI getOwner(CountryI c) {
+	public IPlayer getOwner(ICountry c) {
 		if (getCountries(player1).contains(c)) {
 			return player1;
 		}
 		return player2;
 	}
 
-	public List<CountryI> getCountries(PlayerI p) {
+	public List<ICountry> getCountries(IPlayer p) {
 		return p.getCountries();
 	}
 
-	public List<CountryI> getCandidates(CountryI c) {
-		List<CountryI> res = new LinkedList<CountryI>();
-		for (CountryI d : world.getNeighbouringCountryList(c)) {
+	public List<ICountry> getCandidates(ICountry c) {
+		List<ICountry> res = new LinkedList<ICountry>();
+		for (ICountry d : world.getNeighbouringCountryList(c)) {
 			if (!getOwner(c).equals(getOwner(d))) {
 				res.add(d);
 			}
@@ -91,9 +91,9 @@ public class GameEngine extends Observable implements IGameEngine {
 		return res;
 	}
 	
-	public List<CountryI> getNeighbours(CountryI c) {
-		List<CountryI> res = new LinkedList<CountryI>();
-		for (CountryI d : world.getNeighbouringCountryList(c)) {
+	public List<ICountry> getNeighbours(ICountry c) {
+		List<ICountry> res = new LinkedList<ICountry>();
+		for (ICountry d : world.getNeighbouringCountryList(c)) {
 			if(getOwner(c).equals(getOwner(d))) {
 				res.add(d);
 			}
@@ -116,11 +116,11 @@ public class GameEngine extends Observable implements IGameEngine {
 		}
 	}
 
-	public int getSoldiers(CountryI c) {
+	public int getSoldiers(ICountry c) {
 		return c.getSoldiers();
 	}
 
-	public boolean selectTarget(CountryI c) {
+	public boolean selectTarget(ICountry c) {
 		if (getCandidates(attacker).contains(c)) {
 			target = c;
 			return true;
@@ -128,7 +128,7 @@ public class GameEngine extends Observable implements IGameEngine {
 		return false;
 	}
 
-	public boolean selectAttacker(CountryI c) {
+	public boolean selectAttacker(ICountry c) {
 		if (getCountries(currentPlayer).contains(c) && getSoldiers(c) > 1) {
 			attacker = c;
 			return true;
@@ -136,7 +136,7 @@ public class GameEngine extends Observable implements IGameEngine {
 		return false;
 	}
 
-	public boolean selectRecruitment(CountryI c, int num) {
+	public boolean selectRecruitment(ICountry c, int num) {
 		if (getOwner(c).equals(currentPlayer) && getMaxRecruitment() > 0) {
 			turn.setRecruitment(num);
 			turn.setRecCountry(c);
@@ -146,17 +146,17 @@ public class GameEngine extends Observable implements IGameEngine {
 	}
 
 	@Override
-	public WorldI getWorld() {
+	public IWorld getWorld() {
 		return world;
 	}
 
 	@Override
-	public PlayerI getCurrentPlayer() {
+	public IPlayer getCurrentPlayer() {
 		return currentPlayer;
 	}
 
 	@Override
-	public PlayerI getOpponent() {
+	public IPlayer getOpponent() {
 		if (currentPlayer.equals(player1)) {
 			return player2;
 		}
@@ -173,7 +173,7 @@ public class GameEngine extends Observable implements IGameEngine {
 		return turn.getMaxRecruitment();
 	}
 	
-	public void moveSoldiers(int i, CountryI source, CountryI tar) {
+	public void moveSoldiers(int i, ICountry source, ICountry tar) {
 		if (i < source.getSoldiers()) {
 			source.setSoldiers(source.getSoldiers() - i);
 			tar.setSoldiers(tar.getSoldiers() + i);
@@ -181,8 +181,8 @@ public class GameEngine extends Observable implements IGameEngine {
 		notifyObservers();
 	}
 
-	public CountryI check(Point p) {
-		for(CountryI c : world.getWorld().keySet()) {
+	public ICountry check(Point p) {
+		for(ICountry c : world.getWorld().keySet()) {
 			if(c.getLocation().distance(p) <= DISTANCE) {
 				return c;
 			}

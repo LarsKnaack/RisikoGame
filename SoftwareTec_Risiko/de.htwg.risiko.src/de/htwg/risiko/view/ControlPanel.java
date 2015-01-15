@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 
 @SuppressWarnings("serial")
 public class ControlPanel extends JPanel implements ActionListener {
@@ -24,7 +24,7 @@ public class ControlPanel extends JPanel implements ActionListener {
 	private JButton moveSoldiersB;
 	private JButton endTurn;
 	private static TitledBorder tb = BorderFactory.createTitledBorder("Land");
-	private static CountryI current;
+	private static ICountry current;
 	
 	public ControlPanel() {
 		this.setBackground(Color.RED);
@@ -64,7 +64,7 @@ public class ControlPanel extends JPanel implements ActionListener {
 		}
 	}
 
-	public static void setCurrentCountry(CountryI country) {
+	public static void setCurrentCountry(ICountry country) {
 		current = country;
 	}
 }

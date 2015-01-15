@@ -1,10 +1,10 @@
 package de.htwg.risiko.turn;
 
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 
 public class RecruitmentTurn implements TurnState {
 
-	private CountryI recCountry;
+	private ICountry recCountry;
 	private int maxRecruitment;
 	private int recruitment;
 	private StringBuilder sb;

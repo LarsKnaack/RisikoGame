@@ -2,62 +2,62 @@ package de.htwg.risiko.controller.impl;
 
 import java.awt.Point;
 
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.WorldI;
+import de.htwg.risiko.model.ICountry;
+import de.htwg.risiko.model.IWorld;
 import de.htwg.risiko.model.impl.Country;
 
 final class RiskMap {
 	
-	private static final CountryI ALASKA = new Country("Alaska", new Point(51, 112));
-	private static final CountryI ALBERTA = new Country("Alberta", new Point(99, 148));
-	private static final CountryI NORTHWEST_TERRITORY = new Country("Northwest Territory", new Point (120, 104));
-	private static final CountryI ONTARIO = new Country("Ontario", new Point (152, 153));
-	private static final CountryI WESTERN_US = new Country("Western US", new Point(115, 201));
-	private static final CountryI EASTERN_US = new Country("Eastern US", new Point(169, 205));
-	private static final CountryI QUEBEC = new Country("Quebec", new Point (216, 158));
-	private static final CountryI GREENLAND = new Country("Greenland", new Point(226, 55));
-	private static final CountryI CENTRAL_AMERICA = new Country("Central America", new Point (145, 259));
-	private static final CountryI VENEZUELA = new Country("Venezuela", new Point(198, 297));
-	private static final CountryI BRAZIL = new Country("Brazil", new Point(236, 336));
-	private static final CountryI PERU= new Country("Peru", new Point(199, 348));
-	private static final CountryI ARGENTINA = new Country("Argentina", new Point(211, 390));
-	private static final CountryI ICELAND = new Country("Iceland", new Point(269, 103));
-	private static final CountryI GREAT_BRITAIN = new Country("Great Britain", new Point(294, 132));
-	private static final CountryI WESTERN_EU= new Country("Western Europe", new Point(306, 197));
-	private static final CountryI NORTHERN_EU = new Country("Northern Europe", new Point(361, 140));
-	private static final CountryI SOUTHERN_EU = new Country("Southern Europe", new Point(379, 175));
-	private static final CountryI SCANDINAVIA = new Country("Scandinavia", new Point(368, 90));
-	private static final CountryI UKRAINE = new Country("Ukraine", new Point(436, 135));
-	private static final CountryI NORTH_AFRICA = new Country("North Africa", new Point(316, 277));
-	private static final CountryI EGYPT = new Country("Egypt", new Point(368, 245));
-	private static final CountryI CONGO = new Country("Congo", new Point(369, 327));
-	private static final CountryI EAST_AFRICA = new Country("East Africa", new Point(416, 308));
-	private static final CountryI SOUTH_AFRICA = new Country("South Africa", new Point(376, 388));
-	private static final CountryI MADAGASCAR = new Country("Madagascar", new Point(440, 383));
-	private static final CountryI URAL = new Country("Ural", new Point(497, 114));
-	private static final CountryI SIBERIA = new Country("Siberia", new Point(550, 106));
-	private static final CountryI YAKUTSK = new Country("Yakutsk", new Point(602, 82));
-	private static final CountryI KAMCHATKA = new Country("Kamchatka", new Point(639, 111));
-	private static final CountryI IRKUTSK = new Country("Irkutsk", new Point(596, 133));
-	private static final CountryI AFGHANISTAN = new Country("Afghanistan", new Point(493, 186));
-	private static final CountryI CHINA = new Country("China", new Point(563, 218));
-	private static final CountryI MONGOLIA = new Country("Mongolia", new Point(603, 170));
-	private static final CountryI JAPAN = new Country("Japan", new Point(658, 195));
-	private static final CountryI MIDDLE_EAST = new Country("Middle East", new Point(442, 242));
-	private static final CountryI INDIA = new Country("India", new Point(510, 263));
-	private static final CountryI SIAM = new Country("Siam", new Point(568, 270));
-	private static final CountryI INDONESIA = new Country("Indonesia", new Point(592, 328));
-	private static final CountryI NEW_GUINEA = new Country("New Guinea", new Point(661, 329));
-	private static final CountryI WESTERN_AUSTRALIA = new Country("Western Australia", new Point(605, 409));
-	private static final CountryI EASTERN_AUSTRALIA = new Country("Eastern Australia", new Point(661, 416));
+	private static final ICountry ALASKA = new Country("Alaska", new Point(51, 112));
+	private static final ICountry ALBERTA = new Country("Alberta", new Point(99, 148));
+	private static final ICountry NORTHWEST_TERRITORY = new Country("Northwest Territory", new Point (120, 104));
+	private static final ICountry ONTARIO = new Country("Ontario", new Point (152, 153));
+	private static final ICountry WESTERN_US = new Country("Western US", new Point(115, 201));
+	private static final ICountry EASTERN_US = new Country("Eastern US", new Point(169, 205));
+	private static final ICountry QUEBEC = new Country("Quebec", new Point (216, 158));
+	private static final ICountry GREENLAND = new Country("Greenland", new Point(226, 55));
+	private static final ICountry CENTRAL_AMERICA = new Country("Central America", new Point (145, 259));
+	private static final ICountry VENEZUELA = new Country("Venezuela", new Point(198, 297));
+	private static final ICountry BRAZIL = new Country("Brazil", new Point(236, 336));
+	private static final ICountry PERU= new Country("Peru", new Point(199, 348));
+	private static final ICountry ARGENTINA = new Country("Argentina", new Point(211, 390));
+	private static final ICountry ICELAND = new Country("Iceland", new Point(269, 103));
+	private static final ICountry GREAT_BRITAIN = new Country("Great Britain", new Point(294, 132));
+	private static final ICountry WESTERN_EU= new Country("Western Europe", new Point(306, 197));
+	private static final ICountry NORTHERN_EU = new Country("Northern Europe", new Point(361, 140));
+	private static final ICountry SOUTHERN_EU = new Country("Southern Europe", new Point(379, 175));
+	private static final ICountry SCANDINAVIA = new Country("Scandinavia", new Point(368, 90));
+	private static final ICountry UKRAINE = new Country("Ukraine", new Point(436, 135));
+	private static final ICountry NORTH_AFRICA = new Country("North Africa", new Point(316, 277));
+	private static final ICountry EGYPT = new Country("Egypt", new Point(368, 245));
+	private static final ICountry CONGO = new Country("Congo", new Point(369, 327));
+	private static final ICountry EAST_AFRICA = new Country("East Africa", new Point(416, 308));
+	private static final ICountry SOUTH_AFRICA = new Country("South Africa", new Point(376, 388));
+	private static final ICountry MADAGASCAR = new Country("Madagascar", new Point(440, 383));
+	private static final ICountry URAL = new Country("Ural", new Point(497, 114));
+	private static final ICountry SIBERIA = new Country("Siberia", new Point(550, 106));
+	private static final ICountry YAKUTSK = new Country("Yakutsk", new Point(602, 82));
+	private static final ICountry KAMCHATKA = new Country("Kamchatka", new Point(639, 111));
+	private static final ICountry IRKUTSK = new Country("Irkutsk", new Point(596, 133));
+	private static final ICountry AFGHANISTAN = new Country("Afghanistan", new Point(493, 186));
+	private static final ICountry CHINA = new Country("China", new Point(563, 218));
+	private static final ICountry MONGOLIA = new Country("Mongolia", new Point(603, 170));
+	private static final ICountry JAPAN = new Country("Japan", new Point(658, 195));
+	private static final ICountry MIDDLE_EAST = new Country("Middle East", new Point(442, 242));
+	private static final ICountry INDIA = new Country("India", new Point(510, 263));
+	private static final ICountry SIAM = new Country("Siam", new Point(568, 270));
+	private static final ICountry INDONESIA = new Country("Indonesia", new Point(592, 328));
+	private static final ICountry NEW_GUINEA = new Country("New Guinea", new Point(661, 329));
+	private static final ICountry WESTERN_AUSTRALIA = new Country("Western Australia", new Point(605, 409));
+	private static final ICountry EASTERN_AUSTRALIA = new Country("Eastern Australia", new Point(661, 416));
 
 
-	RiskMap(WorldI world) {
+	RiskMap(IWorld world) {
 		addCountries(world);
 		addEdges(world);
 	}
 	
-	private static void addCountries(WorldI world) {
+	private static void addCountries(IWorld world) {
 		
 		world.addCountry(ALASKA);
 		world.addCountry(ALBERTA);
@@ -103,7 +103,7 @@ final class RiskMap {
 		world.addCountry(EASTERN_AUSTRALIA);
 	}
 	
-	private static void addEdges(WorldI world) {
+	private static void addEdges(IWorld world) {
 		world.addEdge(ALASKA, KAMCHATKA);
 		world.addEdge(ALASKA, ALBERTA);
 		world.addEdge(ALASKA, NORTHWEST_TERRITORY);

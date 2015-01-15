@@ -10,14 +10,14 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 
 public class RecruitmentDialog {
 	
-	private CountryI current;
+	private ICountry current;
 	private static IGameEngine controller = GUI.getController();
 
-	public RecruitmentDialog(CountryI c) {
+	public RecruitmentDialog(ICountry c) {
 		
 		current = c;
 		

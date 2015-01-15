@@ -8,9 +8,9 @@ import org.apache.log4j.Logger;
 import com.google.inject.Inject;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.PlayerI;
-import de.htwg.risiko.model.WorldI;
+import de.htwg.risiko.model.ICountry;
+import de.htwg.risiko.model.IPlayer;
+import de.htwg.risiko.model.IWorld;
 import de.htwg.risiko.util.observer.IObservable;
 import de.htwg.risiko.util.observer.IObserver;
 
@@ -75,30 +75,30 @@ public class GameEngine implements IGameEngine, IObservable {
 		post();
 	}
 
-	public PlayerI getOwner(CountryI c) {
+	public IPlayer getOwner(ICountry c) {
 		pre();
-		PlayerI res = realController.getOwner(c);
+		IPlayer res = realController.getOwner(c);
 		post();
 		return res;
 	}
 
-	public List<CountryI> getCountries(PlayerI p) {
+	public List<ICountry> getCountries(IPlayer p) {
 		pre();
-		List<CountryI> res = realController.getCountries(p);
+		List<ICountry> res = realController.getCountries(p);
 		post();
 		return res;
 	}
 
-	public List<CountryI> getCandidates(CountryI c) {
+	public List<ICountry> getCandidates(ICountry c) {
 		pre();
-		List<CountryI> res = realController.getCandidates(c);
+		List<ICountry> res = realController.getCandidates(c);
 		post();
 		return res;
 	}
 	
-	public List<CountryI> getNeighbours(CountryI c) {
+	public List<ICountry> getNeighbours(ICountry c) {
 		pre();
-		List<CountryI> res = realController.getNeighbours(c);
+		List<ICountry> res = realController.getNeighbours(c);
 		post();
 		return res;
 	}
@@ -115,28 +115,28 @@ public class GameEngine implements IGameEngine, IObservable {
 		post();
 	}
 
-	public int getSoldiers(CountryI c) {
+	public int getSoldiers(ICountry c) {
 		pre();
 		int res = realController.getSoldiers(c);
 		post();
 		return res;
 	}
 
-	public boolean selectTarget(CountryI c) {
+	public boolean selectTarget(ICountry c) {
 		pre();
 		boolean res = realController.selectTarget(c);
 		post();
 		return res;
 	}
 
-	public boolean selectAttacker(CountryI c) {
+	public boolean selectAttacker(ICountry c) {
 		pre();
 		boolean res = realController.selectAttacker(c);
 		post();
 		return res;
 	}
 
-	public boolean selectRecruitment(CountryI c, int num) {
+	public boolean selectRecruitment(ICountry c, int num) {
 		pre();
 		boolean res = realController.selectRecruitment(c, num);
 		post();
@@ -144,25 +144,25 @@ public class GameEngine implements IGameEngine, IObservable {
 	}
 
 	@Override
-	public WorldI getWorld() {
+	public IWorld getWorld() {
 		pre();
-		WorldI res = realController.getWorld();
+		IWorld res = realController.getWorld();
 		post();
 		return res;
 	}
 
 	@Override
-	public PlayerI getCurrentPlayer() {
+	public IPlayer getCurrentPlayer() {
 		pre();
-		PlayerI res = realController.getCurrentPlayer();
+		IPlayer res = realController.getCurrentPlayer();
 		post();
 		return res;
 	}
 
 	@Override
-	public PlayerI getOpponent() {
+	public IPlayer getOpponent() {
 		pre();
-		PlayerI res = realController.getOpponent();
+		IPlayer res = realController.getOpponent();
 		post();
 		return res;
 	}
@@ -183,7 +183,7 @@ public class GameEngine implements IGameEngine, IObservable {
 		return res;
 	}
 	
-	public void moveSoldiers(int i, CountryI source, CountryI tar) {
+	public void moveSoldiers(int i, ICountry source, ICountry tar) {
 		pre();
 		realController.moveSoldiers(i, source, tar);
 		post();
@@ -219,9 +219,9 @@ public class GameEngine implements IGameEngine, IObservable {
 
 
 	@Override
-	public CountryI check(Point p) {
+	public ICountry check(Point p) {
 		pre();
-		CountryI res = realController.check(p);
+		ICountry res = realController.check(p);
 		post();
 		return res;
 	}

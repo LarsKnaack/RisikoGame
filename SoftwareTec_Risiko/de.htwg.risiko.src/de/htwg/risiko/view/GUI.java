@@ -19,7 +19,7 @@ import javax.swing.SpringLayout;
 import com.google.inject.Inject;
 
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 import de.htwg.risiko.util.observer.IObserver;
 
 @SuppressWarnings("serial")
@@ -40,7 +40,7 @@ public class GUI extends JFrame implements IObserver {
 		this.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				Point p = new Point(e.getX(), e.getY());
-				CountryI country = controller.check(p);
+				ICountry country = controller.check(p);
 				if(e.getButton() == 1 && controller.getCountries(controller.getCurrentPlayer()).contains(country)) {
 					ControlPanel.setCurrentCountry(country);
 					ControlPanel.updateTitle(country.getName());

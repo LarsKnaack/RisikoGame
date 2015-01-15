@@ -9,9 +9,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
 import de.htwg.risiko.controller.logwrapper.GameEngine;
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.PlayerI;
-import de.htwg.risiko.model.WorldI;
+import de.htwg.risiko.model.ICountry;
+import de.htwg.risiko.model.IPlayer;
+import de.htwg.risiko.model.IWorld;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.util.observer.IObserver;
@@ -47,8 +47,8 @@ public class GameEngineTest extends TestCase {
 
 	public void testInvade() {
 		ge.startGame();
-		CountryI c = new Country("test");
-		CountryI c1 = new Country("test");
+		ICountry c = new Country("test");
+		ICountry c1 = new Country("test");
 		c.setSoldiers(3);
 		c1.setSoldiers(3);
 		ge.getWorld().addCountry(c);
@@ -72,8 +72,8 @@ public class GameEngineTest extends TestCase {
 		ge.startGame();
 		ge.endTurn();
 		assertEquals("now select recruitment", ge.getStatus());
-		CountryI c = new Country("test");
-		CountryI c1 = new Country("test");
+		ICountry c = new Country("test");
+		ICountry c1 = new Country("test");
 		ge.getWorld().addCountry(c);
 		ge.getWorld().addCountry(c1);
 		ge.getCurrentPlayer().addCountry(c);
@@ -91,8 +91,8 @@ public class GameEngineTest extends TestCase {
 	public void testRest() {
 		IObserver o = null;
 		ge.createMap();
-		CountryI c = new Country("test");
-		CountryI c1 = new Country("test");
+		ICountry c = new Country("test");
+		ICountry c1 = new Country("test");
 		ge.getWorld().addCountry(c);
 		ge.getWorld().addCountry(c1);
 		ge.startGame();
@@ -109,32 +109,32 @@ public class GameEngineTest extends TestCase {
 	}
 	
 	public void testGetCandidates() {
-		WorldI test = ge.getWorld();
-		PlayerI player1 = new Player("player1");
-		PlayerI player2 = new Player("player2");
-		CountryI country1 = new Country("country1");
-		CountryI country2 = new Country("country2");
+		IWorld test = ge.getWorld();
+		IPlayer player1 = new Player("player1");
+		IPlayer player2 = new Player("player2");
+		ICountry country1 = new Country("country1");
+		ICountry country2 = new Country("country2");
 		test.addCountry(country1);
 		test.addCountry(country2);
 		test.addEdge(country1, country2);
 		player1.addCountry(country1);
 		player2.addCountry(country2);
-		List<CountryI> res = ge.getCandidates(country1);
+		List<ICountry> res = ge.getCandidates(country1);
 		assertFalse(res.contains(country1));
 	}
 	
 	public void testGetNeighbours() {
 		ge.startGame();
-		PlayerI test = ge.getCurrentPlayer();
-		PlayerI opp = ge.getOpponent();
-		CountryI countryTest = test.getCountries().get(1);
-		CountryI countryOpp = opp.getCountries().get(1);
+		IPlayer test = ge.getCurrentPlayer();
+		IPlayer opp = ge.getOpponent();
+		ICountry countryTest = test.getCountries().get(1);
+		ICountry countryOpp = opp.getCountries().get(1);
 		assertFalse(ge.getNeighbours(countryTest).contains(countryOpp));
 	}
 	
 	public void testSelectAttacker() {
-		PlayerI test = ge.getCurrentPlayer();
-		CountryI countryTest = new Country("countryTest");
+		IPlayer test = ge.getCurrentPlayer();
+		ICountry countryTest = new Country("countryTest");
 		test.addCountry(countryTest);
 		countryTest.setSoldiers(2);
 		assertTrue(ge.selectAttacker(countryTest));
@@ -146,8 +146,8 @@ public class GameEngineTest extends TestCase {
 	
 	public void testSelectRecruitmentFail() {
 		ge.startGame();
-		PlayerI test = ge.getCurrentPlayer();
-		CountryI countryFail = new Country("countryFail");
+		IPlayer test = ge.getCurrentPlayer();
+		ICountry countryFail = new Country("countryFail");
 		test.addCountry(countryFail);
 		assertFalse(ge.selectRecruitment(countryFail, 1));
 	}
@@ -155,14 +155,14 @@ public class GameEngineTest extends TestCase {
 	public void testSelectRecruitmentSuccess() {
 		ge.startGame();
 		ge.endTurn();
-		PlayerI test = ge.getCurrentPlayer();
-		CountryI countrySuccess = test.getCountries().get(1);
+		IPlayer test = ge.getCurrentPlayer();
+		ICountry countrySuccess = test.getCountries().get(1);
 		assertTrue(ge.selectRecruitment(countrySuccess, 1));
 	}
 	
 	public void testMoveSoldiers() {
-		CountryI source = new Country("source");
-		CountryI target = new Country("target");
+		ICountry source = new Country("source");
+		ICountry target = new Country("target");
 		source.setSoldiers(2);
 		ge.moveSoldiers(3, source, target);
 	}

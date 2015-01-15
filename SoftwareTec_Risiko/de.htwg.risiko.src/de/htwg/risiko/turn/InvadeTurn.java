@@ -1,13 +1,13 @@
 package de.htwg.risiko.turn;
 
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.PlayerI;
+import de.htwg.risiko.model.ICountry;
+import de.htwg.risiko.model.IPlayer;
 
 public class InvadeTurn implements TurnState{
 	
-	private PlayerI opponent;
-	private CountryI invadingCountry;
-	private CountryI defendingCountry;
+	private IPlayer opponent;
+	private ICountry invadingCountry;
+	private ICountry defendingCountry;
 	private StringBuilder sb;
 	
 	private int maxDefDice = 0;
@@ -25,7 +25,7 @@ public class InvadeTurn implements TurnState{
 			turn.initRecruitment();
 			return;
 		}
-		PlayerI player = turn.getPlayer();
+		IPlayer player = turn.getPlayer();
 		opponent = turn.getOpponent();
 		invadingCountry = turn.getInvader();
 		defendingCountry = turn.getDefender();
@@ -79,7 +79,7 @@ public class InvadeTurn implements TurnState{
 		}
 	}
 	
-	public CountryI winner() {
+	public ICountry winner() {
 		invade();
 		if (maxDefDice <= 0) {
 			sb.append("Invader wins\n");

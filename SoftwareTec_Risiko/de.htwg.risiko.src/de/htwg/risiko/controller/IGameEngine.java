@@ -3,9 +3,9 @@ package de.htwg.risiko.controller;
 import java.awt.Point;
 import java.util.List;
 
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.PlayerI;
-import de.htwg.risiko.model.WorldI;
+import de.htwg.risiko.model.ICountry;
+import de.htwg.risiko.model.IPlayer;
+import de.htwg.risiko.model.IWorld;
 import de.htwg.risiko.util.observer.IObservable;
 
 /**
@@ -45,29 +45,29 @@ public interface IGameEngine extends IObservable {
 	 * @param c country to check
 	 * @return player1, if List contains c, else player2
 	 */
-	PlayerI getOwner(CountryI c);
+	IPlayer getOwner(ICountry c);
 	
 	/**
 	 * calls the getCountries method in PlayerI
 	 * @param p player, whose countries to return
 	 * @return a List of country Interfaces
-	 * @see PlayerI
+	 * @see IPlayer
 	 */
-	List<CountryI> getCountries(PlayerI p);
+	List<ICountry> getCountries(IPlayer p);
 
 	/**
 	 * checks for a country, if its neighbours' owner is the same and adds the neighbour, if not
 	 * @param c country to check
 	 * @return a list of countries, whose owner doesn't equal getOwner(c)
 	 */
-	List<CountryI> getCandidates(CountryI c);
+	List<ICountry> getCandidates(ICountry c);
 	
 	/**
 	 * checks for a country, if it's neigbours' owner is the same and adds the neigbour, if it is
 	 * @param c country to check
 	 * @return a list of friendly countries
 	 */
-	List<CountryI> getNeighbours(CountryI c);
+	List<ICountry> getNeighbours(ICountry c);
 
 	/**
 	 * ends the InvadeTurn and pulls to RecruitmentTurn
@@ -84,14 +84,14 @@ public interface IGameEngine extends IObservable {
 	 * @param c country to check
 	 * @return number of soldiers
 	 */
-	int getSoldiers(CountryI c);
+	int getSoldiers(ICountry c);
 	
 	/**
 	 * checks if country c is a country of the current player and if it contains more than one soldier
 	 * @param c country to check
 	 * @return true if conditions are fulfilled, private variable "attacker" is set to c
 	 */
-	boolean selectAttacker(CountryI c);
+	boolean selectAttacker(ICountry c);
 
 	
 	/**
@@ -99,7 +99,7 @@ public interface IGameEngine extends IObservable {
 	 * @param c country to check
 	 * @return true if c is candidate of attacker
 	 */
-	boolean selectTarget(CountryI c);
+	boolean selectTarget(ICountry c);
 
 	/**
 	 * sets the recruitment and the country to recruit in Turn
@@ -107,24 +107,24 @@ public interface IGameEngine extends IObservable {
 	 * @param num number of soldiers to recruit (greater than 0, less than maxRecruitment)
 	 * @return true if c's owner is current player
 	 */
-	boolean selectRecruitment(CountryI c, int num);
+	boolean selectRecruitment(ICountry c, int num);
 
 	/**
 	 * @return Graph of all countries and their connections
 	 */
-	WorldI getWorld();
+	IWorld getWorld();
 
 	/**
 	 * get the current Player, stored in a private Variable
 	 * @return current Player
 	 */
-	PlayerI getCurrentPlayer();
+	IPlayer getCurrentPlayer();
 
 	/**
 	 * get the opponent Player, stored in a private variable
 	 * @return opponent Player
 	 */
-	PlayerI getOpponent();
+	IPlayer getOpponent();
 
 	/**
 	 * get the statusline of the game
@@ -145,12 +145,12 @@ public interface IGameEngine extends IObservable {
 	 * @param source country, which provides the soldiers
 	 * @param target country, which gets the soldiers
 	 */
-	void moveSoldiers(int i, CountryI source, CountryI target);
+	void moveSoldiers(int i, ICountry source, ICountry target);
 
 	/**
 	 * check if a Point on the gamefield is in a certain distance to the countries set on the gamefield
 	 * @param p point to check
 	 * @return CountryI, if p is in distance
 	 */
-	CountryI check(Point p);
+	ICountry check(Point p);
 }

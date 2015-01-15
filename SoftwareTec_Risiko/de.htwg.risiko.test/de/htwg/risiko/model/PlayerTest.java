@@ -17,8 +17,8 @@ public class PlayerTest extends TestCase {
 	
 	public void testGetCountries() {
 		Player p = new Player("Player");
-		List<CountryI> countries = new LinkedList<CountryI>();
-		CountryI test = new Country("test");
+		List<ICountry> countries = new LinkedList<ICountry>();
+		ICountry test = new Country("test");
 		countries.add(test);
 		p.addCountry(test);
 		assertEquals(p.getCountries(), countries);

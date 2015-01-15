@@ -2,9 +2,9 @@ package de.htwg.risiko.model.impl;
 
 import java.awt.Point;
 
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 
-public class Country implements CountryI {
+public class Country implements ICountry {
 	
 	private int soldiers;
 	private String name;
@@ -57,7 +57,7 @@ public class Country implements CountryI {
 
 
 	@Override
-	public int compareTo(CountryI o) {
+	public int compareTo(ICountry o) {
 		return this.name.compareTo(o.getName());
 	}
 }

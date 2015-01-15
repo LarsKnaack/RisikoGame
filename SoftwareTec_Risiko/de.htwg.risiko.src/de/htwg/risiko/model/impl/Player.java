@@ -3,11 +3,11 @@ package de.htwg.risiko.model.impl;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.htwg.risiko.model.CountryI;
-import de.htwg.risiko.model.PlayerI;
+import de.htwg.risiko.model.ICountry;
+import de.htwg.risiko.model.IPlayer;
 
 
-public class Player implements PlayerI {
+public class Player implements IPlayer {
 	private String name;
 	private List<Country> countries;
 	
@@ -26,8 +26,8 @@ public class Player implements PlayerI {
 	}
 
 	@Override
-	public List<CountryI> getCountries() {
-		List<CountryI> res = new LinkedList<CountryI>();
+	public List<ICountry> getCountries() {
+		List<ICountry> res = new LinkedList<ICountry>();
 		for(Country c: countries) {
 			res.add(c);
 		}
@@ -35,12 +35,12 @@ public class Player implements PlayerI {
 	}
 
 	@Override
-	public void addCountry(CountryI c) {
+	public void addCountry(ICountry c) {
 		countries.add((Country) c);
 	}
 
 	@Override
-	public void removeCountry(CountryI c) {
+	public void removeCountry(ICountry c) {
 		countries.remove(c);
 	}
 	

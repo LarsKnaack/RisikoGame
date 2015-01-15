@@ -9,7 +9,7 @@ import java.awt.Point;
  *
  */
 
-public interface CountryI extends Comparable<CountryI>{
+public interface ICountry extends Comparable<ICountry>{
 	
 	/**
 	 * get the number of soldiers on the country
@@ -50,7 +50,7 @@ public interface CountryI extends Comparable<CountryI>{
 	/**
 	 * compares the name of a country, in order to sort a list of countries
 	 */
-	int compareTo(CountryI o);
+	int compareTo(ICountry o);
 	
 	
 

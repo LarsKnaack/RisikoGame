@@ -7,7 +7,7 @@ import com.google.inject.Inject;
 
 import static java.lang.System.out;
 import de.htwg.risiko.controller.IGameEngine;
-import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.ICountry;
 import de.htwg.risiko.model.impl.Country;
 import de.htwg.risiko.util.observer.IObserver;
 
@@ -17,7 +17,7 @@ public class TextUI implements IObserver {
 	private IGameEngine ge;
 	
 	private int num = 0;
-	private CountryI rec;
+	private ICountry rec;
 	private char mode = 0;
 	private Logger logger = Logger.getLogger("de.htwg.risiko.view");
 	
@@ -39,7 +39,7 @@ public class TextUI implements IObserver {
 		logger.info("-----------------------------------------------------------------------");
 		logger.info(">>>"+ge.getStatus());
 		logger.info("-----------------------------------------------------------------------\n");
-		for (CountryI c : ge.getWorld().getWorld().keySet()) {
+		for (ICountry c : ge.getWorld().getWorld().keySet()) {
 			String s1 = c.getName();
 			String s2 = ge.getOwner(c).getName();
 			int s3 =  ge.getSoldiers(c);
@@ -87,7 +87,7 @@ public class TextUI implements IObserver {
 				return continu;
 			}
 			String arg[] = line.split(", ");
-			for (CountryI c : ge.getWorld().getWorld().keySet()) {
+			for (ICountry c : ge.getWorld().getWorld().keySet()) {
 				if (arg[0].equals(c.getName())) {
 					rFlag++;
 					if (!ge.selectRecruitment(c, Integer.parseInt(arg[1]))) {
@@ -110,7 +110,7 @@ public class TextUI implements IObserver {
 		}
 
 		if (line.matches("[A-Za-z ]+")) {
-			for (CountryI c : ge.getWorld().getWorld().keySet()) {
+			for (ICountry c : ge.getWorld().getWorld().keySet()) {
 				if (line.equals(c.getName())) {
 					out.println(ge.getCandidates(c));
 					return continu;
@@ -122,18 +122,18 @@ public class TextUI implements IObserver {
 		if (line.matches("[A-Za-z ]+[,][ ][A-Za-z ]+[,][ ][1-99]")) {
 			int sFlag = 0;
 			int tFlag = 0;
-			CountryI source = new Country("");
-			CountryI target = new Country("");
+			ICountry source = new Country("");
+			ICountry target = new Country("");
 			if (ge.getStatus().contains("now select recruitment")) {
 				logger.info("You already finished your turn!");
 				return continu;
 			}
 			String arg[] = line.split(", ");
-			for (CountryI c : ge.getCountries(ge.getCurrentPlayer())) {
+			for (ICountry c : ge.getCountries(ge.getCurrentPlayer())) {
 				if (arg[0].equals(c.getName())) {
 					source = c;
 					sFlag++;
-					for (CountryI c1 : ge.getNeighbours(c)) {
+					for (ICountry c1 : ge.getNeighbours(c)) {
 						if (arg[1].equals(c1.getName())) {
 							target = c1;
 							tFlag++;
@@ -165,14 +165,14 @@ public class TextUI implements IObserver {
 				return continu;
 			}
 			String arg[] = line.split(", ");
-			for (CountryI c : ge.getWorld().getWorld().keySet()) {
+			for (ICountry c : ge.getWorld().getWorld().keySet()) {
 				if (arg[0].equals(c.getName())) {
 					aFlag++;
 					if (!ge.selectAttacker(c)) {
 						logger.info(String.format("Attacker %s is invalid!\n", c.getName()));
 						return continu;	    
 					}
-					for (CountryI c1 : ge.getCandidates(c)) {
+					for (ICountry c1 : ge.getCandidates(c)) {
 						if (arg[1].equals(c1.getName())) {
 							tFlag++;
 							if (!ge.selectTarget(c1)) {

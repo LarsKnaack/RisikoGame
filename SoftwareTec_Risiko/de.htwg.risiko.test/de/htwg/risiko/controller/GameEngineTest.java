@@ -1,6 +1,7 @@
 package de.htwg.risiko.controller;
 
 import java.awt.Point;
+import java.util.List;
 
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
@@ -9,7 +10,10 @@ import org.apache.log4j.PatternLayout;
 
 import de.htwg.risiko.controller.logwrapper.GameEngine;
 import de.htwg.risiko.model.CountryI;
+import de.htwg.risiko.model.PlayerI;
+import de.htwg.risiko.model.WorldI;
 import de.htwg.risiko.model.impl.Country;
+import de.htwg.risiko.model.impl.Player;
 import de.htwg.risiko.util.observer.IObserver;
 import junit.framework.TestCase;
 
@@ -103,4 +107,55 @@ public class GameEngineTest extends TestCase {
 		ge.getCandidates(c);
 		ge.getCountries(ge.getCurrentPlayer());
 	}
+	
+	public void testGetCandidates() {
+		WorldI test = ge.getWorld();
+		PlayerI player1 = new Player("player1");
+		PlayerI player2 = new Player("player2");
+		CountryI country1 = new Country("country1");
+		CountryI country2 = new Country("country2");
+		test.addCountry(country1);
+		test.addCountry(country2);
+		test.addEdge(country1, country2);
+		player1.addCountry(country1);
+		player2.addCountry(country2);
+		List<CountryI> res = ge.getCandidates(country1);
+		assertFalse(res.contains(country1));
+	}
+	
+	public void testSelectAttacker() {
+		PlayerI test = ge.getCurrentPlayer();
+		CountryI countryTest = new Country("countryTest");
+		test.addCountry(countryTest);
+		countryTest.setSoldiers(2);
+		assertTrue(ge.selectAttacker(countryTest));
+		countryTest.setSoldiers(1);
+		assertFalse(ge.selectAttacker(countryTest));
+		test.removeCountry(countryTest);
+		assertFalse(ge.selectAttacker(countryTest));
+	}
+	
+	public void testSelectRecruitmentFail() {
+		ge.startGame();
+		PlayerI test = ge.getCurrentPlayer();
+		CountryI countryFail = new Country("countryFail");
+		test.addCountry(countryFail);
+		assertFalse(ge.selectRecruitment(countryFail, 1));
+	}
+	
+	public void testSelectRecruitmentSuccess() {
+		ge.startGame();
+		ge.endTurn();
+		PlayerI test = ge.getCurrentPlayer();
+		CountryI countrySuccess = test.getCountries().get(1);
+		assertTrue(ge.selectRecruitment(countrySuccess, 1));
+	}
+	
+	public void testMoveSoldiers() {
+		CountryI source = new Country("source");
+		CountryI target = new Country("target");
+		source.setSoldiers(2);
+		ge.moveSoldiers(3, source, target);
+	}
+	
 }

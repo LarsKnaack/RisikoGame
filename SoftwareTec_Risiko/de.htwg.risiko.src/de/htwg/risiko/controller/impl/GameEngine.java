@@ -39,12 +39,6 @@ public class GameEngine extends Observable implements IGameEngine {
 		new RiskMap(world);
 	}
 	
-	/*public void exit() {
-		statusline = "bye";
-		notifyObservers();
-		System.exit(0);
-	}*/
-
 	public void startGame() {
 		turn = new Turn();
 		turn.setWorld(world);

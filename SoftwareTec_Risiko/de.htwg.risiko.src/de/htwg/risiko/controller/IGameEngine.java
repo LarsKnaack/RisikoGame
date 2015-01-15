@@ -143,6 +143,7 @@ public interface IGameEngine extends IObservable {
 	 */
 	int getMaxRecruitment();
 	
+	
 	/**
 	 * moves soldiers from one country to another if they are connected and they both have the same owner
 	 * @param i soldiers to move (less than soldiers of source)

@@ -32,6 +32,10 @@ public class AttackDialog {
 					controller.invade();
 					
 					myDialog.dispose();
+					if (controller.getOpponent().getCountries().isEmpty()) {
+						String s = "Congratiulations, " + controller.getCurrentPlayer().getName() + " wins the game";
+						JOptionPane.showMessageDialog(new JFrame(), s);
+					}
 					int res = JOptionPane.showConfirmDialog(new JFrame(), "Do you want to end your Invade Turn?");
 					if (res == JOptionPane.YES_OPTION) {
 						controller.endTurn();
